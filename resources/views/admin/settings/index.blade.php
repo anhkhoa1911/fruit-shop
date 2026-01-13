@@ -1,0 +1,95 @@
+@extends('layouts.admin')
+
+@section('title', 'Cài đặt')
+@section('page-title', 'Cài đặt hệ thống')
+
+@section('content')
+<div class="bg-white rounded-lg shadow p-6 max-w-4xl">
+    <form action="{{ route('admin.settings.update') }}" method="POST">
+        @csrf
+
+        <div class="mb-8">
+            <h2 class="text-xl font-bold mb-4">Thông tin liên hệ</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Số điện thoại</label>
+                    <input type="text" name="settings[0][value]" value="{{ \App\Models\Setting::get('contact_phone') }}"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">
+                    <input type="hidden" name="settings[0][key]" value="contact_phone">
+                    <input type="hidden" name="settings[0][type]" value="text">
+                    <input type="hidden" name="settings[0][group]" value="contact">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                    <input type="email" name="settings[1][value]"
+                        value="{{ \App\Models\Setting::get('contact_email') }}"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">
+                    <input type="hidden" name="settings[1][key]" value="contact_email">
+                    <input type="hidden" name="settings[1][type]" value="text">
+                    <input type="hidden" name="settings[1][group]" value="contact">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Địa chỉ</label>
+                    <textarea name="settings[2][value]" rows="3"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">{{ \App\Models\Setting::get('contact_address') }}</textarea>
+                    <input type="hidden" name="settings[2][key]" value="contact_address">
+                    <input type="hidden" name="settings[2][type]" value="textarea">
+                    <input type="hidden" name="settings[2][group]" value="contact">
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-xl font-bold mb-4">Giới thiệu</h2>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Nội dung trang giới thiệu</label>
+                <textarea name="settings[3][value]" rows="10"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">{{ \App\Models\Setting::get('about_content') }}</textarea>
+                <input type="hidden" name="settings[3][key]" value="about_content">
+                <input type="hidden" name="settings[3][type]" value="textarea">
+                <input type="hidden" name="settings[3][group]" value="about">
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-xl font-bold mb-4">Mạng xã hội</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Facebook</label>
+                    <input type="text" name="settings[4][value]"
+                        value="{{ \App\Models\Setting::get('social_facebook') }}"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">
+                    <input type="hidden" name="settings[4][key]" value="social_facebook">
+                    <input type="hidden" name="settings[4][type]" value="text">
+                    <input type="hidden" name="settings[4][group]" value="social">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Twitter</label>
+                    <input type="text" name="settings[5][value]"
+                        value="{{ \App\Models\Setting::get('social_twitter') }}"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">
+                    <input type="hidden" name="settings[5][key]" value="social_twitter">
+                    <input type="hidden" name="settings[5][type]" value="text">
+                    <input type="hidden" name="settings[5][group]" value="social">
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Instagram</label>
+                    <input type="text" name="settings[6][value]"
+                        value="{{ \App\Models\Setting::get('social_instagram') }}"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">
+                    <input type="hidden" name="settings[6][key]" value="social_instagram">
+                    <input type="hidden" name="settings[6][type]" value="text">
+                    <input type="hidden" name="settings[6][group]" value="social">
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <button type="submit"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Lưu cài đặt
+            </button>
+        </div>
+    </form>
+</div>
+@endsection
