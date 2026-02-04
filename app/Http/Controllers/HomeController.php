@@ -25,11 +25,18 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
+        $dealProducts = Product::where('is_active', true)
+            ->where('is_sale', true)
+            ->with('category')
+            ->latest()
+            ->take(6)
+            ->get();
+
         $categories = Category::where('is_active', true)
             ->orderBy('sort_order')
             ->get();
 
-        return view('home', compact('featuredProducts', 'newProducts', 'categories'));
+        return view('home', compact('featuredProducts', 'newProducts', 'dealProducts', 'categories'));
     }
 
     public function about()

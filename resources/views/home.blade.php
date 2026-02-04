@@ -172,6 +172,226 @@
 
 <div class="clearfix"></div>
 
+<!-- Deal of the day -->
+<section class="deal-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="section-tit">
+                    <div class="inner">
+                        <h2><span>Deal</span> của ngày</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                    @forelse($dealProducts as $product)
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="filterDiv fruit">
+                            <div class="img-part">
+                                @if($product->image)
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-responsive" />
+                                @else
+                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/deal-img-1.jpg" alt="{{ $product->name }}" class="img-responsive" />
+                                @endif
+                            </div>
+                            <div class="text-part">
+                                <div class="box-tit">{{ $product->name }}</div>
+                                <div class="price">
+                                    <div class="new-price">{{ number_format($product->sale_price ?? $product->price) }}đ</div>
+                                    @if($product->sale_price)
+                                    <div class="old-price"><del>{{ number_format($product->price) }}đ</del></div>
+                                    @endif
+                                </div>
+                                <div class="btn-part">
+                                    <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Mua ngay</a>
+                                    <i class="icon-basket-supermarket"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @empty
+                    <div class="col-12 text-center">Chưa có deal trong hôm nay.</div>
+                    @endforelse
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Deal of the day -->
+
+<div class="clearfix"></div>
+
+<!-- Best Deal -->
+<section class="fress-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 lpart">
+                <div class="bg equal-height">
+                    <h2 class="section-name"><span>Trái cây</span> tươi</h2>
+                    <a href="{{ route('products.index') }}" class="shop-btn">Mua ngay</a>
+                </div>
+            </div>
+            <div class="col-sm-4 rpart">
+                <div class="bg equal-height">
+                    <h3 class="free-shipping">Giao hàng miễn phí</h3>
+                    <p>Đơn hàng trên 500.000đ</p>
+                    <a href="{{ route('products.index') }}" class="shop-btn-1">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Best Deal -->
+
+<div class="clearfix"></div>
+
+<!-- Organic News -->
+<section class="organic-news">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="section-tit">
+                    <div class="inner">
+                        <h2><span>Tin tức</span> trái cây</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <div class="col-sm-3 col-xs-12">
+                <div class="wrapper">
+                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/organic-news-img-1.jpg" alt="tin tức" class="img-responsive" />
+                    <div class="overlay"></div>
+                    <div class="text">
+                        <div class="date">{{ now()->format('d/m/Y') }}</div>
+                        <div class="title"><a href="{{ route('about') }}">Trái cây sạch - Sức khỏe vàng</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <div class="wrapper">
+                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/organic-news-img-2.jpg" alt="tin tức" class="img-responsive" />
+                    <div class="overlay"></div>
+                    <div class="text">
+                        <div class="date">{{ now()->format('d/m/Y') }}</div>
+                        <div class="title"><a href="{{ route('products.index') }}">5 lý do nên ăn nho mỗi ngày</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <div class="wrapper">
+                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/organic-news-img-3.jpg" alt="tin tức" class="img-responsive" />
+                    <div class="overlay"></div>
+                    <div class="text">
+                        <div class="date">{{ now()->format('d/m/Y') }}</div>
+                        <div class="title"><a href="{{ route('products.index') }}">Công thức sinh tố trái cây bổ dưỡng</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <div class="wrapper">
+                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/organic-news-img-4.jpg" alt="tin tức" class="img-responsive" />
+                    <div class="overlay"></div>
+                    <div class="text">
+                        <div class="date">{{ now()->format('d/m/Y') }}</div>
+                        <div class="title"><a href="{{ route('contact') }}">Liên hệ đặt hàng trái cây tươi</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Organic News -->
+
+<div class="clearfix"></div>
+
+<!-- Delivery Process -->
+<section class="delivery-process">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="section-tit">
+                    <div class="inner">
+                        <h2><span>Quy trình</span> giao hàng</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 first">
+                <div class="icon-part">
+                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/step-1.png" alt="bước 1" class="img-responsive center-block" />
+                    <i class="icon-carrot"></i>
+                </div>
+                <div class="process-name">
+                    <div class="step">Bước 01</div>
+                    <p>Chọn một hoặc nhiều sản phẩm</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 second">
+                <div class="icon-part">
+                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/step-2.png" alt="bước 2" class="img-responsive center-block" />
+                    <i class="icon-warehouse"></i>
+                </div>
+                <div class="process-name">
+                    <div class="step">Bước 02</div>
+                    <p>Xác nhận đơn hàng</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 third">
+                <div class="icon-part">
+                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/step-3.png" alt="bước 3" class="img-responsive center-block" />
+                    <i class="icon-placeholder-filled-point"></i>
+                </div>
+                <div class="process-name">
+                    <div class="step">Bước 03</div>
+                    <p>Nhập địa chỉ giao hàng</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 fourth">
+                <div class="icon-part">
+                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/step-4.png" alt="bước 4" class="img-responsive center-block" />
+                    <i class="icon-package"></i>
+                </div>
+                <div class="process-name">
+                    <div class="step">Bước 04</div>
+                    <p>Giao hàng nhanh chóng</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Delivery Process -->
+
+<div class="clearfix"></div>
+
+<!-- Newsletter -->
+<section class="news-letter">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="center">
+                    <h3 class="news-tit"><span>Đăng ký</span> nhận tin</h3>
+                    <p class="instruction">Đăng ký để nhận <span>tin mới nhất</span> và <span>ưu đãi</span>:</p>
+                    <div class="form">
+                        <form action="#" method="post">
+                            @csrf
+                            <input class="newsletter-input" type="email" name="email" placeholder="Nhập email của bạn" required>
+                            <button type="submit" class="newsletter-btn">Đăng ký</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Newsletter -->
+
+<div class="clearfix"></div>
+
 <!-- Services provide -->
 <section class="helpline">
     <div class="container">

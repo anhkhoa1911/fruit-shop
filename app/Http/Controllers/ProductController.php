@@ -16,10 +16,20 @@ class ProductController extends Controller
             $query->where('name', 'like', '%' . $request->search . '%');
         }
 
-        $products = $query->latest()->paginate(12);
-        $categories = Category::where('is_active', true)->orderBy('sort_order')->get();
+        if ($request->get('sort') === 'name_asc') {
+            $query->orderBy('name');
+        } elseif ($request->get('sort') === 'name_desc') {
+            $query->orderBy('name', 'desc');
+        } else {
+            $query->latest();
+        }
 
-        return view('products.index', compact('products', 'categories'));
+        $perPage = in_array((int) $request->get('per_page'), [12, 24, 30]) ? (int) $request->get('per_page') : 12;
+        $products = $query->paginate($perPage)->withQueryString();
+        $categories = Category::where('is_active', true)->orderBy('sort_order')->get();
+        $topSellers = Product::where('is_active', true)->where('is_featured', true)->take(3)->get();
+
+        return view('products.index', compact('products', 'categories', 'topSellers'));
     }
 
     public function show($slug)
@@ -40,19 +50,29 @@ class ProductController extends Controller
         return view('products.show', compact('product', 'relatedProducts'));
     }
 
-    public function category($slug)
+    public function category(Request $request, $slug)
     {
         $category = Category::where('slug', $slug)
             ->where('is_active', true)
             ->firstOrFail();
 
-        $products = Product::where('category_id', $category->id)
+        $query = Product::where('category_id', $category->id)
             ->where('is_active', true)
-            ->latest()
-            ->paginate(12);
+            ->with('category');
 
+        if ($request->get('sort') === 'name_asc') {
+            $query->orderBy('name');
+        } elseif ($request->get('sort') === 'name_desc') {
+            $query->orderBy('name', 'desc');
+        } else {
+            $query->latest();
+        }
+
+        $perPage = in_array((int) $request->get('per_page'), [12, 24, 30]) ? (int) $request->get('per_page') : 12;
+        $products = $query->paginate($perPage)->withQueryString();
         $categories = Category::where('is_active', true)->orderBy('sort_order')->get();
+        $topSellers = Product::where('is_active', true)->where('is_featured', true)->take(3)->get();
 
-        return view('products.category', compact('category', 'products', 'categories'));
+        return view('products.category', compact('category', 'products', 'categories', 'topSellers'));
     }
 }
