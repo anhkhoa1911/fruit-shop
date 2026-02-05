@@ -1,10 +1,13 @@
-name: dummy-workflow
+name: test-self-hosted
 
 on:
   workflow_dispatch:
 
 jobs:
-  dummy:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: self-hosted
     steps:
-      - run: echo "Hello GitHub Actions"
+      - run: |
+          whoami
+          pwd
+          ls -la
