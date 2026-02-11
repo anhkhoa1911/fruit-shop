@@ -31,6 +31,8 @@
     <!-- Google Font Style -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
         rel="stylesheet">
+    <!-- Font Awesome (footer social icons - reliable CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Fix: Load fontello font with absolute URLs so icons display on any domain -->
     <style>
         @font-face {
@@ -72,38 +74,6 @@
 
     <!-- Header -->
     <header>
-        <div class="top-header">
-            <div class="lpart">
-                <div class="tel-and-email">
-                    <p class="tel">Điện thoại: <a
-                            href="tel:{{ \App\Models\Setting::get('contact_phone', '0123456789') }}">{{
-                            \App\Models\Setting::get('contact_phone', '0123456789') }}</a></p>
-                    <p class="mail">Email: <a
-                            href="mailto:{{ \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}">{{
-                            \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}</a></p>
-                </div>
-            </div>
-            <div class="rpart">
-                @auth
-                @if(auth()->user()->is_admin)
-                <div class="account">
-                    <div class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-avatar"></i>Admin <i
-                            class="icon-angle-down"></i></div>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('admin.dashboard') }}">Quản trị</a></li>
-                        <li>
-                            <form method="POST" action="{{ route('logout') }}" style="display:inline;">
-                                @csrf
-                                <a href="#" onclick="event.preventDefault(); this.closest('form').submit();">Đăng
-                                    xuất</a>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-                @endif
-                @endauth
-            </div>
-        </div>
         <div class="bottom-header">
             <div class="container">
                 <nav class="navbar">
@@ -131,11 +101,6 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="search-and-cart">
-                    <div class="search">
-                        <div class="search-inner"><a href="#"><i class="icon-magnifying-glass"></i></a></div>
-                    </div>
-                </div>
                 <div class="searchbox">
                     <div class="inner">
                         <div class="container-1">
@@ -165,9 +130,18 @@
                         <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/footer-logo.png" alt="logo" class="img-responsive" />
                     </div>
                     <div class="logo-btm">
-                        <div class="adress"><i class="icon-placeholder"></i><span>{{ \App\Models\Setting::get('contact_address', 'Địa chỉ cửa hàng') }}</span></div>
-                        <div class="phone"><i class="icon-icon"></i><a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{ \App\Models\Setting::get('contact_phone', '0123456789') }}</a></div>
-                        <div class="mail"><i class="icon-envelope"></i><a href="mailto:{{ \App\Models\Setting::get('contact_email') }}">{{ \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}</a></div>
+                        <div class="adress">
+                            <i class="fas fa-location-dot" aria-hidden="true"></i>
+                            <span>{{ \App\Models\Setting::get('contact_address', 'Địa chỉ cửa hàng') }}</span>
+                        </div>
+                        <div class="phone">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{ \App\Models\Setting::get('contact_phone', '0123456789') }}</a>
+                        </div>
+                        <div class="mail">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto:{{ \App\Models\Setting::get('contact_email') }}">{{ \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-6 col-xs-12">
@@ -215,23 +189,15 @@
                 <div class="col-md-4 col-sm-12 col-xs-12 center-part">
                     <ul class="social">
                         @if(\App\Models\Setting::get('social_facebook'))
-                        <li><a href="{{ \App\Models\Setting::get('social_facebook') }}" target="_blank"><i class="icon-facebook"></i></a></li>
+                        <li><a href="{{ \App\Models\Setting::get('social_facebook') }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                         @endif
                         @if(\App\Models\Setting::get('social_twitter'))
-                        <li><a href="{{ \App\Models\Setting::get('social_twitter') }}" target="_blank"><i class="icon-twitter"></i></a></li>
+                        <li><a href="{{ \App\Models\Setting::get('social_twitter') }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
                         @endif
                         @if(\App\Models\Setting::get('social_instagram'))
-                        <li><a href="{{ \App\Models\Setting::get('social_instagram') }}" target="_blank"><i class="icon-pinterest"></i></a></li>
+                        <li><a href="{{ \App\Models\Setting::get('social_instagram') }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                         @endif
-                        <li><a href="#" target="_blank"><i class="icon-youtube"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-sm-12 col-xs-12 rpart">
-                    <ul class="payment">
-                        <li><a href="#"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/card-1.png" alt="payment" class="img-responsive" /></a></li>
-                        <li><a href="#"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/card-2.png" alt="payment" class="img-responsive" /></a></li>
-                        <li><a href="#"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/card-3.png" alt="payment" class="img-responsive" /></a></li>
-                        <li><a href="#"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/card-4.png" alt="payment" class="img-responsive" /></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -240,7 +206,7 @@
     <!-- /Footer -->
 
     <!-- Go to Top -->
-    <a href="#" class="scrollup"><i class="icon-angle-up"></i></a>
+    <a href="#" class="scrollup" aria-label="Lên đầu trang"><i class="fas fa-angle-up"></i></a>
 
     <!-- jquery first -->
     <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/jquery-1.11.3.min.js"></script>

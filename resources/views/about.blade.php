@@ -78,30 +78,27 @@
                 <div class="col-sm-12 col-xs-12">
                     <div class="section-tit">
                         <div class="inner">
-                            <h2>Chứng nhận an toàn thực phẩm</h2>
-                            <p>Những chứng nhận chất lượng và an toàn thực phẩm mà chúng tôi đã đạt được.</p>
+                            <h2 style="margin-bottom:15px;">Chứng nhận an toàn thực phẩm</h2>
+                            <p style="margin-bottom:5px;">Những chứng nhận chất lượng và an toàn thực phẩm mà chúng tôi đã đạt được.</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-xs-12">
-                            <div class="certificate-scroller" style="display:flex;gap:20px;overflow-x:auto;padding-bottom:10px;">
+                            <div class="certificate-scroller" style="display:flex;gap:20px;overflow-x:auto;padding-bottom:10px;justify-content:center;">
                                 @foreach($certificatesGallery as $path)
                                     @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
                                     <div class="flex-shrink-0" style="min-width:200px;">
                                         @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
-                                            <img src="{{ asset('storage/' . $path) }}" alt="certificate" class="img-responsive center-block" style="max-height:200px;object-fit:contain;border:1px solid #eee;border-radius:4px;" />
+                                            <a href="{{ asset('storage/' . $path) }}" style="display:block;cursor:pointer;" target="_blank">
+                                                <img src="{{ asset('storage/' . $path) }}" alt="certificate" class="img-responsive center-block" style="max-height:260px;object-fit:contain;border-radius:0;transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" />
+                                            </a>
                                         @else
-                                            <div style="border:2px solid #ddd;border-radius:8px;overflow:hidden;background:#fff;">
+                                            <div style="position:relative;display:block;cursor:pointer;">
                                                 <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" 
-                                                    style="width:200px;height:200px;border:none;display:block;" 
+                                                    style="width:220px;height:340px;border:none;display:block;pointer-events:none;" 
                                                     title="{{ basename($path) }}">
                                                 </iframe>
-                                                <div style="padding:8px;text-align:center;background:#f9f9f9;border-top:1px solid #ddd;">
-                                                    <a href="{{ asset('storage/' . $path) }}" target="_blank" style="color:#1976d2;text-decoration:underline;font-size:11px;font-weight:bold;">
-                                                        {{ basename($path) }}
-                                                    </a>
-                                                    <p style="margin:4px 0 0 0;font-size:10px;color:#666;">Click để mở PDF đầy đủ</p>
-                                                </div>
+                                                <a href="{{ asset('storage/' . $path) }}" target="_blank" rel="noopener noreferrer" style="position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:10;cursor:pointer;" title="Click để xem PDF đầy đủ"></a>
                                             </div>
                                         @endif
                                     </div>
@@ -166,67 +163,92 @@
         </div>
     </section>
 
-    @if(count($factoryGallery) || count($farmGuavaGallery) || count($farmSoriGallery))
-    <section class="our-farm-section">
+    @if(count($factoryGallery))
+    <section class="factory-section" style="padding:60px 0;background:#f9f9f9;">
         <div class="container">
             <div class="row">
-                @if(count($factoryGallery))
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="sec-tit">
-                        <h2><span>Nhà máy</span> & quy trình</h2>
+                <div class="col-sm-12 col-xs-12">
+                    <div class="section-tit">
+                        <div class="inner">
+                            <h2 style="margin-bottom:15px;">Nhà máy & Quy trình</h2>
+                            <p style="margin-bottom:5px;">Hệ thống nhà máy được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn thực phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.</p>
+                        </div>
                     </div>
-                    <p>Hệ thống nhà máy được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn thực phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.</p>
-                    <div class="factory-scroller" style="display:flex;gap:20px;overflow-x:auto;padding-top:10px;">
-                        @foreach($factoryGallery as $path)
-                            @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
-                            <div class="flex-shrink-0" style="min-width:250px;">
-                                @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
-                                    <img src="{{ asset('storage/' . $path) }}" alt="Nhà máy" class="img-responsive" style="max-height:180px;object-fit:cover;border-radius:4px;">
-                                @else
-                                    <div style="border:2px solid #ddd;border-radius:8px;overflow:hidden;background:#fff;">
-                                        <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" 
-                                            style="width:250px;height:200px;border:none;display:block;" 
-                                            title="{{ basename($path) }}">
-                                        </iframe>
-                                        <div style="padding:8px;text-align:center;background:#f9f9f9;border-top:1px solid #ddd;">
-                                            <a href="{{ asset('storage/' . $path) }}" target="_blank" style="color:#1976d2;text-decoration:underline;font-size:11px;font-weight:bold;">
-                                                {{ basename($path) }}
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="factory-gallery" style="display:flex;gap:20px;overflow-x:auto;padding:20px 0;justify-content:center;">
+                                @foreach($factoryGallery as $path)
+                                    @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
+                                    <div class="flex-shrink-0" style="min-width:280px;max-width:280px;">
+                                        @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
+                                            <a href="{{ asset('storage/' . $path) }}" data-fancybox="factory-gallery" data-caption="{{ basename($path) }}" style="display:block;cursor:pointer;">
+                                                <div style="border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+                                                    <img src="{{ asset('storage/' . $path) }}" alt="Nhà máy" class="img-responsive" style="width:100%;height:220px;object-fit:cover;display:block;">
+                                                </div>
                                             </a>
-                                            <p style="margin:4px 0 0 0;font-size:10px;color:#666;">Click để mở PDF đầy đủ</p>
-                                        </div>
+                                        @else
+                                            <div style="border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;">
+                                                <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" 
+                                                    style="width:100%;height:220px;border:none;display:block;" 
+                                                    title="{{ basename($path) }}">
+                                                </iframe>
+                                                <div style="padding:10px;text-align:center;background:#fff;border-top:1px solid #eee;">
+                                                    <a href="{{ asset('storage/' . $path) }}" target="_blank" style="color:#1976d2;text-decoration:underline;font-size:11px;font-weight:bold;">
+                                                        {{ basename($path) }}
+                                                    </a>
+                                                    <p style="margin:4px 0 0 0;font-size:10px;color:#666;">Click để mở PDF đầy đủ</p>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
-                                @endif
+                                @endforeach
                             </div>
-                        @endforeach
+                        </div>
                     </div>
                 </div>
-                @endif
-                @if(count($farmGuavaGallery) || count($farmSoriGallery))
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="sec-tit">
-                        <h2><span>Trang trại</span> đối tác</h2>
+            </div>
+        </div>
+    </section>
+    @endif
+
+    @if(count($farmGuavaGallery) || count($farmSoriGallery))
+    <section class="farm-section" style="padding:60px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="section-tit">
+                        <div class="inner">
+                            <h2 style="margin-bottom:15px;">Trang trại đối tác</h2>
+                            <p style="margin-bottom:5px;">Trái cây tươi ngon được thu hoạch trực tiếp từ các trang trại đối tác uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
+                        </div>
                     </div>
                     <div class="row">
                         @if(count($farmGuavaGallery))
-                        <div class="col-sm-6 col-xs-12">
-                            <div class="box first">
-                                <div class="txt-part">
-                                    <div class="tit">Trang trại ổi (Guava)</div>
-                                    <p>Trái ổi tươi ngon được thu hoạch trực tiếp từ trang trại đối tác, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
+                        <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom:30px;">
+                            <div style="background:#fff;border-radius:8px;padding:25px;box-shadow:0 2px 10px rgba(0,0,0,0.08);height:100%;">
+                                <div class="sec-tit" style="margin-bottom:15px;">
+                                    <h3 style="font-size:22px;color:#333;margin-bottom:10px;">
+                                        <span style="color:#8bc34a;">Trang trại ổi</span>
+                                    </h3>
+                                    <p style="color:#666;font-size:14px;line-height:1.6;">Trái ổi tươi ngon được thu hoạch trực tiếp từ trang trại đối tác, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
                                 </div>
-                                <div class="farm-scroller" style="display:flex;gap:10px;overflow-x:auto;padding-top:10px;">
+                                <div class="farm-gallery" style="display:flex;gap:15px;overflow-x:auto;padding-top:15px;">
                                     @foreach($farmGuavaGallery as $path)
                                         @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
-                                        <div class="flex-shrink-0" style="min-width:180px;">
+                                        <div class="flex-shrink-0" style="min-width:200px;max-width:200px;">
                                             @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
-                                                <img src="{{ asset('storage/' . $path) }}" alt="Trang trại ổi" class="img-responsive" style="max-height:140px;object-fit:cover;border-radius:4px;">
+                                                <a href="{{ asset('storage/' . $path) }}" data-fancybox="farm-guava-gallery" data-caption="{{ basename($path) }}" style="display:block;cursor:pointer;">
+                                                    <div style="border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);background:#fff;transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 4px 10px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)'">
+                                                        <img src="{{ asset('storage/' . $path) }}" alt="Trang trại ổi" class="img-responsive" style="width:100%;height:180px;object-fit:cover;display:block;">
+                                                    </div>
+                                                </a>
                                             @else
-                                                <div style="border:2px solid #ddd;border-radius:8px;overflow:hidden;background:#fff;">
+                                                <div style="border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);background:#fff;">
                                                     <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" 
-                                                        style="width:180px;height:160px;border:none;display:block;" 
+                                                        style="width:100%;height:180px;border:none;display:block;" 
                                                         title="{{ basename($path) }}">
                                                     </iframe>
-                                                    <div style="padding:6px;text-align:center;background:#f9f9f9;border-top:1px solid #ddd;">
+                                                    <div style="padding:8px;text-align:center;background:#fff;border-top:1px solid #eee;">
                                                         <a href="{{ asset('storage/' . $path) }}" target="_blank" style="color:#1976d2;text-decoration:underline;font-size:10px;font-weight:bold;">
                                                             {{ basename($path) }}
                                                         </a>
@@ -240,25 +262,31 @@
                         </div>
                         @endif
                         @if(count($farmSoriGallery))
-                        <div class="col-sm-6 col-xs-12">
-                            <div class="box second">
-                                <div class="txt-part">
-                                    <div class="tit">Trang trại sơ ri (Sori)</div>
-                                    <p>Trang trại sơ ri với quy trình canh tác an toàn, mang đến những trái sơ ri chín mọng, giàu dinh dưỡng.</p>
+                        <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom:30px;">
+                            <div style="background:#fff;border-radius:8px;padding:25px;box-shadow:0 2px 10px rgba(0,0,0,0.08);height:100%;">
+                                <div class="sec-tit" style="margin-bottom:15px;">
+                                    <h3 style="font-size:22px;color:#333;margin-bottom:10px;">
+                                        <span style="color:#e91e63;">Trang trại sơ ri</span>
+                                    </h3>
+                                    <p style="color:#666;font-size:14px;line-height:1.6;">Trang trại sơ ri với quy trình canh tác an toàn, mang đến những trái sơ ri chín mọng, giàu dinh dưỡng.</p>
                                 </div>
-                                <div class="farm-scroller" style="display:flex;gap:10px;overflow-x:auto;padding-top:10px;">
+                                <div class="farm-gallery" style="display:flex;gap:15px;overflow-x:auto;padding-top:15px;">
                                     @foreach($farmSoriGallery as $path)
                                         @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
-                                        <div class="flex-shrink-0" style="min-width:180px;">
+                                        <div class="flex-shrink-0" style="min-width:200px;max-width:200px;">
                                             @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
-                                                <img src="{{ asset('storage/' . $path) }}" alt="Trang trại sơ ri" class="img-responsive" style="max-height:140px;object-fit:cover;border-radius:4px;">
+                                                <a href="{{ asset('storage/' . $path) }}" data-fancybox="farm-sori-gallery" data-caption="{{ basename($path) }}" style="display:block;cursor:pointer;">
+                                                    <div style="border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);background:#fff;transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 4px 10px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)'">
+                                                        <img src="{{ asset('storage/' . $path) }}" alt="Trang trại sơ ri" class="img-responsive" style="width:100%;height:180px;object-fit:cover;display:block;">
+                                                    </div>
+                                                </a>
                                             @else
-                                                <div style="border:2px solid #ddd;border-radius:8px;overflow:hidden;background:#fff;">
+                                                <div style="border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);background:#fff;">
                                                     <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" 
-                                                        style="width:180px;height:160px;border:none;display:block;" 
+                                                        style="width:100%;height:180px;border:none;display:block;" 
                                                         title="{{ basename($path) }}">
                                                     </iframe>
-                                                    <div style="padding:6px;text-align:center;background:#f9f9f9;border-top:1px solid #ddd;">
+                                                    <div style="padding:8px;text-align:center;background:#fff;border-top:1px solid #eee;">
                                                         <a href="{{ asset('storage/' . $path) }}" target="_blank" style="color:#1976d2;text-decoration:underline;font-size:10px;font-weight:bold;">
                                                             {{ basename($path) }}
                                                         </a>
@@ -273,7 +301,6 @@
                         @endif
                     </div>
                 </div>
-                @endif
             </div>
         </div>
     </section>
@@ -458,6 +485,36 @@ $(document).ready(function() {
         $('#Expertese').slider({ tooltip: 'always' });
         $('#Quality').slider({ tooltip: 'always' });
         $('#Responsible').slider({ tooltip: 'always' });
+    }
+
+    // Khởi tạo Fancybox cho các gallery
+    if (typeof $.fancybox !== 'undefined') {
+        $('[data-fancybox]').fancybox({
+            buttons: [
+                'zoom',
+                'share',
+                'slideShow',
+                'fullScreen',
+                'download',
+                'thumbs',
+                'close'
+            ],
+            loop: true,
+            protect: true,
+            transitionEffect: 'fade',
+            transitionDuration: 300,
+            image: {
+                zoomDuration: 300
+            },
+            thumbs: {
+                autoStart: false
+            },
+            wheel: 'auto',
+            touch: {
+                vertical: true,
+                momentum: true
+            }
+        });
     }
 });
 </script>
