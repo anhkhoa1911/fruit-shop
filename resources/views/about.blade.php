@@ -54,6 +54,67 @@
         </div>
     </section>
 
+    @php
+        // Lấy danh sách chứng nhận (ưu tiên gallery mới, fallback về từng key cũ)
+        $certificatesGallery = json_decode(\App\Models\Setting::get('certificates_gallery', '[]'), true) ?: [];
+        if (empty($certificatesGallery)) {
+            foreach (['certificate_1_image', 'certificate_2_image', 'certificate_3_image'] as $legacyKey) {
+                $v = \App\Models\Setting::get($legacyKey);
+                if ($v) {
+                    $certificatesGallery[] = $v;
+                }
+            }
+        }
+
+        $factoryGallery = json_decode(\App\Models\Setting::get('factory_gallery', '[]'), true) ?: [];
+        $farmGuavaGallery = json_decode(\App\Models\Setting::get('farm_guava_gallery', '[]'), true) ?: [];
+        $farmSoriGallery = json_decode(\App\Models\Setting::get('farm_sori_gallery', '[]'), true) ?: [];
+    @endphp
+
+    @if(count($certificatesGallery))
+    <section class="certificate-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="section-tit">
+                        <div class="inner">
+                            <h2>Chứng nhận an toàn thực phẩm</h2>
+                            <p>Những chứng nhận chất lượng và an toàn thực phẩm mà chúng tôi đã đạt được.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="certificate-scroller" style="display:flex;gap:20px;overflow-x:auto;padding-bottom:10px;">
+                                @foreach($certificatesGallery as $path)
+                                    @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
+                                    <div class="flex-shrink-0" style="min-width:200px;">
+                                        @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
+                                            <img src="{{ asset('storage/' . $path) }}" alt="certificate" class="img-responsive center-block" style="max-height:200px;object-fit:contain;border:1px solid #eee;border-radius:4px;" />
+                                        @else
+                                            <div style="border:2px solid #ddd;border-radius:8px;overflow:hidden;background:#fff;">
+                                                <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" 
+                                                    style="width:200px;height:200px;border:none;display:block;" 
+                                                    title="{{ basename($path) }}">
+                                                </iframe>
+                                                <div style="padding:8px;text-align:center;background:#f9f9f9;border-top:1px solid #ddd;">
+                                                    <a href="{{ asset('storage/' . $path) }}" target="_blank" style="color:#1976d2;text-decoration:underline;font-size:11px;font-weight:bold;">
+                                                        {{ basename($path) }}
+                                                    </a>
+                                                    <p style="margin:4px 0 0 0;font-size:10px;color:#666;">Click để mở PDF đầy đủ</p>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @endif
+
     <section class="farming-industry-section">
         <div class="container">
             <div class="row">
@@ -104,6 +165,119 @@
             </div>
         </div>
     </section>
+
+    @if(count($factoryGallery) || count($farmGuavaGallery) || count($farmSoriGallery))
+    <section class="our-farm-section">
+        <div class="container">
+            <div class="row">
+                @if(count($factoryGallery))
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="sec-tit">
+                        <h2><span>Nhà máy</span> & quy trình</h2>
+                    </div>
+                    <p>Hệ thống nhà máy được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn thực phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.</p>
+                    <div class="factory-scroller" style="display:flex;gap:20px;overflow-x:auto;padding-top:10px;">
+                        @foreach($factoryGallery as $path)
+                            @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
+                            <div class="flex-shrink-0" style="min-width:250px;">
+                                @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
+                                    <img src="{{ asset('storage/' . $path) }}" alt="Nhà máy" class="img-responsive" style="max-height:180px;object-fit:cover;border-radius:4px;">
+                                @else
+                                    <div style="border:2px solid #ddd;border-radius:8px;overflow:hidden;background:#fff;">
+                                        <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" 
+                                            style="width:250px;height:200px;border:none;display:block;" 
+                                            title="{{ basename($path) }}">
+                                        </iframe>
+                                        <div style="padding:8px;text-align:center;background:#f9f9f9;border-top:1px solid #ddd;">
+                                            <a href="{{ asset('storage/' . $path) }}" target="_blank" style="color:#1976d2;text-decoration:underline;font-size:11px;font-weight:bold;">
+                                                {{ basename($path) }}
+                                            </a>
+                                            <p style="margin:4px 0 0 0;font-size:10px;color:#666;">Click để mở PDF đầy đủ</p>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                @if(count($farmGuavaGallery) || count($farmSoriGallery))
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="sec-tit">
+                        <h2><span>Trang trại</span> đối tác</h2>
+                    </div>
+                    <div class="row">
+                        @if(count($farmGuavaGallery))
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="box first">
+                                <div class="txt-part">
+                                    <div class="tit">Trang trại ổi (Guava)</div>
+                                    <p>Trái ổi tươi ngon được thu hoạch trực tiếp từ trang trại đối tác, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
+                                </div>
+                                <div class="farm-scroller" style="display:flex;gap:10px;overflow-x:auto;padding-top:10px;">
+                                    @foreach($farmGuavaGallery as $path)
+                                        @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
+                                        <div class="flex-shrink-0" style="min-width:180px;">
+                                            @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
+                                                <img src="{{ asset('storage/' . $path) }}" alt="Trang trại ổi" class="img-responsive" style="max-height:140px;object-fit:cover;border-radius:4px;">
+                                            @else
+                                                <div style="border:2px solid #ddd;border-radius:8px;overflow:hidden;background:#fff;">
+                                                    <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" 
+                                                        style="width:180px;height:160px;border:none;display:block;" 
+                                                        title="{{ basename($path) }}">
+                                                    </iframe>
+                                                    <div style="padding:6px;text-align:center;background:#f9f9f9;border-top:1px solid #ddd;">
+                                                        <a href="{{ asset('storage/' . $path) }}" target="_blank" style="color:#1976d2;text-decoration:underline;font-size:10px;font-weight:bold;">
+                                                            {{ basename($path) }}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        @if(count($farmSoriGallery))
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="box second">
+                                <div class="txt-part">
+                                    <div class="tit">Trang trại sơ ri (Sori)</div>
+                                    <p>Trang trại sơ ri với quy trình canh tác an toàn, mang đến những trái sơ ri chín mọng, giàu dinh dưỡng.</p>
+                                </div>
+                                <div class="farm-scroller" style="display:flex;gap:10px;overflow-x:auto;padding-top:10px;">
+                                    @foreach($farmSoriGallery as $path)
+                                        @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
+                                        <div class="flex-shrink-0" style="min-width:180px;">
+                                            @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
+                                                <img src="{{ asset('storage/' . $path) }}" alt="Trang trại sơ ri" class="img-responsive" style="max-height:140px;object-fit:cover;border-radius:4px;">
+                                            @else
+                                                <div style="border:2px solid #ddd;border-radius:8px;overflow:hidden;background:#fff;">
+                                                    <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" 
+                                                        style="width:180px;height:160px;border:none;display:block;" 
+                                                        title="{{ basename($path) }}">
+                                                    </iframe>
+                                                    <div style="padding:6px;text-align:center;background:#f9f9f9;border-top:1px solid #ddd;">
+                                                        <a href="{{ asset('storage/' . $path) }}" target="_blank" style="color:#1976d2;text-decoration:underline;font-size:10px;font-weight:bold;">
+                                                            {{ basename($path) }}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+                @endif
+            </div>
+        </div>
+    </section>
+    @endif
 
     <section class="choose-us-section">
         <div class="container">
