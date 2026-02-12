@@ -52,6 +52,9 @@
                     @if($product->is_new)
                     <span class="px-2 py-1 rounded text-xs bg-purple-100 text-purple-800">Mới</span>
                     @endif
+                    @if($product->is_sale)
+                    <span class="px-2 py-1 rounded text-xs bg-orange-100 text-orange-800">Giảm giá</span>
+                    @endif
                 </td>
                 <td class="py-3 px-4">
                     <a href="{{ route('admin.products.edit', $product) }}"

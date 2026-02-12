@@ -68,7 +68,7 @@
                     <div class="product-single-meta">
                         <h3 class="product-name">{{ $product->name }}</h3>
                         <div class="price">
-                            @if($product->sale_price)
+                            @if($product->is_sale && $product->sale_price)
                                 <div class="new-price">{{ number_format($product->sale_price) }}đ</div>
                                 <div class="old-price"><del>{{ number_format($product->price) }}đ</del></div>
                             @else
@@ -80,7 +80,11 @@
                             <p class="product-information">Đơn vị: {{ $product->unit }}</p>
                         </div>
                         @if($product->description)
-                            <p class="product-information">{{ $product->description }}</p>
+                            <p class="product-information">
+                                <strong>{{ $product->description }}</strong>
+                                <br><br>
+                                {!! $product->content !!}
+                            </p>
                         @endif
                         <div class="cart-process">
                             <div class="cart">
@@ -95,28 +99,7 @@
                     </div>
                 </div>
                 <!-- /product discription -->
-
             </section>
-
-            <!-- Tabbing -->
-            <section class="tab-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-xs-12">
-                            <div class="responsive-tabs">
-                                <div class="responsive-tabs__panel--active">
-                                    @if($product->content)
-                                        <div class="content">{!! $product->content !!}</div>
-                                    @else
-                                        <p>{{ $product->description ?: 'Sản phẩm trái cây tươi sạch, chất lượng.' }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- /Tabbing -->
 
             <!-- Related Products -->
             @if($relatedProducts->count() > 0)
@@ -141,7 +124,7 @@
                                         <div class="contain-wrapper">
                                             <div class="tit">{{ $related->name }}</div>
                                             <div class="price">
-                                                @if($related->sale_price)
+                                                @if($related->is_sale && $related->sale_price)
                                                     <div class="new-price">{{ number_format($related->sale_price) }}đ</div>
                                                     <div class="old-price"><del>{{ number_format($related->price) }}đ</del></div>
                                                 @else

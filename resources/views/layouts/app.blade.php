@@ -484,6 +484,154 @@
                 width: 100%;
             }
         }
+
+        /* Product detail page - Tăng font size cho đẹp hơn */
+        .product-single-meta .product-name {
+            font-size: 32px !important;
+            font-weight: 700 !important;
+            margin-bottom: 15px !important;
+            color: #333;
+            line-height: 1.3;
+        }
+        
+        .product-single-meta .price {
+            margin: 15px 0 20px 0 !important;
+        }
+        
+        .product-single-meta .price .new-price {
+            font-size: 28px !important;
+            font-weight: 700 !important;
+            color: #8bc34a !important;
+            display: inline-block;
+        }
+        
+        .product-single-meta .price .old-price {
+            font-size: 20px !important;
+            color: #999 !important;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        
+        .product-single-meta .availablity {
+            font-size: 17px !important;
+            margin: 15px 0 !important;
+            font-weight: 500;
+        }
+        
+        .product-single-meta .availablity span {
+            font-weight: 700;
+            color: #8bc34a;
+        }
+        
+        .product-single-meta .product-information {
+            font-size: 16px !important;
+            line-height: 1.7 !important;
+            color: #555;
+            margin: 15px 0 !important;
+        }
+        
+        .product-single-meta .product-information strong {
+            font-size: 17px;
+            color: #333;
+        }
+        
+        .product-single-meta .cart-btn {
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            padding: 11px 28px !important;
+        }
+        
+        .product-single-meta .tag-box .tag-label {
+            font-size: 15px !important;
+            font-weight: 600;
+        }
+        
+        .product-single-meta .tag-box .tag-label-value {
+            font-size: 15px !important;
+        }
+        
+        .product-single-meta .tag-box .tag-label-value a {
+            font-size: 15px !important;
+        }
+        
+        @media (max-width: 768px) {
+            .product-single-meta .product-name {
+                font-size: 24px !important;
+            }
+            .product-single-meta .price .new-price {
+                font-size: 22px !important;
+            }
+            .product-single-meta .price .old-price {
+                font-size: 16px !important;
+            }
+            .product-single-meta .product-information {
+                font-size: 14px !important;
+            }
+        }
+
+        /* Related Products - Cải thiện font và khoảng cách */
+        .related-products .item .contain-wrapper {
+            padding: 8px 12px 10px 12px !important;
+        }
+        
+        .related-products .item .contain-wrapper .tit {
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            margin-bottom: 3px !important;
+            margin-top: 0 !important;
+            line-height: 1.3;
+            color: #333;
+        }
+        
+        .related-products .item .contain-wrapper .price {
+            margin: 3px 0 !important;
+        }
+        
+        .related-products .item .contain-wrapper .price .new-price {
+            font-size: 17px !important;
+            font-weight: 700 !important;
+            color: #8bc34a !important;
+        }
+        
+        .related-products .item .contain-wrapper .price .old-price {
+            font-size: 13px !important;
+            color: #999 !important;
+            margin-top: 2px;
+        }
+        
+        .related-products .item .contain-wrapper .btn-part {
+            margin-top: 5px !important;
+        }
+        
+        .related-products .item .contain-wrapper .btn-part .cart-btn {
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            padding: 7px 14px !important;
+        }
+        
+        .related-products .item .contain-wrapper .btn-part i {
+            font-size: 15px !important;
+        }
+        
+        /* Section title */
+        .related-products .tit h2 {
+            font-size: 26px !important;
+            font-weight: 700 !important;
+            margin-bottom: 20px !important;
+        }
+        
+        @media (max-width: 768px) {
+            .related-products .item .contain-wrapper .tit {
+                font-size: 15px !important;
+                min-height: auto;
+            }
+            .related-products .item .contain-wrapper .price .new-price {
+                font-size: 17px !important;
+            }
+            .related-products .tit h2 {
+                font-size: 22px !important;
+            }
+        }
     </style>
 </head>
 

@@ -62,65 +62,9 @@
                             </div>
                         </div>
                         <div class="widget-contian" id="price">
-                            <input id="price-range" type="text" class="span2" value="" data-slider-min="0" data-slider-max="500000" data-slider-step="10000" data-slider-value="[50000,200000]"/>
-                            <span>0đ</span> <span>500.000đ</span>
-                            <a class="filter-btn" href="{{ route('products.category', $category->slug) }}">Lọc</a>
-                        </div>
-                    </div>
-                    @if(isset($topSellers) && $topSellers->count() > 0)
-                    <div class="widget top-seller-widget" data-toggle="collapse" data-target="#top-seller">
-                        <div class="widget-tit">
-                            <h2>Bán chạy</h2>
-                            <div class="button">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </div>
-                        </div>
-                        <div class="widget-contian" id="top-seller">
-                            @foreach($topSellers as $p)
-                            <div class="seller-box">
-                                <div class="seller-img">
-                                    @if($p->image)
-                                        <a href="{{ route('products.show', $p->slug) }}"><img src="{{ asset('storage/' . $p->image) }}" alt="{{ $p->name }}" class="img-responsive" /></a>
-                                    @else
-                                        <a href="{{ route('products.show', $p->slug) }}"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/top-seller-img-1.jpg" alt="{{ $p->name }}" class="img-responsive" /></a>
-                                    @endif
-                                </div>
-                                <div class="seller-text">
-                                    <a class="seller-name" href="{{ route('products.show', $p->slug) }}">{{ $p->name }}</a>
-                                    <div class="ratting">
-                                        <ul>
-                                            <li><a href="#"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/green-star.png" alt="star" class="img-responsive"></a></li>
-                                            <li><a href="#"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/green-star.png" alt="star" class="img-responsive"></a></li>
-                                            <li><a href="#"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/dark-star.png" alt="star" class="img-responsive"></a></li>
-                                            <li><a href="#"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/dark-star.png" alt="star" class="img-responsive"></a></li>
-                                            <li><a href="#"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/dark-star.png" alt="star" class="img-responsive"></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="price">{{ number_format($p->sale_price ?? $p->price) }}đ</div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    @endif
-                    <div class="widget tag-widgwet">
-                        <div class="widget-tit">
-                            <h2>Thẻ phổ biến</h2>
-                            <div class="button" data-toggle="collapse" data-target="#tag">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </div>
-                        </div>
-                        <div class="widget-contian" id="tag">
-                            <div class="tag-div">
-                                <a class="tag-btn" href="{{ route('products.index') }}">Tất cả</a>
-                                @foreach($categories as $cat)
-                                <a class="tag-btn {{ $cat->id == $category->id ? 'active' : '' }}" href="{{ route('products.category', $cat->slug) }}">{{ $cat->name }}</a>
-                                @endforeach
-                            </div>
+                            <input id="price-range" type="text" class="span2" value="" data-slider-min="0" data-slider-max="500000" data-slider-step="10000" data-slider-value="[{{ request('min_price', 0) }},{{ request('max_price', 500000) }}]"/>
+                            <span id="min-price-display">{{ number_format(request('min_price', 0)) }}đ - </span> <span id="max-price-display">{{ number_format(request('max_price', 500000)) }}đ</span>
+                            <a class="filter-btn" href="#" id="price-filter-btn">Lọc</a>
                         </div>
                     </div>
                     <div class="hot-collection">
@@ -143,8 +87,10 @@
                                     <label class="shorting-label">Sắp xếp:</label>
                                     <select id="exampleSelect1" onchange="window.location.href=this.value">
                                         <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'default'])) }}" {{ request('sort') == 'default' || !request('sort') ? 'selected' : '' }}>Mặc định</option>
-                                        <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'name_asc'])) }}" {{ request('sort') == 'name_asc' ? 'selected' : '' }}>A → Z</option>
-                                        <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'name_desc'])) }}" {{ request('sort') == 'name_desc' ? 'selected' : '' }}>Z → A</option>
+                                        <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'name_asc'])) }}" {{ request('sort') == 'name_asc' ? 'selected' : '' }}>Tên: A → Z</option>
+                                        <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'name_desc'])) }}" {{ request('sort') == 'name_desc' ? 'selected' : '' }}>Tên: Z → A</option>
+                                        <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'price_asc'])) }}" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Giá: Thấp → Cao</option>
+                                        <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'price_desc'])) }}" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Giá: Cao → Thấp</option>
                                     </select>
                                 </div>
                                 <div class="shorting-box-2">
@@ -180,7 +126,7 @@
                             <div class="contain-wrapper">
                                 <div class="tit">{{ $product->name }}</div>
                                 <div class="price">
-                                    @if($product->sale_price)
+                                    @if($product->is_sale && $product->sale_price)
                                         <div class="new-price">{{ number_format($product->sale_price) }}đ</div>
                                         <div class="old-price"><del>{{ number_format($product->price) }}đ</del></div>
                                     @else
@@ -294,9 +240,46 @@
 @push('scripts')
 <script>
     $(document).ready(function() {
+        // Price range slider
+        var priceSlider = null;
         if ($('#price-range').length && typeof $.fn.slider !== 'undefined') {
-            $('#price-range').slider({});
+            var minPrice = {{ request('min_price', 0) }};
+            var maxPrice = {{ request('max_price', 500000) }};
+            
+            priceSlider = $('#price-range').slider({
+                tooltip: 'hide'
+            });
+            
+            // Update display when slider changes
+            priceSlider.on('slide', function(slideEvt) {
+                $('#min-price-display').text(slideEvt.value[0].toLocaleString('vi-VN') + 'đ');
+                $('#max-price-display').text(slideEvt.value[1].toLocaleString('vi-VN') + 'đ');
+            });
         }
+        
+        // Price filter button click
+        $('#price-filter-btn').on('click', function(e) {
+            e.preventDefault();
+            
+            var values = [0, 500000]; // default values
+            
+            if (priceSlider) {
+                values = priceSlider.slider('getValue');
+            }
+            
+            var currentUrl = new URL(window.location.href);
+            var params = new URLSearchParams(currentUrl.search);
+            
+            // Update or add price params
+            params.set('min_price', values[0]);
+            params.set('max_price', values[1]);
+            
+            // Reset to page 1 when filtering
+            params.delete('page');
+            
+            // Redirect with new params
+            window.location.href = currentUrl.pathname + '?' + params.toString();
+        });
     });
 </script>
 @endpush

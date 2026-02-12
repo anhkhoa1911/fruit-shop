@@ -95,7 +95,7 @@
                             <div class="contain-wrapper">
                                 <div class="tit">{{ $product->name }}</div>
                                 <div class="price">
-                                    @if($product->sale_price)
+                                    @if($product->is_sale && $product->sale_price)
                                     <div class="new-price">{{ number_format($product->sale_price) }}đ</div>
                                     <div class="old-price"><del>{{ number_format($product->price) }}đ</del></div>
                                     @else
@@ -153,7 +153,7 @@
                             <div class="contain-wrapper">
                                 <div class="tit">{{ $product->name }}</div>
                                 <div class="price">
-                                    @if($product->sale_price)
+                                    @if($product->is_sale && $product->sale_price)
                                     <div class="new-price">{{ number_format($product->sale_price) }}đ</div>
                                     <div class="old-price"><del>{{ number_format($product->price) }}đ</del></div>
                                     @else
