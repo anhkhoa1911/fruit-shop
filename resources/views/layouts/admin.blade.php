@@ -48,6 +48,10 @@
                     class="{{ request()->routeIs('admin.products.*') ? 'active' : '' }}">
                     Sản phẩm
                 </a>
+                <a href="{{ route('admin.posts.index') }}"
+                    class="{{ request()->routeIs('admin.posts.*') ? 'active' : '' }}">
+                    Bài viết
+                </a>
                 <a href="{{ route('admin.contact-messages.index') }}"
                     class="{{ request()->routeIs('admin.contact-messages.*') ? 'active' : '' }}">
                     Tin nhắn liên hệ

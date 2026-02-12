@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,12 @@ class HomeController extends Controller
             ->orderBy('sort_order')
             ->get();
 
-        return view('home', compact('featuredProducts', 'newProducts', 'dealProducts', 'categories'));
+        $posts = Post::where('is_active', true)
+            ->latest()
+            ->take(4)
+            ->get();
+
+        return view('home', compact('featuredProducts', 'newProducts', 'dealProducts', 'categories', 'posts'));
     }
 
     public function about()

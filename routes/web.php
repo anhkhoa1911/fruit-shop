@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 // Frontend Routes
@@ -28,6 +30,8 @@ Route::get('/danh-muc/{slug}', [ProductController::class, 'category'])->name('pr
 Route::get('/gioi-thieu', [HomeController::class, 'about'])->name('about');
 Route::get('/lien-he', [HomeController::class, 'contact'])->name('contact');
 Route::post('/lien-he', [ContactController::class, 'store'])->middleware('throttle:contact')->name('contact.store');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // Admin Routes
 Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
@@ -51,6 +55,9 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     // User Management
     Route::resource('users', AdminUserController::class)->except(['show']);
     Route::put('users/{user}/password', [AdminUserController::class, 'updatePassword'])->name('users.update-password');
+    
+    // Post Management
+    Route::resource('posts', AdminPostController::class);
 });
 
 Route::middleware('auth')->group(function () {

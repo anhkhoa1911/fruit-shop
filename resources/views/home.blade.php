@@ -221,46 +221,30 @@
     </div>
     <div class="container-fluid">
         <div class="row no-gutter">
+            @forelse($posts as $post)
             <div class="col-sm-3 col-xs-12">
                 <div class="wrapper">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/organic-news-img-1.jpg" alt="tin tức" class="img-responsive" />
+                    @if($post->thumbnail)
+                        <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-responsive" />
+                    @else
+                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/organic-news-img-1.jpg" alt="{{ $post->title }}" class="img-responsive" />
+                    @endif
                     <div class="overlay"></div>
                     <div class="text">
-                        <div class="date">{{ now()->format('d/m/Y') }}</div>
-                        <div class="title"><a href="{{ route('about') }}">Trái cây sạch - Sức khỏe vàng</a></div>
+                        <div class="date">{{ $post->created_at->format('d/m/Y') }}</div>
+                        <div class="title">
+                            <a href="{{ route('blog.show', $post->slug) }}">
+                                {{ \Illuminate\Support\Str::limit($post->title, 40) }}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 col-xs-12">
-                <div class="wrapper">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/organic-news-img-2.jpg" alt="tin tức" class="img-responsive" />
-                    <div class="overlay"></div>
-                    <div class="text">
-                        <div class="date">{{ now()->format('d/m/Y') }}</div>
-                        <div class="title"><a href="{{ route('products.index') }}">5 lý do nên ăn nho mỗi ngày</a></div>
-                    </div>
-                </div>
+            @empty
+            <div class="col-sm-12 col-xs-12">
+                <p class="text-center">Chưa có bài viết nào.</p>
             </div>
-            <div class="col-sm-3 col-xs-12">
-                <div class="wrapper">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/organic-news-img-3.jpg" alt="tin tức" class="img-responsive" />
-                    <div class="overlay"></div>
-                    <div class="text">
-                        <div class="date">{{ now()->format('d/m/Y') }}</div>
-                        <div class="title"><a href="{{ route('products.index') }}">Công thức sinh tố trái cây bổ dưỡng</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-xs-12">
-                <div class="wrapper">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/organic-news-img-4.jpg" alt="tin tức" class="img-responsive" />
-                    <div class="overlay"></div>
-                    <div class="text">
-                        <div class="date">{{ now()->format('d/m/Y') }}</div>
-                        <div class="title"><a href="{{ route('contact') }}">Liên hệ đặt hàng trái cây tươi</a></div>
-                    </div>
-                </div>
-            </div>
+            @endforelse
         </div>
     </div>
 </section>

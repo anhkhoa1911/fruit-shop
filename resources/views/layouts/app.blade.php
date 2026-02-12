@@ -683,14 +683,14 @@
                                     alt="logo" /></a></div>
                         <ul class="nav navbar-nav">
                             <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
-                                <a href="{{ route('home') }}">Trang chủ</a>
+                                <a href="{{ route('home') }}">Trang Chủ</a>
                             </li>
                             <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
-                                <a href="{{ route('about') }}">Giới thiệu</a>
+                                <a href="{{ route('about') }}">Giới Thiệu</a>
                             </li>
                             <li class="dropdown {{ request()->routeIs('products.*') ? 'active' : '' }}">
                                 <a href="{{ route('products.index') }}" class="dropdown-toggle">
-                                    Sản phẩm <i class="fas fa-angle-down"></i>
+                                    Sản Phẩm <i class="fas fa-angle-down"></i>
                                 </a>
                                 @if(isset($headerCategories) && $headerCategories->count())
                                 <ul class="dropdown-menu">
@@ -701,8 +701,11 @@
                                 </ul>
                                 @endif
                             </li>
+                            <li class="{{ request()->routeIs('blog.*') ? 'active' : '' }}">
+                                <a href="{{ route('blog.index') }}">Blog</a>
+                            </li>
                             <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
-                                <a href="{{ route('contact') }}">Liên hệ</a>
+                                <a href="{{ route('contact') }}">Liên Hệ</a>
                             </li>
                         </ul>
                     </div>
