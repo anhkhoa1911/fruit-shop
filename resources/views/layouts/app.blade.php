@@ -172,6 +172,23 @@
             margin: 0;
         }
         
+        /* Menu styling - Font lớn hơn, đậm hơn, font-family đẹp */
+        .navbar-nav > li > a {
+            font-size: 16px !important;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+            letter-spacing: 0.3px;
+            padding: 15px 20px !important;
+        }
+        
+        .navbar-nav > li.active > a,
+        
+        /* Dropdown menu items */
+        .navbar-nav > li.dropdown .dropdown-menu li a {
+            font-size: 15px !important;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+            text-transform: none;
+        }
+        
         /* Dropdown menu styling with smooth animation */
         .navbar-nav > li.dropdown {
             position: relative;
