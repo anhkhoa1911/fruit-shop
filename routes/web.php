@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ContactMessageController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 
 // Frontend Routes
@@ -26,7 +27,7 @@ Route::get('/san-pham/{slug}', [ProductController::class, 'show'])->name('produc
 Route::get('/danh-muc/{slug}', [ProductController::class, 'category'])->name('products.category');
 Route::get('/gioi-thieu', [HomeController::class, 'about'])->name('about');
 Route::get('/lien-he', [HomeController::class, 'contact'])->name('contact');
-Route::post('/lien-he', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/lien-he', [ContactController::class, 'store'])->middleware('throttle:contact')->name('contact.store');
 
 // Admin Routes
 Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
@@ -46,6 +47,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     // Settings Management
     Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
     Route::post('settings', [SettingController::class, 'update'])->name('settings.update');
+    
+    // User Management
+    Route::resource('users', AdminUserController::class)->except(['show']);
+    Route::put('users/{user}/password', [AdminUserController::class, 'updatePassword'])->name('users.update-password');
 });
 
 Route::middleware('auth')->group(function () {

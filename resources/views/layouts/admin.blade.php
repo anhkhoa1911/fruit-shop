@@ -52,6 +52,10 @@
                     class="{{ request()->routeIs('admin.contact-messages.*') ? 'active' : '' }}">
                     Tin nhắn liên hệ
                 </a>
+                <a href="{{ route('admin.users.index') }}"
+                    class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+                    Quản lý tài khoản
+                </a>
                 <a href="{{ route('admin.settings.index') }}"
                     class="{{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
                     Cài đặt

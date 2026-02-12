@@ -83,6 +83,9 @@
                     @if(session('success'))
                     <div class="alert alert-success" style="margin-bottom: 15px;">{{ session('success') }}</div>
                     @endif
+                    @if(session('error'))
+                    <div class="alert alert-danger" style="margin-bottom: 15px;">{{ session('error') }}</div>
+                    @endif
                     @if($errors->any())
                     <div class="alert alert-danger" style="margin-bottom: 15px;">
                         <ul style="margin: 0; padding-left: 20px;">
@@ -92,6 +95,7 @@
                         </ul>
                     </div>
                     @endif
+                    <p style="color: #666; font-size: 14px; margin-bottom: 15px;"><em>Lưu ý: Giới hạn 3 tin nhắn mỗi 10 phút để tránh spam.</em></p>
                     <form action="{{ route('contact.store') }}" method="post">
                         @csrf
                         <div class="form-group col-sm-12 col-xs-12">
@@ -128,28 +132,28 @@
                 <div class="bgreen">
                     <div class="inline">
                         <div class="box">
-                            <div class="icon"><i class="icon-delivery-truck"></i></div>
+                            <div class="icon"><i class="fas fa-truck"></i></div>
                             <div class="text-part">
                                 <h3>Giao hàng miễn phí</h3>
                                 <p>Toàn quốc</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"><i class="icon-headphones"></i></div>
+                            <div class="icon"><i class="fas fa-headset"></i></div>
                             <div class="text-part">
                                 <h3>Hỗ trợ 24/7</h3>
                                 <p>Khách hàng</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"><i class="icon-shuffle"></i></div>
+                            <div class="icon"><i class="fas fa-exchange-alt"></i></div>
                             <div class="text-part">
                                 <h3>Đổi trả</h3>
                                 <p>Dễ dàng</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"><i class="icon-phone-call"></i></div>
+                            <div class="icon"><i class="fas fa-phone"></i></div>
                             <div class="text-part">
                                 <h3>Hotline</h3>
                                 <p><a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{ \App\Models\Setting::get('contact_phone', '0123456789') }}</a></p>
