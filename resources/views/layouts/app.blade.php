@@ -172,26 +172,33 @@
             margin: 0;
         }
         
-        /* Dropdown menu styling */
+        /* Dropdown menu styling with smooth animation */
         .navbar-nav > li.dropdown {
             position: relative;
         }
         .navbar-nav > li.dropdown .dropdown-menu {
-            display: none;
             position: absolute;
             top: 100%;
             left: 0;
             background: #fff;
             min-width: 200px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             border-radius: 4px;
             padding: 10px 0;
             margin: 0;
             list-style: none;
             z-index: 1000;
+            /* Animation properties */
+            display: block;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
         .navbar-nav > li.dropdown:hover .dropdown-menu {
-            display: block;
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
         }
         .navbar-nav > li.dropdown .dropdown-menu li {
             padding: 0;
@@ -199,18 +206,25 @@
         }
         .navbar-nav > li.dropdown .dropdown-menu li a {
             display: block;
-            padding: 8px 20px;
+            padding: 10px 20px;
             color: #333;
             text-decoration: none;
-            transition: background 0.3s ease;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
         }
         .navbar-nav > li.dropdown .dropdown-menu li a:hover {
-            background: #f5f5f5;
+            background: #f8f9fa;
             color: #8bc34a;
+            border-left-color: #8bc34a;
+            padding-left: 23px;
         }
         .navbar-nav > li.dropdown > a .fa-angle-down {
             font-size: 12px;
             margin-left: 4px;
+            transition: transform 0.3s ease;
+        }
+        .navbar-nav > li.dropdown:hover > a .fa-angle-down {
+            transform: rotate(180deg);
         }
 
         /* Fresh Collection Section - Auto center based on item count */
