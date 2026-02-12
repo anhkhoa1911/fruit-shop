@@ -152,8 +152,8 @@
                                     </select>
                                 </div>
                                 <div class="grid-short">
-                                    <div class="grid-layout"><a class="active" href="#" id="grid"><i class="icon-grid-layout"></i></a></div>
-                                    <div class="list-grid"><a href="#" id="list-btn"><i class="icon-list-grid"></i></a></div>
+                                    <div class="grid-layout"><a class="active" href="#" id="grid"><i class="fas fa-th"></i></a></div>
+                                    <div class="list-grid"><a href="#" id="list-btn"><i class="fas fa-list"></i></a></div>
                                 </div>
                             </div>
                             <div class="l-part">
@@ -185,15 +185,15 @@
                                 </div>
                                 <div class="btn-part">
                                     <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Xem chi tiết</a>
-                                    <i class="icon-basket-supermarket"></i>
+                                    <i class="fas fa-shopping-cart"></i>
                                 </div>
                             </div>
                             <div class="wrapper-box-hover">
                                 <div class="text">
                                     <ul>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
-                                        <li><a href="{{ route('products.show', $product->slug) }}"><i class="icon-view"></i></a></li>
-                                        <li><a href="{{ route('contact') }}?product={{ urlencode($product->name) }}"><i class="icon-basket-supermarket"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                        <li><a href="{{ route('products.show', $product->slug) }}"><i class="fas fa-eye"></i></a></li>
+                                        <li><a href="{{ route('contact') }}?product={{ urlencode($product->name) }}"><i class="fas fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -216,7 +216,7 @@
                     <nav aria-label="Phân trang">
                         <ul class="pagination">
                             <li class="page-item indicator left {{ $products->onFirstPage() ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $products->previousPageUrl() }}"><i class="icon-right-arrow"></i></a>
+                                <a class="page-link" href="{{ $products->previousPageUrl() }}"><i class="fas fa-chevron-left"></i></a>
                             </li>
                             @php
                                 $current = $products->currentPage();
@@ -230,7 +230,7 @@
                             </li>
                             @endforeach
                             <li class="page-item indicator right {{ !$products->hasMorePages() ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $products->nextPageUrl() }}"><i class="icon-right-arrow"></i></a>
+                                <a class="page-link" href="{{ $products->nextPageUrl() }}"><i class="fas fa-chevron-right"></i></a>
                             </li>
                         </ul>
                     </nav>
@@ -251,28 +251,28 @@
                 <div class="bgreen">
                     <div class="inline">
                         <div class="box">
-                            <div class="icon"> <i class="icon-delivery-truck"></i> </div>
+                            <div class="icon"> <i class="fas fa-truck"></i> </div>
                             <div class="text-part">
                                 <h3>Giao hàng tận nơi</h3>
                                 <p>Toàn quốc</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"> <i class="icon-headphones"></i> </div>
+                            <div class="icon"> <i class="fas fa-headset"></i> </div>
                             <div class="text-part">
                                 <h3>Hỗ trợ 24/7</h3>
                                 <p>Khách hàng</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"> <i class="icon-shuffle"></i> </div>
+                            <div class="icon"> <i class="fas fa-exchange-alt"></i> </div>
                             <div class="text-part">
                                 <h3>Đổi trả</h3>
                                 <p>Trong 24h</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"> <i class="icon-phone-call"></i> </div>
+                            <div class="icon"> <i class="fas fa-phone"></i> </div>
                             <div class="text-part">
                                 <h3>Hotline</h3>
                                 <p><a href="tel:{{ \App\Models\Setting::get('contact_phone', '0123456789') }}">{{ \App\Models\Setting::get('contact_phone', '0123456789') }}</a></p>

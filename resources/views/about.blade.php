@@ -349,32 +349,11 @@
                     <div class="item">
                         <div class="wrapper">
                             <div class="pro-img">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/farmer-img-1.jpg" alt="Đội ngũ" class="img-responsive center-block" />
-                            </div>
-                            <div class="contain-wrapper">
-                                <div class="tit">Nguyễn Văn A</div>
-                                <div class="post">Quản lý kho</div>
-                                <ul class="social">
-                                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                                    <li><a href="#"><i class="icon-camera"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="wrapper">
-                            <div class="pro-img">
                                 <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/farmer-img-2.jpg" alt="Đội ngũ" class="img-responsive center-block" />
                             </div>
                             <div class="contain-wrapper">
                                 <div class="tit">Trần Thị B</div>
                                 <div class="post">Chuyên gia trái cây</div>
-                                <ul class="social">
-                                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                                    <li><a href="#"><i class="icon-camera"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -386,11 +365,6 @@
                             <div class="contain-wrapper">
                                 <div class="tit">Lê Văn C</div>
                                 <div class="post">Quản lý chất lượng</div>
-                                <ul class="social">
-                                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                                    <li><a href="#"><i class="icon-camera"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -402,11 +376,6 @@
                             <div class="contain-wrapper">
                                 <div class="tit">Phạm Thị D</div>
                                 <div class="post">Chăm sóc khách hàng</div>
-                                <ul class="social">
-                                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                                    <li><a href="#"><i class="icon-camera"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -443,28 +412,28 @@
                 <div class="bgreen">
                     <div class="inline">
                         <div class="box">
-                            <div class="icon"><i class="icon-delivery-truck"></i></div>
+                            <div class="icon"><i class="fas fa-truck"></i></div>
                             <div class="text-part">
                                 <h3>Giao hàng miễn phí</h3>
                                 <p>Toàn quốc</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"><i class="icon-headphones"></i></div>
+                            <div class="icon"><i class="fas fa-headset"></i></div>
                             <div class="text-part">
                                 <h3>Hỗ trợ 24/7</h3>
                                 <p>Khách hàng</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"><i class="icon-shuffle"></i></div>
+                            <div class="icon"><i class="fas fa-exchange-alt"></i></div>
                             <div class="text-part">
                                 <h3>Đổi trả</h3>
                                 <p>Dễ dàng</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"><i class="icon-phone-call"></i></div>
+                            <div class="icon"><i class="fas fa-phone"></i></div>
                             <div class="text-part">
                                 <h3>Hotline</h3>
                                 <p><a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{ \App\Models\Setting::get('contact_phone', '0123456789') }}</a></p>
@@ -485,6 +454,46 @@ $(document).ready(function() {
         $('#Expertese').slider({ tooltip: 'always' });
         $('#Quality').slider({ tooltip: 'always' });
         $('#Responsible').slider({ tooltip: 'always' });
+    }
+
+    // Khởi tạo Owl Carousel cho "Đội ngũ của chúng tôi"
+    if (typeof $.fn.owlCarousel === 'function' && $('.our-farmer').length) {
+        $('.our-farmer').owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+            responsive: {
+                0: { items: 1 },
+                480: { items: 2 },
+                768: { items: 3 },
+                992: { items: 4 }
+            }
+        });
+    }
+
+    // Khởi tạo Owl Carousel cho "Brand slider"
+    if (typeof $.fn.owlCarousel === 'function' && $('.brand-slider').length) {
+        $('.brand-slider').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: true,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+            responsive: {
+                0: { items: 2 },
+                480: { items: 3 },
+                768: { items: 4 },
+                992: { items: 5 },
+                1200: { items: 6 }
+            }
+        });
     }
 
     // Khởi tạo Fancybox cho các gallery

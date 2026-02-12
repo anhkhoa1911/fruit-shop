@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description', 'Cửa hàng trái cây sạch, tươi ngon')">
     <title>@yield('title', 'Trang chủ') - Cửa hàng trái cây</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.ncodetechnologies.com/OrganicFoodStore/images/logo.png">
+    <link rel="shortcut icon" type="image/png" href="https://www.ncodetechnologies.com/OrganicFoodStore/images/logo.png">
+    <link rel="apple-touch-icon" href="https://www.ncodetechnologies.com/OrganicFoodStore/images/logo.png">
 
     <!-- Bootstrap v3.3.7 Style -->
     <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/bootstrap.min.css" rel="stylesheet" />
@@ -244,6 +249,168 @@
             .fress-entry-section .tit-btn-wrapper .tit {
                 font-size: 20px;
                 white-space: normal;
+            }
+        }
+
+        /* Fix social icons trong team members section (About page) */
+        .our-farmers-section .social li a,
+        .our-farmer .social li a,
+        .our-farmers-section .contain-wrapper .social li a,
+        section.our-farmers-section ul.social li a {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            background-color: #fff !important;
+            border: 2px solid #8bc34a !important;
+            transition: all 0.3s ease;
+        }
+        
+        .our-farmers-section .social li a::before,
+        .our-farmer .social li a::before {
+            display: none !important;
+        }
+        
+        .our-farmers-section .social li a i,
+        .our-farmer .social li a i,
+        .our-farmers-section .contain-wrapper .social li a i,
+        section.our-farmers-section ul.social li a i,
+        .our-farmers-section .social li a .fab,
+        .our-farmer .social li a .fab {
+            font-size: 16px !important;
+            line-height: 1 !important;
+            color: #8bc34a !important;
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .our-farmers-section .social li a:hover,
+        .our-farmer .social li a:hover,
+        .our-farmers-section .contain-wrapper .social li a:hover,
+        section.our-farmers-section ul.social li a:hover {
+            background-color: #8bc34a !important;
+        }
+        
+        .our-farmers-section .social li a:hover i,
+        .our-farmer .social li a:hover i,
+        .our-farmers-section .contain-wrapper .social li a:hover i,
+        section.our-farmers-section ul.social li a:hover i,
+        .our-farmers-section .social li a:hover .fab,
+        .our-farmer .social li a:hover .fab {
+            color: #fff !important;
+        }
+        
+        /* Đảm bảo social list hiển thị đúng */
+        .our-farmers-section .social,
+        .our-farmer .social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .our-farmers-section .social li,
+        .our-farmer .social li {
+            margin: 0;
+        }
+
+        /* Fix helpline section - all boxes on one row */
+        section.helpline .bgreen .inline {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        section.helpline .bgreen .inline .box {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        section.helpline .bgreen .inline .box .icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+        }
+        
+        section.helpline .bgreen .inline .box .icon i {
+            font-size: 24px;
+        }
+        
+        section.helpline .bgreen .inline .box .text-part {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+        
+        section.helpline .bgreen .inline .box .text-part h3 {
+            font-size: 16px !important;
+            line-height: 1.3;
+            margin-bottom: 3px !important;
+            white-space: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        section.helpline .bgreen .inline .box .text-part p {
+            font-size: 13px;
+            margin: 0;
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 1200px) {
+            section.helpline .bgreen .inline {
+                gap: 15px;
+            }
+            section.helpline .bgreen .inline .box {
+                gap: 10px;
+            }
+            section.helpline .bgreen .inline .box .text-part h3 {
+                font-size: 14px !important;
+            }
+            section.helpline .bgreen .inline .box .text-part p {
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            section.helpline .bgreen .inline {
+                gap: 12px;
+            }
+            section.helpline .bgreen .inline .box {
+                gap: 8px;
+            }
+            section.helpline .bgreen .inline .box .icon {
+                width: 40px;
+                height: 40px;
+            }
+            section.helpline .bgreen .inline .box .icon i {
+                font-size: 20px;
+            }
+            section.helpline .bgreen .inline .box .text-part h3 {
+                font-size: 13px !important;
+            }
+            section.helpline .bgreen .inline .box .text-part p {
+                font-size: 11px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            section.helpline .bgreen .inline {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            section.helpline .bgreen .inline .box {
+                min-width: 200px;
             }
         }
     </style>

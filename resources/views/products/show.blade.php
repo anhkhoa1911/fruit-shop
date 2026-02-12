@@ -107,8 +107,8 @@
                             </div>
                             <div class="extra">
                                 <ul class="list-inline">
-                                    <li><a href="#"><i class="icon-favorite-heart-button"></i></a></li>
-                                    <li><a href="#"><i class="icon-line-menu"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-bars"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -127,11 +127,11 @@
                                 <div class="tag-label-value">
                                     &nbsp;
                                     <ul class="social">
-                                        <li><a href="#" target="_blank"><i class="icon-facebook"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="icon-twitter"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="icon-google-plus"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="icon-pinterest"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="icon-youtube"></i></a></li>
+                                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
+                                        <li><a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a></li>
+                                        <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -218,15 +218,15 @@
                                             </div>
                                             <div class="btn-part">
                                                 <a href="{{ route('products.show', $related->slug) }}" class="cart-btn">Xem chi tiết</a>
-                                                <i class="icon-basket-supermarket"></i>
+                                                <i class="fas fa-shopping-cart"></i>
                                             </div>
                                         </div>
                                         <div class="wrapper-box-hover">
                                             <div class="text">
                                                 <ul>
-                                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                                    <li><a href="{{ route('products.show', $related->slug) }}"><i class="icon-view"></i></a></li>
-                                                    <li><a href="{{ route('contact') }}?product={{ urlencode($related->name) }}"><i class="icon-basket-supermarket"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                    <li><a href="{{ route('products.show', $related->slug) }}"><i class="fas fa-eye"></i></a></li>
+                                                    <li><a href="{{ route('contact') }}?product={{ urlencode($related->name) }}"><i class="fas fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -254,28 +254,28 @@
                 <div class="bgreen">
                     <div class="inline">
                         <div class="box">
-                            <div class="icon"> <i class="icon-delivery-truck"></i> </div>
+                            <div class="icon"> <i class="fas fa-truck"></i> </div>
                             <div class="text-part">
                                 <h3>Giao hàng tận nơi</h3>
                                 <p>Toàn quốc</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"> <i class="icon-headphones"></i> </div>
+                            <div class="icon"> <i class="fas fa-headset"></i> </div>
                             <div class="text-part">
                                 <h3>Hỗ trợ 24/7</h3>
                                 <p>Khách hàng</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"> <i class="icon-shuffle"></i> </div>
+                            <div class="icon"> <i class="fas fa-exchange-alt"></i> </div>
                             <div class="text-part">
                                 <h3>Đổi trả</h3>
                                 <p>Trong 24h</p>
                             </div>
                         </div>
                         <div class="box">
-                            <div class="icon"> <i class="icon-phone-call"></i> </div>
+                            <div class="icon"> <i class="fas fa-phone"></i> </div>
                             <div class="text-part">
                                 <h3>Hotline</h3>
                                 <p><a href="tel:{{ \App\Models\Setting::get('contact_phone', '0123456789') }}">{{ \App\Models\Setting::get('contact_phone', '0123456789') }}</a></p>
