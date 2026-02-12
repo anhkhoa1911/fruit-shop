@@ -427,6 +427,63 @@
                 min-width: 200px;
             }
         }
+
+        /* Fix smoothproducts duplicate issue */
+        .sp-wrap.sp-transitioning {
+            /* Ẩn original images sau khi plugin đã khởi tạo */
+        }
+        
+        .sp-wrap > a {
+            /* Original images - sẽ bị plugin ẩn tự động */
+        }
+        
+        /* Đảm bảo chỉ hiển thị 1 set gallery */
+        .sp-large, .sp-thumbs {
+            display: block !important;
+        }
+
+        /* Fix related products image size */
+        .related-products .related-product-slider .item {
+            max-width: 100%;
+        }
+        
+        .related-products .related-product-slider .item .wrapper {
+            max-width: 100%;
+        }
+        
+        .related-products .related-product-slider .item .pro-img {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+        }
+        
+        .related-products .related-product-slider .item .pro-img img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        
+        /* Khi chỉ có 1 item, giới hạn width và căn lề trái */
+        .related-products .owl-carousel.owl-loaded .owl-stage-outer {
+            max-width: 100%;
+        }
+        
+        .related-products .owl-carousel .owl-stage {
+            display: flex;
+            justify-content: flex-start; /* Căn lề trái */
+        }
+        
+        .related-products .owl-carousel .owl-item {
+            max-width: 300px;
+            width: 300px;
+        }
+        
+        @media (max-width: 768px) {
+            .related-products .owl-carousel .owl-item {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
