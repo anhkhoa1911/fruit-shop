@@ -13,12 +13,20 @@
                 <div class="slide-body" data-group="slide">
                     <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/slider-banner.jpg" alt="banner">
                     <div class="carouseal-caption">
-                        <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500"
-                            data-length="300">
+                        <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
                             <div class="sub-tit">Trái cây sạch, tươi ngon</div>
                             <h2><span>100%</span> Organic</h2>
-                            <div class="caption sub" data-animate="slideAppearLeftToRight" data-delay="800"
-                                data-length="300">An toàn cho sức khỏe</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="slide-body" data-group="slide">
+                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/slider-banner.jpg" alt="banner">
+                    <div class="carouseal-caption">
+                        <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                            <div class="sub-tit">Chất lượng hàng đầu</div>
+                            <h2><span>Tươi</span> Sạch</h2>
                         </div>
                     </div>
                 </div>
@@ -158,7 +166,7 @@
                                 </div>
                             </div>
                             @if($product->is_featured)
-                            <div class="new">nổi bật</div>
+                            <div class="new">Hot</div>
                             @endif
                         </div>
                     </div>
@@ -171,54 +179,6 @@
 <!-- /Featured Products -->
 
 <div class="clearfix"></div>
-
-<!-- Deal of the day -->
-<section class="deal-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-xs-12">
-                <div class="section-tit">
-                    <div class="inner">
-                        <h2><span>Deal</span> của ngày</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-xs-12">
-                <div class="row">
-                    @forelse($dealProducts as $product)
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="filterDiv fruit">
-                            <div class="img-part">
-                                @if($product->image)
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-responsive" />
-                                @else
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/deal-img-1.jpg" alt="{{ $product->name }}" class="img-responsive" />
-                                @endif
-                            </div>
-                            <div class="text-part">
-                                <div class="box-tit">{{ $product->name }}</div>
-                                <div class="price">
-                                    <div class="new-price">{{ number_format($product->sale_price ?? $product->price) }}đ</div>
-                                    @if($product->sale_price)
-                                    <div class="old-price"><del>{{ number_format($product->price) }}đ</del></div>
-                                    @endif
-                                </div>
-                                <div class="btn-part">
-                                    <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Mua ngay</a>
-                                    <i class="icon-basket-supermarket"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @empty
-                    <div class="col-12 text-center">Chưa có deal trong hôm nay.</div>
-                    @endforelse
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- /Deal of the day -->
 
 <div class="clearfix"></div>
 
@@ -436,3 +396,38 @@
 </section>
 <!-- /Services provide -->
 @endsection
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    // Reinitialize responsive slider if needed
+    if (typeof $.fn.responsiveSlider !== 'undefined') {
+        $('.responsive-slider').responsiveSlider({
+            autoplay: true,
+            speed: 800,
+            timeout: 5000
+        });
+    }
+
+    // Initialize new arrivals carousel
+    if (typeof $.fn.owlCarousel !== 'undefined' && $('.new-arrivals-slider').length) {
+        var itemCount = $('.new-arrivals-slider .item').length;
+        $('.new-arrivals-slider').owlCarousel({
+            loop: itemCount > 1, // Chỉ loop khi có nhiều hơn 1 item
+            margin: 20,
+            nav: true,
+            dots: true,
+            autoplay: itemCount > 1,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: { items: 1 },
+                480: { items: 2 },
+                768: { items: 3 },
+                992: { items: 4 }
+            }
+        });
+    }
+});
+</script>
+@endpush

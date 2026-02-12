@@ -57,6 +57,195 @@
             footer .insta-img-box { display: flex; flex-wrap: wrap; gap: 4px; }
             footer .insta-img-box img { width: calc(33.333% - 4px); height: auto; }
         }
+
+        /* Fix responsive slider display issues */
+        .responsive-slider {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .responsive-slider .slides {
+            position: relative;
+            width: 100%;
+        }
+        .responsive-slider .slides ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        .responsive-slider .slides ul li {
+            width: 100%;
+            position: relative;
+        }
+        .responsive-slider .slides ul li .slide-body {
+            width: 100%;
+            position: relative;
+            display: block;
+        }
+        .responsive-slider .slides ul li .slide-body img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* Banner caption text styling */
+        .responsive-slider .carouseal-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .responsive-slider .carouseal-caption .caption.header {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #333;
+            width: 80%;
+        }
+        .responsive-slider .carouseal-caption .caption.header .sub-tit {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .responsive-slider .carouseal-caption .caption.header h2 {
+            font-size: 72px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .responsive-slider .carouseal-caption .caption.header h2 span {
+            color: #8bc34a;
+        }
+        .responsive-slider .carouseal-caption .caption.sub {
+            position: absolute;
+            bottom: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 600;
+            font-size: 18px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            white-space: nowrap;
+        }
+        @media (max-width: 768px) {
+            .responsive-slider .carouseal-caption .caption.header h2 {
+                font-size: 36px;
+            }
+            .responsive-slider .carouseal-caption .caption.header .sub-tit {
+                font-size: 18px;
+            }
+            .responsive-slider .carouseal-caption .caption.sub {
+                font-size: 14px;
+                bottom: 30%;
+            }
+        }
+
+        /* Header alignment fixes */
+        header .bottom-header .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header .bottom-header .navbar .nav-header {
+            flex: 0 0 auto;
+        }
+        header .bottom-header .navbar .collapse {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        header .bottom-header .navbar .collapse .nav {
+            margin: 0;
+        }
+        
+        /* Dropdown menu styling */
+        .navbar-nav > li.dropdown {
+            position: relative;
+        }
+        .navbar-nav > li.dropdown .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            padding: 10px 0;
+            margin: 0;
+            list-style: none;
+            z-index: 1000;
+        }
+        .navbar-nav > li.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .navbar-nav > li.dropdown .dropdown-menu li {
+            padding: 0;
+            margin: 0;
+        }
+        .navbar-nav > li.dropdown .dropdown-menu li a {
+            display: block;
+            padding: 8px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .navbar-nav > li.dropdown .dropdown-menu li a:hover {
+            background: #f5f5f5;
+            color: #8bc34a;
+        }
+        .navbar-nav > li.dropdown > a .fa-angle-down {
+            font-size: 12px;
+            margin-left: 4px;
+        }
+
+        /* Fresh Collection Section - Auto center based on item count */
+        .fress-entry-section .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .fress-entry-section .col-sm-4 {
+            max-width: 370px;
+        }
+        .fress-entry-section img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        .fress-entry-section .tit-btn-wrapper {
+            text-align: center;
+            padding: 15px 10px;
+        }
+        .fress-entry-section .tit-btn-wrapper .tit {
+            font-size: 26px;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+            line-height: 1.3;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .fress-entry-section .tit-btn-wrapper .tit span {
+            color: #8bc34a;
+        }
+        @media (max-width: 768px) {
+            .fress-entry-section .tit-btn-wrapper .tit {
+                font-size: 20px;
+                white-space: normal;
+            }
+        }
     </style>
 </head>
 
@@ -85,19 +274,33 @@
                                     alt="logo" /></a></div>
                     </div>
                     <div class="collapse" id="organic-food-navigation">
-                        <div class="remove"><i class="icon-cancel-music"></i></div>
+                        <div class="remove"><i class="fas fa-times"></i></div>
                         <div class="menu-logo"><a href="{{ route('home') }}"><img
                                     src="https://www.ncodetechnologies.com/OrganicFoodStore/images/logo.png"
                                     alt="logo" /></a></div>
                         <ul class="nav navbar-nav">
-                            <li class="{{ request()->routeIs('home') ? 'active' : '' }}"><a
-                                    href="{{ route('home') }}">Trang chủ</a></li>
-                            <li class="{{ request()->routeIs('about') ? 'active' : '' }}"><a
-                                    href="{{ route('about') }}">Giới thiệu</a></li>
-                            <li class="{{ request()->routeIs('products.*') ? 'active' : '' }}"><a
-                                    href="{{ route('products.index') }}">Sản phẩm</a></li>
-                            <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a
-                                    href="{{ route('contact') }}">Liên hệ</a></li>
+                            <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
+                                <a href="{{ route('home') }}">Trang chủ</a>
+                            </li>
+                            <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
+                                <a href="{{ route('about') }}">Giới thiệu</a>
+                            </li>
+                            <li class="dropdown {{ request()->routeIs('products.*') ? 'active' : '' }}">
+                                <a href="{{ route('products.index') }}" class="dropdown-toggle">
+                                    Sản phẩm <i class="fas fa-angle-down"></i>
+                                </a>
+                                @if(isset($headerCategories) && $headerCategories->count())
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('products.index') }}">Tất cả sản phẩm</a></li>
+                                    @foreach($headerCategories as $cat)
+                                    <li><a href="{{ route('products.category', $cat->slug) }}">{{ $cat->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                                @endif
+                            </li>
+                            <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+                                <a href="{{ route('contact') }}">Liên hệ</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -108,7 +311,7 @@
                                 <div class="pos-rel">
                                     <input class="input-serch" type="text" name="search" placeholder="Tìm kiếm sản phẩm"
                                         value="{{ request('search') }}" />
-                                    <button type="submit" class="cross"><i class="icon-magnifying-glass"></i></button>
+                                    <button type="submit" class="cross"><i class="fas fa-search"></i></button>
                                 </div>
                             </form>
                         </div>

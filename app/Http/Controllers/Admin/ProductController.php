@@ -34,6 +34,7 @@ class ProductController extends Controller
             'unit' => 'required|string',
             'stock' => 'required|integer|min:0',
             'image' => 'nullable|image|max:2048',
+            'gallery.*' => 'nullable|image|max:2048',
             'is_featured' => 'boolean',
             'is_new' => 'boolean',
             'is_sale' => 'boolean',
@@ -45,6 +46,17 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('products', 'public');
         }
+
+        // Xử lý gallery
+        $galleryPaths = [];
+        if ($request->hasFile('gallery')) {
+            foreach ($request->file('gallery') as $file) {
+                if ($file && $file->isValid()) {
+                    $galleryPaths[] = $file->store('products/gallery', 'public');
+                }
+            }
+        }
+        $validated['gallery'] = $galleryPaths;
 
         Product::create($validated);
 
@@ -70,6 +82,7 @@ class ProductController extends Controller
             'unit' => 'required|string',
             'stock' => 'required|integer|min:0',
             'image' => 'nullable|image|max:2048',
+            'gallery.*' => 'nullable|image|max:2048',
             'is_featured' => 'boolean',
             'is_new' => 'boolean',
             'is_sale' => 'boolean',
@@ -85,6 +98,20 @@ class ProductController extends Controller
             $validated['image'] = $request->file('image')->store('products', 'public');
         }
 
+        // Xử lý gallery - merge với gallery cũ
+        if ($request->hasFile('gallery')) {
+            $existingGallery = $product->gallery ?? [];
+            $newGalleryPaths = [];
+            
+            foreach ($request->file('gallery') as $file) {
+                if ($file && $file->isValid()) {
+                    $newGalleryPaths[] = $file->store('products/gallery', 'public');
+                }
+            }
+            
+            $validated['gallery'] = array_merge($existingGallery, $newGalleryPaths);
+        }
+
         $product->update($validated);
 
         return redirect()->route('admin.products.index')
@@ -95,6 +122,13 @@ class ProductController extends Controller
     {
         if ($product->image) {
             \Storage::disk('public')->delete($product->image);
+        }
+
+        // Xóa gallery
+        if ($product->gallery && is_array($product->gallery)) {
+            foreach ($product->gallery as $galleryImage) {
+                \Storage::disk('public')->delete($galleryImage);
+            }
         }
 
         $product->delete();

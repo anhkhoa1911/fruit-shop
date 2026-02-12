@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 
 // Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Dashboard redirect (sau khi login)
+Route::middleware('auth')->get('/dashboard', function () {
+    if (auth()->user()->is_admin) {
+        return redirect()->route('admin.dashboard');
+    }
+    return redirect()->route('home');
+})->name('dashboard');
 Route::get('/san-pham', [ProductController::class, 'index'])->name('products.index');
 Route::get('/san-pham/{slug}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/danh-muc/{slug}', [ProductController::class, 'category'])->name('products.category');

@@ -72,12 +72,27 @@
             </div>
 
             <div class="col-span-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2">Hình ảnh</label>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Hình ảnh chính</label>
                 @if($product->image)
-                <img src="{{ asset('storage/' . $product->image) }}" class="mb-2 h-32 object-cover">
+                <img src="{{ asset('storage/' . $product->image) }}" class="mb-2 h-32 object-cover border rounded">
                 @endif
-                <input type="file" name="image"
+                <input type="file" name="image" accept="image/*"
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <p class="text-xs text-gray-500 mt-1">Hình đại diện sản phẩm</p>
+            </div>
+
+            <div class="col-span-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Thư viện hình ảnh</label>
+                @if($product->gallery && is_array($product->gallery) && count($product->gallery) > 0)
+                <div class="flex flex-wrap gap-2 mb-3">
+                    @foreach($product->gallery as $galleryImage)
+                    <img src="{{ asset('storage/' . $galleryImage) }}" class="h-24 w-24 object-cover border rounded">
+                    @endforeach
+                </div>
+                @endif
+                <input type="file" name="gallery[]" multiple accept="image/*"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <p class="text-xs text-gray-500 mt-1">Chọn nhiều hình để thêm vào thư viện (giữ nguyên hình cũ)</p>
             </div>
 
             <div class="col-span-2 flex gap-4">

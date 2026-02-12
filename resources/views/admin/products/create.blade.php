@@ -70,9 +70,17 @@
             </div>
 
             <div class="col-span-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2">Hình ảnh</label>
-                <input type="file" name="image"
+                <label class="block text-gray-700 text-sm font-bold mb-2">Hình ảnh chính</label>
+                <input type="file" name="image" accept="image/*"
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <p class="text-xs text-gray-500 mt-1">Hình đại diện sản phẩm (hiển thị trong danh sách)</p>
+            </div>
+
+            <div class="col-span-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Thư viện hình ảnh</label>
+                <input type="file" name="gallery[]" multiple accept="image/*"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <p class="text-xs text-gray-500 mt-1">Có thể chọn nhiều hình cùng lúc (hiển thị trong trang chi tiết sản phẩm)</p>
             </div>
 
             <div class="col-span-2 flex gap-4">

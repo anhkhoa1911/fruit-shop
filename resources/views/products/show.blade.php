@@ -36,20 +36,29 @@
 
                 <!-- product -->
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    @php
-                        $mainImg = $product->image ? asset('storage/' . $product->image) : 'https://www.ncodetechnologies.com/OrganicFoodStore/images/product-detail-img-1.jpg';
-                        $galleryImages = $product->gallery && count($product->gallery) > 0
-                            ? $product->gallery
-                            : [];
-                    @endphp
                     <div class="sp-wrap">
-                        <a href="{{ $mainImg }}"><img src="{{ $mainImg }}" alt="{{ $product->name }}"></a>
-                        @foreach($galleryImages as $gimg)
-                            <a href="{{ asset('storage/' . $gimg) }}"><img src="{{ asset('storage/' . $gimg) }}" alt="{{ $product->name }}"></a>
+                        {{-- Hình chính luôn hiển thị đầu tiên --}}
+                        @if($product->image)
+                            <a href="{{ asset('storage/' . $product->image) }}">
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                            </a>
+                        @endif
+                        
+                        {{-- Gallery images - render đơn giản không điều kiện phức tạp --}}
+                        @foreach($product->gallery ?? [] as $galleryImage)
+                            <a href="{{ asset('storage/' . $galleryImage) }}">
+                                <img src="{{ asset('storage/' . $galleryImage) }}" alt="{{ $product->name }}">
+                            </a>
                         @endforeach
-                        @if(count($galleryImages) == 0)
-                            <a href="{{ $mainImg }}"><img src="{{ $mainImg }}" alt="{{ $product->name }}"></a>
-                            <a href="{{ $mainImg }}"><img src="{{ $mainImg }}" alt="{{ $product->name }}"></a>
+                        
+                        {{-- Fallback nếu không có hình nào --}}
+                        @if(!$product->image && (!$product->gallery || count($product->gallery) == 0))
+                            <a href="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-detail-img-1.jpg">
+                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-detail-img-1.jpg" alt="{{ $product->name }}">
+                            </a>
+                            <a href="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-detail-img-1.jpg">
+                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-detail-img-1.jpg" alt="{{ $product->name }}">
+                            </a>
                         @endif
                     </div>
                 </div>
@@ -284,9 +293,18 @@
 @push('scripts')
 <script>
     $(document).ready(function() {
+        // Debug: kiểm tra số lượng ảnh trong gallery
+        var imageCount = $('.sp-wrap a').length;
+        console.log('=== GALLERY DEBUG ===');
+        console.log('Total images in .sp-wrap:', imageCount);
+        console.log('Image URLs:', $('.sp-wrap a').map(function() { return $(this).attr('href'); }).get());
+        
         // Smoothproducts gallery
         if ($('.sp-wrap').length && typeof $.fn.smoothproducts === 'function') {
             $('.sp-wrap').smoothproducts();
+            console.log('Smoothproducts initialized successfully');
+        } else {
+            console.warn('Smoothproducts plugin not available or .sp-wrap not found');
         }
         // Responsive tabs
         if ($('.responsive-tabs').length && typeof $.fn.responsiveTabs === 'function') {
