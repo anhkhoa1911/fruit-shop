@@ -248,7 +248,7 @@
             
             // Update display when slider changes
             priceSlider.on('slide', function(slideEvt) {
-                $('#min-price-display').text(slideEvt.value[0].toLocaleString('vi-VN') + 'đ');
+                $('#min-price-display').text(slideEvt.value[0].toLocaleString('vi-VN') + 'đ - ');
                 $('#max-price-display').text(slideEvt.value[1].toLocaleString('vi-VN') + 'đ');
             });
         }
