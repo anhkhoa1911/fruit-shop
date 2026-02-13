@@ -21,7 +21,6 @@
                 <li><a href="{{ route('blog.index') }}">Blog</a></li>
                 <li>{{ $post->title }}</li>
             </ul>
-            <h1 class="page-tit">{{ $post->title }}</h1>
         </div>
     </div>
 </section>
@@ -33,18 +32,13 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <article class="blog-post">
-                    @if($post->thumbnail)
-                    <div class="post-thumbnail" style="margin-bottom: 30px;">
-                        <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-responsive" style="width: 100%; border-radius: 8px;" />
-                    </div>
-                    @endif
-                    
+                    <h1 class="blog-detail-title">{{ $post->title }}</h1>
                     <div class="post-meta" style="margin-bottom: 20px; color: #999; font-size: 14px;">
                         <span><i class="fas fa-calendar"></i> {{ $post->created_at->format('d/m/Y H:i') }}</span>
                         <span style="margin-left: 20px;"><i class="fas fa-eye"></i> {{ $post->views }} lượt xem</span>
                     </div>
                     
-                    <div class="post-content" style="line-height: 1.8; color: #555; font-size: 16px;">
+                    <div class="post-content" style="line-height: 1.8; color: #555; font-size: 16px; text-align: left;">
                         @if($post->excerpt)
                         <div class="post-excerpt" style="font-size: 18px; color: #333; margin-bottom: 25px; font-weight: 500;">
                             {{ $post->excerpt }}

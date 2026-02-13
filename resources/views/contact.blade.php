@@ -95,7 +95,6 @@
                         </ul>
                     </div>
                     @endif
-                    <p style="color: #666; font-size: 14px; margin-bottom: 15px;"><em>Lưu ý: Giới hạn 3 tin nhắn mỗi 10 phút để tránh spam.</em></p>
                     <form action="{{ route('contact.store') }}" method="post">
                         @csrf
                         <div class="form-group col-sm-12 col-xs-12">

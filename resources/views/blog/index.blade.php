@@ -49,7 +49,7 @@
                                     </a>
                                 </div>
                                 @if($post->excerpt)
-                                <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 10px;">{{ Str::limit($post->excerpt, 100) }}</p>
+                                <p class="blog-card-excerpt">{{ Str::limit($post->excerpt, 140) }}</p>
                                 @endif
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
                                     <span style="color: #999; font-size: 13px;">{{ $post->created_at->format('d/m/Y') }}</span>

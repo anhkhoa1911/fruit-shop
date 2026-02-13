@@ -185,8 +185,17 @@
         /* Dropdown menu items */
         .navbar-nav > li.dropdown .dropdown-menu li a {
             font-size: 15px !important;
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
             text-transform: none;
+        }
+
+        /* Blog listing card description - left aligned with fixed height */
+        .blog-card-excerpt {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-align: left;
+            min-height: 70px;
         }
         
         /* Dropdown menu styling with smooth animation */
@@ -635,6 +644,36 @@
             font-size: 26px !important;
             font-weight: 700 !important;
             margin-bottom: 20px !important;
+        }
+
+        /* Blog listing card title (2 lines max, đồng bộ chiều cao) */
+        .blog-list-title {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-height: 1.4;
+            min-height: 2.8em; /* luôn chừa chỗ cho 2 dòng */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Blog listing card description - canh trái, chiều cao cố định để các block đều nhau */
+        .blog-card-excerpt {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-align: left;
+            height: 4.8em; /* ~3 dòng */
+            overflow: hidden;
+        }
+
+        /* Blog detail page title - nhỏ hơn, in đậm, ngay trên meta */
+        .blog-detail-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
         
         @media (max-width: 768px) {
