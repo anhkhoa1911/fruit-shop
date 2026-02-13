@@ -87,7 +87,11 @@
                         @endif
                         <div class="cart-process">
                             <div class="cart">
-                                <a href="{{ route('contact') }}?product={{ urlencode($product->name) }}" class="cart-btn">Liên hệ đặt hàng</a>
+                                <a href="#" class="cart-btn zalo-contact-btn"
+                                   data-product-name="{{ $product->name }}"
+                                   data-product-id="{{ $product->id }}">
+                                    Liên hệ đặt hàng
+                                </a>
                             </div>
                         </div>
                         <div class="tag-box">
@@ -138,9 +142,7 @@
                                         <div class="wrapper-box-hover">
                                             <div class="text">
                                                 <ul>
-                                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
                                                     <li><a href="{{ route('products.show', $related->slug) }}"><i class="fas fa-eye"></i></a></li>
-                                                    <li><a href="{{ route('contact') }}?product={{ urlencode($related->name) }}"><i class="fas fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -203,6 +205,37 @@
 </section>
 <!-- /Services provide -->
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.querySelector('.zalo-contact-btn');
+        if (!btn) return;
+
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            var name = this.getAttribute('data-product-name') || '';
+            var id = this.getAttribute('data-product-id') || '';
+            var phone = '{{ \App\Models\Setting::get('contact_phone', '') }}';
+
+            if (!phone) {
+                return;
+            }
+
+            // Chuẩn hoá số điện thoại chỉ còn chữ số
+            var normalizedPhone = phone.replace(/[^0-9]/g, '');
+
+            var message = 'Chào shop, tôi muốn đặt hàng sản phẩm ' + name + ' (Mã SP: ' + id + ').';
+            var encodedMessage = encodeURIComponent(message);
+
+            // Link Zalo: mở chat với sẵn nội dung, trong tab/app mới
+            var zaloUrl = 'https://zalo.me/' + normalizedPhone + '?text=' + encodedMessage;
+            window.open(zaloUrl, '_blank');
+        });
+    });
+</script>
+@endpush
 
 @push('scripts')
 <script>

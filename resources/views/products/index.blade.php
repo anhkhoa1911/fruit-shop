@@ -136,9 +136,7 @@
                             <div class="wrapper-box-hover">
                                 <div class="text">
                                     <ul>
-                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
                                         <li><a href="{{ route('products.show', $product->slug) }}"><i class="fas fa-eye"></i></a></li>
-                                        <li><a href="{{ route('contact') }}?product={{ urlencode($product->name) }}"><i class="fas fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
