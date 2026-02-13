@@ -20,7 +20,6 @@
                 <li><a href="{{ route('home') }}">Trang chủ</a></li>
                 <li>Giới thiệu</li>
             </ul>
-            <h1 class="page-tit">Giới thiệu</h1>
         </div>
     </div>
 </section>

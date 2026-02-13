@@ -165,6 +165,9 @@
                                         tiết</a>
                                 </div>
                             </div>
+                            @if($product->is_sale && $product->sale_price)
+                            <div class="sale">sale</div>
+                            @endif
                             @if($product->is_featured)
                             <div class="new">Hot</div>
                             @endif

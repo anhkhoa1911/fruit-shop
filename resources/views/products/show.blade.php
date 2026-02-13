@@ -22,7 +22,6 @@
                 <li><a href="{{ route('products.category', $product->category->slug) }}">{{ $product->category->name }}</a></li>
                 <li>{{ $product->name }}</li>
             </ul>
-            <h1 class="page-tit">{{ $product->name }}</h1>
         </div>
     </div>
 </section>

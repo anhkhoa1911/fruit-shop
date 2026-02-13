@@ -21,7 +21,6 @@
                 <li><a href="{{ route('products.index') }}">Sản phẩm</a></li>
                 <li>{{ $category->name }}</li>
             </ul>
-            <h1 class="page-tit">{{ $category->name }}</h1>
         </div>
     </div>
 </section>

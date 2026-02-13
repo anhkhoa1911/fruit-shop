@@ -638,7 +638,23 @@
         .related-products .item .contain-wrapper .btn-part i {
             font-size: 15px !important;
         }
-        
+
+        /* Product listing cards (tất cả trang danh sách sản phẩm) */
+        #products.product-list .contain-wrapper .tit {
+            font-size: 18px !important;
+            font-weight: 500 !important;
+            margin-top: 10px !important;
+            padding-bottom: 10px !important;
+            line-height: 1.4;
+            color: #333;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        /* Product listing contain-wrapper - bỏ padding/margin-bottom mặc định */
+        #products.product-list .wrapper .contain-wrapper {
+            min-height: 170px !important;
+        }
+
         /* Section title */
         .related-products .tit h2 {
             font-size: 26px !important;
