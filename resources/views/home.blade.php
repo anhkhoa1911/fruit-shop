@@ -39,7 +39,7 @@
 <div class="clearfix"></div>
 
 <!-- Fresh Collection -->
-<section class="fress-entry-section">
+{{-- <section class="fress-entry-section">
     <div class="pos-absolute">
         <div class="container">
             <div class="row">
@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="clearfix"></div>
-</section>
+</section> --}}
 <!-- /Fresh Collection -->
 
 @php
