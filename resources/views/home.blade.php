@@ -254,14 +254,14 @@
 
 <div class="clearfix"></div>
 
-<!-- New Arrival -->
+<!-- Trái cây tươi -->
 <section class="new-arrivals-section section-padding">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2><span>Sản phẩm</span> mới</h2>
+                        <h2><span>Trái cây tươi</span></h2>
                     </div>
                 </div>
             </div>
@@ -293,18 +293,18 @@
         </div>
     </div>
 </section>
-<!-- /New Arrival -->
+<!-- /Trái cây tươi -->
 
 <div class="clearfix"></div>
 
-<!-- Featured Products -->
+<!-- Ứng dụng và giải pháp sản phẩm -->
 <section class="new-arrivals-section section-padding">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2><span>Sản phẩm</span> nổi bật</h2>
+                        <h2><span>Ứng dụng & giải pháp sản phẩm</span></h2>
                     </div>
                 </div>
             </div>
@@ -336,7 +336,7 @@
         </div>
     </div>
 </section>
-<!-- /Featured Products -->
+<!-- /Ứng dụng và giải pháp sản phẩm -->
 
 <div class="clearfix"></div>
 
@@ -354,8 +354,8 @@
             </div>
             <div class="col-sm-4 rpart">
                 <div class="bg equal-height">
-                    <h3 class="free-shipping">Giao hàng miễn phí</h3>
-                    <p>Đơn hàng trên 500.000đ</p>
+                    <h3 class="free-shipping">Ứng dụng & giải pháp sản phẩm</h3>
+                    <br>
                     <a href="{{ route('products.index') }}" class="shop-btn-1">Liên hệ chúng tôi</a>
                 </div>
             </div>

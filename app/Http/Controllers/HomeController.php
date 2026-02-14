@@ -12,15 +12,16 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // Sản phẩm nổi bật = tất cả sản phẩm trong danh mục slug "ung-dung-va-giai-phap-san-pham"
         $featuredProducts = Product::where('is_active', true)
-            ->where('is_featured', true)
+            ->whereHas('category', fn ($q) => $q->where('slug', 'ung-dung-va-giai-phap-san-pham'))
             ->with('category')
             ->latest()
-            ->take(8)
             ->get();
 
+        // Sản phẩm mới = sản phẩm thuộc danh mục có slug khác "ung-dung-va-giai-phap-san-pham"
         $newProducts = Product::where('is_active', true)
-            ->where('is_new', true)
+            ->whereHas('category', fn ($q) => $q->where('slug', '!=', 'ung-dung-va-giai-phap-san-pham'))
             ->with('category')
             ->latest()
             ->take(6)
