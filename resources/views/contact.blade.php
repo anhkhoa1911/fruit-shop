@@ -31,10 +31,6 @@
     <section class="address-part">
         <div class="container">
             <div class="row">
-                <div class="logo-part">
-                    <img src="{{ asset('images/contact-page-logo.png') }}" alt="logo"
-                        class="img-responsive center-block" />
-                </div>
                 <div class="inner-part">
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="box address-box">
