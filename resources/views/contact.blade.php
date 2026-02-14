@@ -8,7 +8,8 @@
 <!-- Banner -->
 <section class="sub-banner">
     <h2 class="sr-only">Banner</h2>
-    <img class="banner" src="https://www.ncodetechnologies.com/OrganicFoodStore/images/cart-page-banner.jpg" alt="banner" />
+    <img class="banner" src="https://www.ncodetechnologies.com/OrganicFoodStore/images/cart-page-banner.jpg"
+        alt="banner" />
 </section>
 <!-- /Banner -->
 
@@ -30,11 +31,16 @@
     <section class="address-part">
         <div class="container">
             <div class="row">
+                <div class="logo-part">
+                    <img src="{{ asset('images/contact-page-logo.png') }}" alt="logo"
+                        class="img-responsive center-block" />
+                </div>
                 <div class="inner-part">
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="box address-box">
                             <div class="icon-part">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/location-icon.png" alt="địa chỉ" class="img-responsive center-block" />
+                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/location-icon.png"
+                                    alt="địa chỉ" class="img-responsive center-block" />
                             </div>
                             <div class="tit">
                                 <h3>Địa chỉ</h3>
@@ -45,22 +51,26 @@
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="box phone-box">
                             <div class="icon-part">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/phone-icon.png" alt="điện thoại" class="img-responsive center-block" />
+                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/phone-icon.png"
+                                    alt="điện thoại" class="img-responsive center-block" />
                             </div>
                             <div class="tit">
                                 <h3>Điện thoại</h3>
-                                <p><a href="tel:{{ $contactInfo['phone'] ?? '' }}">{{ $contactInfo['phone'] ?? 'Chưa cập nhật' }}</a></p>
+                                <p><a href="tel:{{ $contactInfo['phone'] ?? '' }}">{{ $contactInfo['phone'] ?? 'Chưa cập
+                                        nhật' }}</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="box email-box">
                             <div class="icon-part">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/message-icon.png" alt="email" class="img-responsive center-block" />
+                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/message-icon.png"
+                                    alt="email" class="img-responsive center-block" />
                             </div>
                             <div class="tit">
                                 <h3>Email</h3>
-                                <p><a href="mailto:{{ $contactInfo['email'] ?? '' }}">{{ $contactInfo['email'] ?? 'Chưa cập nhật' }}</a></p>
+                                <p><a href="mailto:{{ $contactInfo['email'] ?? '' }}">{{ $contactInfo['email'] ?? 'Chưa
+                                        cập nhật' }}</a></p>
                             </div>
                         </div>
                     </div>
@@ -94,16 +104,20 @@
                     <form action="{{ route('contact.store') }}" method="post">
                         @csrf
                         <div class="form-group col-sm-12 col-xs-12">
-                            <input type="text" name="name" class="form-control" placeholder="Họ tên" value="{{ old('name') }}" required />
+                            <input type="text" name="name" class="form-control" placeholder="Họ tên"
+                                value="{{ old('name') }}" required />
                         </div>
                         <div class="form-group col-sm-12 col-xs-12">
-                            <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required />
+                            <input type="email" name="email" class="form-control" placeholder="Email"
+                                value="{{ old('email') }}" required />
                         </div>
                         <div class="form-group col-sm-12 col-xs-12">
-                            <input type="text" name="phone" class="form-control" placeholder="Số điện thoại" value="{{ old('phone') }}" />
+                            <input type="text" name="phone" class="form-control" placeholder="Số điện thoại"
+                                value="{{ old('phone') }}" />
                         </div>
                         <div class="form-group col-sm-12 col-xs-12">
-                            <textarea name="message" class="form-control" placeholder="Nội dung tin nhắn" rows="5">{{ old('message') }}</textarea>
+                            <textarea name="message" class="form-control" placeholder="Nội dung tin nhắn"
+                                rows="5">{{ old('message') }}</textarea>
                         </div>
                         <div class="form-group col-sm-12 col-xs-12">
                             <button type="submit" class="submit">Gửi tin nhắn</button>
@@ -112,7 +126,10 @@
                 </div>
             </div>
             <div class="col-sm-6 col-xs-12 map-section equal-height googlemap">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.651716299999!2d106.701276315332!3d21.013557786006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a58f0b0d0c0a1%3A0x2c5c5c5c5c5c5c5c!2zS-G6o2kgUGjDqm4sIEhhbm9p!5e0!3m2!1svi!2s!4v1600000000000!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.651716299999!2d106.701276315332!3d21.013557786006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a58f0b0d0c0a1%3A0x2c5c5c5c5c5c5c5c!2zS-G6o2kgUGjDqm4sIEhhbm9p!5e0!3m2!1svi!2s!4v1600000000000!5m2!1svi!2s"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -151,7 +168,8 @@
                             <div class="icon"><i class="fas fa-phone"></i></div>
                             <div class="text-part">
                                 <h3>Hotline</h3>
-                                <p><a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{ \App\Models\Setting::get('contact_phone', '0123456789') }}</a></p>
+                                <p><a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{
+                                        \App\Models\Setting::get('contact_phone', '0123456789') }}</a></p>
                             </div>
                         </div>
                     </div>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description', 'Cửa hàng trái cây sạch, tươi ngon')">
     <title>@yield('title', 'Trang chủ') - Cửa hàng trái cây</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
@@ -37,36 +37,66 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
         rel="stylesheet">
     <!-- Font Awesome (footer social icons - reliable CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Fix: Load fontello font with absolute URLs so icons display on any domain -->
     <style>
         @font-face {
             font-family: 'fontello';
             src: url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.eot?68475362');
             src: url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.eot?68475362#iefix') format('embedded-opentype'),
-                 url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.woff2?68475362') format('woff2'),
-                 url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.woff?68475362') format('woff'),
-                 url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.ttf?68475362') format('truetype'),
-                 url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.svg?68475362#fontello') format('svg');
+                url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.woff2?68475362') format('woff2'),
+                url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.woff?68475362') format('woff'),
+                url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.ttf?68475362') format('truetype'),
+                url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.svg?68475362#fontello') format('svg');
             font-weight: normal;
             font-style: normal;
         }
-        /* Logo max size - tránh logo quá to */
-        .logo img,
-        .menu-logo img { max-width: 180px; height: auto; }
-        footer .top-footer .logo img { max-width: 160px; height: auto; }
-        .logo-part img { max-width: 200px; height: auto; }
+
+        /* Logo max-width - tránh logo quá to */
+        .nav-header .logo img,
+        .menu-logo img {
+            max-width: 200px;
+            height: auto;
+        }
+        footer .top-footer .logo img {
+            max-width: 180px;
+            height: auto;
+        }
+        .logo-part img {
+            max-width: 220px;
+            height: auto;
+        }
 
         /* Footer responsive */
         @media (max-width: 767px) {
+
             footer .top-footer .logo-btm .adress,
             footer .top-footer .logo-btm .phone,
-            footer .top-footer .logo-btm .mail { display: flex; align-items: flex-start; gap: 8px; }
+            footer .top-footer .logo-btm .mail {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
             footer .top-footer .logo-btm .adress i,
             footer .top-footer .logo-btm .phone i,
-            footer .top-footer .logo-btm .mail i { flex-shrink: 0; margin-top: 2px; }
-            footer .insta-img-box { display: flex; flex-wrap: wrap; gap: 4px; }
-            footer .insta-img-box img { width: calc(33.333% - 4px); height: auto; }
+            footer .top-footer .logo-btm .mail i {
+                flex-shrink: 0;
+                margin-top: 2px;
+            }
+
+            footer .insta-img-box {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+
+            footer .insta-img-box img {
+                width: calc(33.333% - 4px);
+                height: auto;
+            }
         }
 
         /* Fix responsive slider display issues */
@@ -75,30 +105,36 @@
             position: relative;
             overflow: hidden;
         }
+
         .responsive-slider .slides {
             position: relative;
             width: 100%;
         }
+
         .responsive-slider .slides ul {
             list-style: none;
             margin: 0;
             padding: 0;
             width: 100%;
         }
+
         .responsive-slider .slides ul li {
             width: 100%;
             position: relative;
         }
+
         .responsive-slider .slides ul li .slide-body {
             width: 100%;
             position: relative;
             display: block;
         }
+
         .responsive-slider .slides ul li .slide-body img {
             width: 100%;
             height: auto;
             display: block;
         }
+
         /* Banner caption text styling */
         .responsive-slider .carouseal-caption {
             position: absolute;
@@ -109,6 +145,7 @@
             z-index: 10;
             pointer-events: none;
         }
+
         .responsive-slider .carouseal-caption .caption.header {
             position: absolute;
             top: 50%;
@@ -118,24 +155,28 @@
             color: #333;
             width: 80%;
         }
+
         .responsive-slider .carouseal-caption .caption.header .sub-tit {
             font-size: 28px;
             font-weight: 300;
             margin-bottom: 15px;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
+
         .responsive-slider .carouseal-caption .caption.header h2 {
             font-size: 72px;
             font-weight: 700;
             margin: 0;
             line-height: 1.2;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
+
         .responsive-slider .carouseal-caption .caption.header h2 span {
             color: #8bc34a;
         }
+
         .responsive-slider .carouseal-caption .caption.sub {
             position: absolute;
             bottom: 35%;
@@ -144,16 +185,19 @@
             font-weight: 600;
             font-size: 18px;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             white-space: nowrap;
         }
+
         @media (max-width: 768px) {
             .responsive-slider .carouseal-caption .caption.header h2 {
                 font-size: 36px;
             }
+
             .responsive-slider .carouseal-caption .caption.header .sub-tit {
                 font-size: 18px;
             }
+
             .responsive-slider .carouseal-caption .caption.sub {
                 font-size: 14px;
                 bottom: 30%;
@@ -166,30 +210,33 @@
             align-items: center;
             justify-content: space-between;
         }
+
         header .bottom-header .navbar .nav-header {
             flex: 0 0 auto;
         }
+
         header .bottom-header .navbar .collapse {
             flex: 1;
             display: flex;
             justify-content: center;
         }
+
         header .bottom-header .navbar .collapse .nav {
             margin: 0;
         }
-        
+
         /* Menu styling - Font lớn hơn, đậm hơn, font-family đẹp */
-        .navbar-nav > li > a {
+        .navbar-nav>li>a {
             font-size: 16px !important;
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
             letter-spacing: 0.3px;
             padding: 15px 20px !important;
         }
-        
-        .navbar-nav > li.active > a,
-        
+
+        .navbar-nav>li.active>a,
+
         /* Dropdown menu items */
-        .navbar-nav > li.dropdown .dropdown-menu li a {
+        .navbar-nav>li.dropdown .dropdown-menu li a {
             font-size: 15px !important;
             text-transform: none;
         }
@@ -203,18 +250,19 @@
             text-align: left;
             min-height: 70px;
         }
-        
+
         /* Dropdown menu styling with smooth animation */
-        .navbar-nav > li.dropdown {
+        .navbar-nav>li.dropdown {
             position: relative;
         }
-        .navbar-nav > li.dropdown .dropdown-menu {
+
+        .navbar-nav>li.dropdown .dropdown-menu {
             position: absolute;
             top: 100%;
             left: 0;
             background: #fff;
             min-width: 200px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             border-radius: 4px;
             padding: 10px 0;
             margin: 0;
@@ -227,16 +275,19 @@
             transform: translateY(-10px);
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        .navbar-nav > li.dropdown:hover .dropdown-menu {
+
+        .navbar-nav>li.dropdown:hover .dropdown-menu {
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0);
         }
-        .navbar-nav > li.dropdown .dropdown-menu li {
+
+        .navbar-nav>li.dropdown .dropdown-menu li {
             padding: 0;
             margin: 0;
         }
-        .navbar-nav > li.dropdown .dropdown-menu li a {
+
+        .navbar-nav>li.dropdown .dropdown-menu li a {
             display: block;
             padding: 10px 20px;
             color: #333;
@@ -244,18 +295,21 @@
             transition: all 0.2s ease;
             border-left: 3px solid transparent;
         }
-        .navbar-nav > li.dropdown .dropdown-menu li a:hover {
+
+        .navbar-nav>li.dropdown .dropdown-menu li a:hover {
             background: #f8f9fa;
             color: #8bc34a;
             border-left-color: #8bc34a;
             padding-left: 23px;
         }
-        .navbar-nav > li.dropdown > a .fa-angle-down {
+
+        .navbar-nav>li.dropdown>a .fa-angle-down {
             font-size: 12px;
             margin-left: 4px;
             transition: transform 0.3s ease;
         }
-        .navbar-nav > li.dropdown:hover > a .fa-angle-down {
+
+        .navbar-nav>li.dropdown:hover>a .fa-angle-down {
             transform: rotate(180deg);
         }
 
@@ -265,19 +319,23 @@
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .fress-entry-section .col-sm-4 {
             max-width: 370px;
         }
+
         .fress-entry-section img {
             width: 100%;
             height: 280px;
             object-fit: cover;
             display: block;
         }
+
         .fress-entry-section .tit-btn-wrapper {
             text-align: center;
             padding: 15px 10px;
         }
+
         .fress-entry-section .tit-btn-wrapper .tit {
             font-size: 26px;
             font-weight: 600;
@@ -288,9 +346,11 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         .fress-entry-section .tit-btn-wrapper .tit span {
             color: #8bc34a;
         }
+
         @media (max-width: 768px) {
             .fress-entry-section .tit-btn-wrapper .tit {
                 font-size: 20px;
@@ -313,12 +373,12 @@
             border: 2px solid #8bc34a !important;
             transition: all 0.3s ease;
         }
-        
+
         .our-farmers-section .social li a::before,
         .our-farmer .social li a::before {
             display: none !important;
         }
-        
+
         .our-farmers-section .social li a i,
         .our-farmer .social li a i,
         .our-farmers-section .contain-wrapper .social li a i,
@@ -332,14 +392,14 @@
             opacity: 1 !important;
             visibility: visible !important;
         }
-        
+
         .our-farmers-section .social li a:hover,
         .our-farmer .social li a:hover,
         .our-farmers-section .contain-wrapper .social li a:hover,
         section.our-farmers-section ul.social li a:hover {
             background-color: #8bc34a !important;
         }
-        
+
         .our-farmers-section .social li a:hover i,
         .our-farmer .social li a:hover i,
         .our-farmers-section .contain-wrapper .social li a:hover i,
@@ -348,7 +408,7 @@
         .our-farmer .social li a:hover .fab {
             color: #fff !important;
         }
-        
+
         /* Đảm bảo social list hiển thị đúng */
         .our-farmers-section .social,
         .our-farmer .social {
@@ -359,7 +419,7 @@
             padding: 0;
             list-style: none;
         }
-        
+
         .our-farmers-section .social li,
         .our-farmer .social li {
             margin: 0;
@@ -373,7 +433,7 @@
             align-items: center;
             gap: 20px;
         }
-        
+
         section.helpline .bgreen .inline .box {
             flex: 1;
             min-width: 0;
@@ -381,23 +441,23 @@
             align-items: center;
             gap: 12px;
         }
-        
+
         section.helpline .bgreen .inline .box .icon {
             flex-shrink: 0;
             width: 50px;
             height: 50px;
         }
-        
+
         section.helpline .bgreen .inline .box .icon i {
             font-size: 24px;
         }
-        
+
         section.helpline .bgreen .inline .box .text-part {
             flex: 1;
             min-width: 0;
             overflow: hidden;
         }
-        
+
         section.helpline .bgreen .inline .box .text-part h3 {
             font-size: 16px !important;
             line-height: 1.3;
@@ -406,55 +466,64 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         section.helpline .bgreen .inline .box .text-part p {
             font-size: 13px;
             margin: 0;
             white-space: nowrap;
         }
-        
+
         @media (max-width: 1200px) {
             section.helpline .bgreen .inline {
                 gap: 15px;
             }
+
             section.helpline .bgreen .inline .box {
                 gap: 10px;
             }
+
             section.helpline .bgreen .inline .box .text-part h3 {
                 font-size: 14px !important;
             }
+
             section.helpline .bgreen .inline .box .text-part p {
                 font-size: 12px;
             }
         }
-        
+
         @media (max-width: 991px) {
             section.helpline .bgreen .inline {
                 gap: 12px;
             }
+
             section.helpline .bgreen .inline .box {
                 gap: 8px;
             }
+
             section.helpline .bgreen .inline .box .icon {
                 width: 40px;
                 height: 40px;
             }
+
             section.helpline .bgreen .inline .box .icon i {
                 font-size: 20px;
             }
+
             section.helpline .bgreen .inline .box .text-part h3 {
                 font-size: 13px !important;
             }
+
             section.helpline .bgreen .inline .box .text-part p {
                 font-size: 11px;
             }
         }
-        
+
         @media (max-width: 767px) {
             section.helpline .bgreen .inline {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
             }
+
             section.helpline .bgreen .inline .box {
                 min-width: 200px;
             }
@@ -464,13 +533,14 @@
         .sp-wrap.sp-transitioning {
             /* Ẩn original images sau khi plugin đã khởi tạo */
         }
-        
-        .sp-wrap > a {
+
+        .sp-wrap>a {
             /* Original images - sẽ bị plugin ẩn tự động */
         }
-        
+
         /* Đảm bảo chỉ hiển thị 1 set gallery */
-        .sp-large, .sp-thumbs {
+        .sp-large,
+        .sp-thumbs {
             display: block !important;
         }
 
@@ -478,38 +548,39 @@
         .related-products .related-product-slider .item {
             max-width: 100%;
         }
-        
+
         .related-products .related-product-slider .item .wrapper {
             max-width: 100%;
         }
-        
+
         .related-products .related-product-slider .item .pro-img {
             width: 100%;
             height: 280px;
             overflow: hidden;
         }
-        
+
         .related-products .related-product-slider .item .pro-img img {
             width: 100%;
             height: 280px;
             object-fit: cover;
         }
-        
+
         /* Khi chỉ có 1 item, giới hạn width và căn lề trái */
         .related-products .owl-carousel.owl-loaded .owl-stage-outer {
             max-width: 100%;
         }
-        
+
         .related-products .owl-carousel .owl-stage {
             display: flex;
-            justify-content: flex-start; /* Căn lề trái */
+            justify-content: flex-start;
+            /* Căn lề trái */
         }
-        
+
         .related-products .owl-carousel .owl-item {
             max-width: 300px;
             width: 300px;
         }
-        
+
         @media (max-width: 768px) {
             .related-products .owl-carousel .owl-item {
                 max-width: 100%;
@@ -525,77 +596,80 @@
             color: #333;
             line-height: 1.3;
         }
-        
+
         .product-single-meta .price {
             margin: 15px 0 20px 0 !important;
         }
-        
+
         .product-single-meta .price .new-price {
             font-size: 28px !important;
             font-weight: 700 !important;
             color: #8bc34a !important;
             display: inline-block;
         }
-        
+
         .product-single-meta .price .old-price {
             font-size: 20px !important;
             color: #999 !important;
             margin-left: 10px;
             display: inline-block;
         }
-        
+
         .product-single-meta .availablity {
             font-size: 17px !important;
             margin: 15px 0 !important;
             font-weight: 500;
         }
-        
+
         .product-single-meta .availablity span {
             font-weight: 700;
             color: #8bc34a;
         }
-        
+
         .product-single-meta .product-information {
             font-size: 16px !important;
             line-height: 1.7 !important;
             color: #555;
             margin: 15px 0 !important;
         }
-        
+
         .product-single-meta .product-information strong {
             font-size: 17px;
             color: #333;
         }
-        
+
         .product-single-meta .cart-btn {
             font-size: 15px !important;
             font-weight: 600 !important;
             padding: 11px 28px !important;
         }
-        
+
         .product-single-meta .tag-box .tag-label {
             font-size: 15px !important;
             font-weight: 600;
         }
-        
+
         .product-single-meta .tag-box .tag-label-value {
             font-size: 15px !important;
         }
-        
+
         .product-single-meta .tag-box .tag-label-value a {
             font-size: 15px !important;
         }
-        
+
         @media (max-width: 768px) {
             .product-single-meta .product-name {
                 font-size: 24px !important;
             }
+
             .product-single-meta .price .new-price {
                 font-size: 22px !important;
             }
+
             .product-single-meta .price .old-price {
                 font-size: 16px !important;
             }
+
             .product-single-meta .product-information {
                 font-size: 14px !important;
             }
@@ -605,7 +679,7 @@
         .related-products .item .contain-wrapper {
             padding: 8px 12px 10px 12px !important;
         }
-        
+
         .related-products .item .contain-wrapper .tit {
             font-size: 15px !important;
             font-weight: 600 !important;
@@ -614,33 +688,33 @@
             line-height: 1.3;
             color: #333;
         }
-        
+
         .related-products .item .contain-wrapper .price {
             margin: 3px 0 !important;
         }
-        
+
         .related-products .item .contain-wrapper .price .new-price {
             font-size: 17px !important;
             font-weight: 700 !important;
             color: #8bc34a !important;
         }
-        
+
         .related-products .item .contain-wrapper .price .old-price {
             font-size: 13px !important;
             color: #999 !important;
             margin-top: 2px;
         }
-        
+
         .related-products .item .contain-wrapper .btn-part {
             margin-top: 5px !important;
         }
-        
+
         .related-products .item .contain-wrapper .btn-part .cart-btn {
             font-size: 13px !important;
             font-weight: 600 !important;
             padding: 7px 14px !important;
         }
-        
+
         .related-products .item .contain-wrapper .btn-part i {
             font-size: 15px !important;
         }
@@ -674,7 +748,8 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             line-height: 1.4;
-            min-height: 2.8em; /* luôn chừa chỗ cho 2 dòng */
+            min-height: 2.8em;
+            /* luôn chừa chỗ cho 2 dòng */
             overflow: hidden;
             text-overflow: ellipsis;
         }
@@ -686,7 +761,8 @@
             line-height: 1.6;
             margin-bottom: 10px;
             text-align: left;
-            height: 4.8em; /* ~3 dòng */
+            height: 4.8em;
+            /* ~3 dòng */
             overflow: hidden;
         }
 
@@ -697,15 +773,17 @@
             margin-bottom: 10px;
             line-height: 1.3;
         }
-        
+
         @media (max-width: 768px) {
             .related-products .item .contain-wrapper .tit {
                 font-size: 15px !important;
                 min-height: auto;
             }
+
             .related-products .item .contain-wrapper .price .new-price {
                 font-size: 17px !important;
             }
+
             .related-products .tit h2 {
                 font-size: 22px !important;
             }
@@ -733,14 +811,12 @@
                     <div class="nav-header">
                         <button type="button" class="navbar-toggle"> <span class="icon-bar"></span> <span
                                 class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                        <div class="logo"><a href="{{ route('home') }}"><img
-                                    src="{{ asset('images/logo.png') }}"
+                        <div class="logo"><a href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}"
                                     alt="logo" /></a></div>
                     </div>
                     <div class="collapse" id="organic-food-navigation">
                         <div class="remove"><i class="fas fa-times"></i></div>
-                        <div class="menu-logo"><a href="{{ route('home') }}"><img
-                                    src="{{ asset('images/logo.png') }}"
+                        <div class="menu-logo"><a href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}"
                                     alt="logo" /></a></div>
                         <ul class="nav navbar-nav">
                             <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
@@ -806,11 +882,13 @@
                         </div>
                         <div class="phone">
                             <i class="fas fa-phone" aria-hidden="true"></i>
-                            <a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{ \App\Models\Setting::get('contact_phone', '0123456789') }}</a>
+                            <a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{
+                                \App\Models\Setting::get('contact_phone', '0123456789') }}</a>
                         </div>
                         <div class="mail">
                             <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <a href="mailto:{{ \App\Models\Setting::get('contact_email') }}">{{ \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}</a>
+                            <a href="mailto:{{ \App\Models\Setting::get('contact_email') }}">{{
+                                \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}</a>
                         </div>
                     </div>
                 </div>
@@ -843,12 +921,18 @@
                 <div class="col-md-2 col-sm-12 col-xs-12">
                     <div class="widget-title">Instagram</div>
                     <div class="insta-img-box">
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-1.jpg" alt="photo" class="img-responsive" />
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-2.jpg" alt="photo" class="img-responsive" />
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-3.jpg" alt="photo" class="img-responsive" />
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-4.jpg" alt="photo" class="img-responsive" />
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-5.jpg" alt="photo" class="img-responsive" />
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-6.jpg" alt="photo" class="img-responsive" />
+                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-1.jpg"
+                            alt="photo" class="img-responsive" />
+                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-2.jpg"
+                            alt="photo" class="img-responsive" />
+                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-3.jpg"
+                            alt="photo" class="img-responsive" />
+                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-4.jpg"
+                            alt="photo" class="img-responsive" />
+                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-5.jpg"
+                            alt="photo" class="img-responsive" />
+                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-6.jpg"
+                            alt="photo" class="img-responsive" />
                     </div>
                 </div>
             </div>
@@ -859,15 +943,21 @@
                 <div class="col-md-4 col-sm-12 col-xs-12 center-part">
                     <ul class="social">
                         @if(\App\Models\Setting::get('social_facebook'))
-                        <li><a href="{{ \App\Models\Setting::get('social_facebook') }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="{{ \App\Models\Setting::get('social_facebook') }}" target="_blank"
+                                rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </li>
                         @endif
                         @if(\App\Models\Setting::get('social_twitter'))
-                        <li><a href="{{ \App\Models\Setting::get('social_twitter') }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="{{ \App\Models\Setting::get('social_twitter') }}" target="_blank"
+                                rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
                         @endif
                         @if(\App\Models\Setting::get('social_instagram'))
-                        <li><a href="{{ \App\Models\Setting::get('social_instagram') }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="{{ \App\Models\Setting::get('social_instagram') }}" target="_blank"
+                                rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </li>
                         @endif
-                        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i
+                                    class="fab fa-youtube"></i></a></li>
                     </ul>
                 </div>
             </div>
