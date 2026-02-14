@@ -4,11 +4,21 @@
 @section('page-title', 'Quản lý sản phẩm')
 
 @section('content')
-<div class="mb-6">
+<div class="mb-6 flex flex-wrap items-center gap-4">
     <a href="{{ route('admin.products.create') }}"
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Thêm sản phẩm mới
     </a>
+    <form action="{{ route('admin.products.index') }}" method="GET" class="flex items-center gap-2">
+        <label for="category_id" class="text-sm font-medium text-gray-700">Lọc theo danh mục:</label>
+        <select name="category_id" id="category_id" onchange="this.form.submit()"
+            class="border rounded py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[200px]">
+            <option value="">Tất cả danh mục</option>
+            @foreach($categories as $cat)
+            <option value="{{ $cat->id }}" {{ request('category_id') == $cat->id ? 'selected' : '' }}>{{ $cat->name }}</option>
+            @endforeach
+        </select>
+    </form>
 </div>
 
 <div class="bg-white rounded-lg shadow overflow-x-auto">

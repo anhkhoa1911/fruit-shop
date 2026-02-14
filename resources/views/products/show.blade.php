@@ -66,6 +66,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="product-single-meta">
                         <h3 class="product-name">{{ $product->name }}</h3>
+                        <h4 class="sku">Mã SP: {{ $product->id }}</h4>
                         @if($product->description)
                             <p class="product-information">
                                 <strong>{{ $product->description }}</strong>
@@ -80,11 +81,6 @@
                                    data-product-id="{{ $product->id }}">
                                     Liên hệ chúng tôi
                                 </a>
-                            </div>
-                        </div>
-                        <div class="tag-box">
-                            <div class="tag-row">
-                                <span class="tag-label sku">Mã SP</span><span class="dots">:</span><div class="tag-label-value sku-value">{{ $product->id }}</div>
                             </div>
                         </div>
                     </div>
