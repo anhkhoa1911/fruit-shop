@@ -71,7 +71,7 @@
     @endphp
 
     @if(count($certificatesGallery))
-    <section class="certificate-section">
+    <section class="certificate-section" id="certificates">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
@@ -163,7 +163,7 @@
     </section>
 
     @if(count($factoryGallery))
-    <section class="factory-section" style="padding:60px 0;background:#f9f9f9;">
+    <section class="factory-section" id="factory" style="padding:60px 0;background:#f9f9f9;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
@@ -211,7 +211,7 @@
     @endif
 
     @if(count($farmGuavaGallery) || count($farmSoriGallery))
-    <section class="farm-section" style="padding:60px 0;">
+    <section class="farm-section" id="farm" style="padding:60px 0;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
