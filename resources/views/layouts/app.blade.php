@@ -51,6 +51,12 @@
             font-weight: normal;
             font-style: normal;
         }
+        /* Logo max size - tránh logo quá to */
+        .logo img,
+        .menu-logo img { max-width: 180px; height: auto; }
+        footer .top-footer .logo img { max-width: 160px; height: auto; }
+        .logo-part img { max-width: 200px; height: auto; }
+
         /* Footer responsive */
         @media (max-width: 767px) {
             footer .top-footer .logo-btm .adress,
