@@ -64,9 +64,6 @@
                     class="{{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
                     Cài đặt
                 </a>
-                <a href="{{ route('home') }}" target="_blank">
-                    Xem trang chủ
-                </a>
                 <form method="POST" action="{{ route('logout') }}" class="mt-4">
                     @csrf
                     <button type="submit" class="w-full text-left">

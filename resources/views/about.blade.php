@@ -385,22 +385,6 @@
 </section>
 <!-- /Our Farmer -->
 
-<!-- Brand logo -->
-<section class="brand">
-    <div class="container">
-        <h3 class="sr-only">Đối tác</h3>
-        <div class="owl-carousel owl-theme brand-slider">
-            <div class="item"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/brand-1.png" alt="brand 01" class="img-responsive" /></div>
-            <div class="item"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/brand-2.png" alt="brand 02" class="img-responsive" /></div>
-            <div class="item"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/brand-3.png" alt="brand 03" class="img-responsive" /></div>
-            <div class="item"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/brand-4.png" alt="brand 04" class="img-responsive" /></div>
-            <div class="item"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/brand-5.png" alt="brand 05" class="img-responsive" /></div>
-            <div class="item"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/brand-6.png" alt="brand 06" class="img-responsive" /></div>
-        </div>
-    </div>
-</section>
-<!-- /Brand logo -->
-
 <div class="clearfix"></div>
 
 <!-- Services provide -->

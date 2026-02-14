@@ -497,7 +497,7 @@
 <div class="clearfix"></div>
 
 <!-- Services provide -->
-{{-- <section class="helpline">
+<section class="helpline">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-xs-12">
@@ -537,7 +537,7 @@
             </div>
         </div>
     </div>
-</section> --}}
+</section>
 <!-- /Services provide -->
 @endsection
 
