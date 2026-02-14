@@ -94,25 +94,10 @@
                             </div>
                             <div class="contain-wrapper">
                                 <div class="tit">{{ $product->name }}</div>
-                                <div class="price">
-                                    @if($product->is_sale && $product->sale_price)
-                                    <div class="new-price">{{ number_format($product->sale_price) }}đ</div>
-                                    <div class="old-price"><del>{{ number_format($product->price) }}đ</del></div>
-                                    @else
-                                    <div class="new-price">{{ number_format($product->price) }}đ</div>
-                                    @endif
-                                </div>
                                 <div class="btn-part">
-                                    <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Xem chi
-                                        tiết</a>
+                                    <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Liên hệ chúng tôi</a>
                                 </div>
-                            </div>
-                            @if($product->is_new)
-                            <div class="new">mới</div>
-                            @endif
-                            @if($product->is_sale)
-                            <div class="sale">sale</div>
-                            @endif
+                            </div> 
                         </div>
                     </div>
                     @endforeach
@@ -152,25 +137,10 @@
                             </div>
                             <div class="contain-wrapper">
                                 <div class="tit">{{ $product->name }}</div>
-                                <div class="price">
-                                    @if($product->is_sale && $product->sale_price)
-                                    <div class="new-price">{{ number_format($product->sale_price) }}đ</div>
-                                    <div class="old-price"><del>{{ number_format($product->price) }}đ</del></div>
-                                    @else
-                                    <div class="new-price">{{ number_format($product->price) }}đ</div>
-                                    @endif
-                                </div>
                                 <div class="btn-part">
-                                    <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Xem chi
-                                        tiết</a>
+                                    <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Liên hệ chúng tôi</a>
                                 </div>
                             </div>
-                            @if($product->is_sale && $product->sale_price)
-                            <div class="sale">sale</div>
-                            @endif
-                            @if($product->is_featured)
-                            <div class="new">Hot</div>
-                            @endif
                         </div>
                     </div>
                     @endforeach
@@ -192,14 +162,14 @@
             <div class="col-sm-8 lpart">
                 <div class="bg equal-height">
                     <h2 class="section-name"><span>Trái cây</span> tươi</h2>
-                    <a href="{{ route('products.index') }}" class="shop-btn">Mua ngay</a>
+                    <a href="{{ route('products.index') }}" class="shop-btn">Liên hệ chúng tôi</a>
                 </div>
             </div>
             <div class="col-sm-4 rpart">
                 <div class="bg equal-height">
                     <h3 class="free-shipping">Giao hàng miễn phí</h3>
                     <p>Đơn hàng trên 500.000đ</p>
-                    <a href="{{ route('products.index') }}" class="shop-btn-1">Mua ngay</a>
+                    <a href="{{ route('products.index') }}" class="shop-btn-1">Liên hệ chúng tôi</a>
                 </div>
             </div>
         </div>

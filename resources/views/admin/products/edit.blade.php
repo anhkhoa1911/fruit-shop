@@ -32,33 +32,6 @@
                 </select>
             </div>
 
-            <div>
-                <label class="block text-gray-700 text-sm font-bold mb-2">Giá *</label>
-                <input type="number" step="0.01" name="price" value="{{ old('price', $product->price) }}"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    required>
-            </div>
-
-            <div>
-                <label class="block text-gray-700 text-sm font-bold mb-2">Giá khuyến mãi</label>
-                <input type="number" step="0.01" name="sale_price" value="{{ old('sale_price', $product->sale_price) }}"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            </div>
-
-            <div>
-                <label class="block text-gray-700 text-sm font-bold mb-2">Đơn vị *</label>
-                <input type="text" name="unit" value="{{ old('unit', $product->unit) }}"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    required>
-            </div>
-
-            <div>
-                <label class="block text-gray-700 text-sm font-bold mb-2">Số lượng *</label>
-                <input type="number" name="stock" value="{{ old('stock', $product->stock) }}"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    required>
-            </div>
-
             <div class="col-span-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2">Mô tả ngắn</label>
                 <textarea name="description" rows="3"
@@ -95,26 +68,11 @@
                 <p class="text-xs text-gray-500 mt-1">Chọn nhiều hình để thêm vào thư viện (giữ nguyên hình cũ)</p>
             </div>
 
-            <div class="col-span-2 flex gap-4">
+            <div class="col-span-2">
                 <label class="flex items-center">
                     <input type="checkbox" name="is_active" value="1" {{ old('is_active', $product->is_active) ?
                     'checked' : '' }} class="mr-2">
                     <span class="text-gray-700 text-sm font-bold">Hoạt động</span>
-                </label>
-                <label class="flex items-center">
-                    <input type="checkbox" name="is_featured" value="1" {{ old('is_featured', $product->is_featured) ?
-                    'checked' : '' }} class="mr-2">
-                    <span class="text-gray-700 text-sm font-bold">Nổi bật</span>
-                </label>
-                <label class="flex items-center">
-                    <input type="checkbox" name="is_new" value="1" {{ old('is_new', $product->is_new) ? 'checked' : ''
-                    }} class="mr-2">
-                    <span class="text-gray-700 text-sm font-bold">Mới</span>
-                </label>
-                <label class="flex items-center">
-                    <input type="checkbox" name="is_sale" value="1" {{ old('is_sale', $product->is_sale) ? 'checked' :
-                    '' }} class="mr-2">
-                    <span class="text-gray-700 text-sm font-bold">Giảm giá</span>
                 </label>
             </div>
         </div>

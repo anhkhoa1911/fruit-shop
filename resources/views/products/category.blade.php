@@ -51,21 +51,6 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="widget price-range-widget">
-                        <div class="widget-tit">
-                            <h2>Theo giá</h2>
-                            <div class="button" data-toggle="collapse" data-target="#price">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </div>
-                        </div>
-                        <div class="widget-contian" id="price">
-                            <input id="price-range" type="text" class="span2" value="" data-slider-min="0" data-slider-max="500000" data-slider-step="10000" data-slider-value="[{{ request('min_price', 0) }},{{ request('max_price', 500000) }}]"/>
-                            <span id="min-price-display">{{ number_format(request('min_price', 0)) }}đ - </span> <span id="max-price-display">{{ number_format(request('max_price', 500000)) }}đ</span>
-                            <a class="filter-btn" href="#" id="price-filter-btn">Lọc</a>
-                        </div>
-                    </div>
                     <div class="hot-collection">
                         <a href="{{ route('products.index') }}"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/hot-collection-img.jpg" alt="hot collection" class="img-responsive" /></a>
                     </div>
@@ -88,8 +73,6 @@
                                         <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'default'])) }}" {{ request('sort') == 'default' || !request('sort') ? 'selected' : '' }}>Mặc định</option>
                                         <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'name_asc'])) }}" {{ request('sort') == 'name_asc' ? 'selected' : '' }}>Tên: A → Z</option>
                                         <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'name_desc'])) }}" {{ request('sort') == 'name_desc' ? 'selected' : '' }}>Tên: Z → A</option>
-                                        <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'price_asc'])) }}" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Giá: Thấp → Cao</option>
-                                        <option value="{{ route('products.category', $category->slug) }}?{{ http_build_query(array_merge(request()->query(), ['sort' => 'price_desc'])) }}" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Giá: Cao → Thấp</option>
                                     </select>
                                 </div>
                                 <div class="shorting-box-2">
@@ -124,16 +107,8 @@
                             </div>
                             <div class="contain-wrapper">
                                 <div class="tit">{{ $product->name }}</div>
-                                <div class="price">
-                                    @if($product->is_sale && $product->sale_price)
-                                        <div class="new-price">{{ number_format($product->sale_price) }}đ</div>
-                                        <div class="old-price"><del>{{ number_format($product->price) }}đ</del></div>
-                                    @else
-                                        <div class="new-price">{{ number_format($product->price) }}đ</div>
-                                    @endif
-                                </div>
                                 <div class="btn-part">
-                                    <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Xem chi tiết</a>
+                                    <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Liên hệ chúng tôi</a>
                                     <i class="fas fa-shopping-cart"></i>
                                 </div>
                             </div>
@@ -144,12 +119,6 @@
                                     </ul>
                                 </div>
                             </div>
-                            @if($product->is_sale)
-                            <div class="sale">sale</div>
-                            @endif
-                            @if($product->is_new)
-                            <div class="new">mới</div>
-                            @endif
                         </div>
                     </div>
                     @empty
@@ -234,49 +203,3 @@
 <!-- /Services provide -->
 @endsection
 
-@push('scripts')
-<script>
-    $(document).ready(function() {
-        // Price range slider
-        var priceSlider = null;
-        if ($('#price-range').length && typeof $.fn.slider !== 'undefined') {
-            var minPrice = {{ request('min_price', 0) }};
-            var maxPrice = {{ request('max_price', 500000) }};
-            
-            priceSlider = $('#price-range').slider({
-                tooltip: 'hide'
-            });
-            
-            // Update display when slider changes
-            priceSlider.on('slide', function(slideEvt) {
-                $('#min-price-display').text(slideEvt.value[0].toLocaleString('vi-VN') + 'đ - ');
-                $('#max-price-display').text(slideEvt.value[1].toLocaleString('vi-VN') + 'đ');
-            });
-        }
-        
-        // Price filter button click
-        $('#price-filter-btn').on('click', function(e) {
-            e.preventDefault();
-            
-            var values = [0, 500000]; // default values
-            
-            if (priceSlider) {
-                values = priceSlider.slider('getValue');
-            }
-            
-            var currentUrl = new URL(window.location.href);
-            var params = new URLSearchParams(currentUrl.search);
-            
-            // Update or add price params
-            params.set('min_price', values[0]);
-            params.set('max_price', values[1]);
-            
-            // Reset to page 1 when filtering
-            params.delete('page');
-            
-            // Redirect with new params
-            window.location.href = currentUrl.pathname + '?' + params.toString();
-        });
-    });
-</script>
-@endpush

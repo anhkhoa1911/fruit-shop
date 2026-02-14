@@ -66,18 +66,6 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="product-single-meta">
                         <h3 class="product-name">{{ $product->name }}</h3>
-                        <div class="price">
-                            @if($product->is_sale && $product->sale_price)
-                                <div class="new-price">{{ number_format($product->sale_price) }}đ</div>
-                                <div class="old-price"><del>{{ number_format($product->price) }}đ</del></div>
-                            @else
-                                <div class="new-price">{{ number_format($product->price) }}đ</div>
-                            @endif
-                        </div>
-                        <div class="availablity">
-                            Tình trạng: <span>{{ $product->stock > 0 ? 'Còn hàng' : 'Hết hàng' }}</span>
-                            <p class="product-information">Đơn vị: {{ $product->unit }}</p>
-                        </div>
                         @if($product->description)
                             <p class="product-information">
                                 <strong>{{ $product->description }}</strong>
@@ -126,16 +114,8 @@
                                         </div>
                                         <div class="contain-wrapper">
                                             <div class="tit">{{ $related->name }}</div>
-                                            <div class="price">
-                                                @if($related->is_sale && $related->sale_price)
-                                                    <div class="new-price">{{ number_format($related->sale_price) }}đ</div>
-                                                    <div class="old-price"><del>{{ number_format($related->price) }}đ</del></div>
-                                                @else
-                                                    <div class="new-price">{{ number_format($related->price) }}đ</div>
-                                                @endif
-                                            </div>
                                             <div class="btn-part">
-                                                <a href="{{ route('products.show', $related->slug) }}" class="cart-btn">Xem chi tiết</a>
+                                                <a href="{{ route('products.show', $related->slug) }}" class="cart-btn">Liên hệ chúng tôi</a>
                                                 <i class="fas fa-shopping-cart"></i>
                                             </div>
                                         </div>

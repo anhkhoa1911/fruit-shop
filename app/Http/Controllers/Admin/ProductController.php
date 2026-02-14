@@ -29,19 +29,15 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'content' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'sale_price' => 'nullable|numeric|min:0',
-            'unit' => 'required|string',
-            'stock' => 'required|integer|min:0',
             'image' => 'nullable|image|max:2048',
             'gallery.*' => 'nullable|image|max:2048',
-            'is_featured' => 'boolean',
-            'is_new' => 'boolean',
-            'is_sale' => 'boolean',
             'is_active' => 'boolean',
         ]);
 
         $validated['slug'] = Str::slug($validated['name']);
+        $validated['price'] = 0;
+        $validated['unit'] = 'kg';
+        $validated['stock'] = 0;
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('products', 'public');
@@ -77,15 +73,8 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'content' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'sale_price' => 'nullable|numeric|min:0',
-            'unit' => 'required|string',
-            'stock' => 'required|integer|min:0',
             'image' => 'nullable|image|max:2048',
             'gallery.*' => 'nullable|image|max:2048',
-            'is_featured' => 'boolean',
-            'is_new' => 'boolean',
-            'is_sale' => 'boolean',
             'is_active' => 'boolean',
         ]);
 

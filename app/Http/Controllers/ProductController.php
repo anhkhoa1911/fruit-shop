@@ -16,44 +16,11 @@ class ProductController extends Controller
             $query->where('name', 'like', '%' . $request->search . '%');
         }
 
-        // Lọc theo giá
-        if ($request->has('min_price')) {
-            $query->where(function($q) use ($request) {
-                $q->where(function($subQ) use ($request) {
-                    // Sản phẩm sale: dùng sale_price
-                    $subQ->where('is_sale', true)
-                         ->where('sale_price', '>=', $request->min_price);
-                })->orWhere(function($subQ) use ($request) {
-                    // Sản phẩm không sale: dùng price
-                    $subQ->where('is_sale', false)
-                         ->where('price', '>=', $request->min_price);
-                });
-            });
-        }
-
-        if ($request->has('max_price')) {
-            $query->where(function($q) use ($request) {
-                $q->where(function($subQ) use ($request) {
-                    // Sản phẩm sale: dùng sale_price
-                    $subQ->where('is_sale', true)
-                         ->where('sale_price', '<=', $request->max_price);
-                })->orWhere(function($subQ) use ($request) {
-                    // Sản phẩm không sale: dùng price
-                    $subQ->where('is_sale', false)
-                         ->where('price', '<=', $request->max_price);
-                });
-            });
-        }
-
         // Sắp xếp
         if ($request->get('sort') === 'name_asc') {
             $query->orderBy('name');
         } elseif ($request->get('sort') === 'name_desc') {
             $query->orderBy('name', 'desc');
-        } elseif ($request->get('sort') === 'price_asc') {
-            $query->orderByRaw('COALESCE(NULLIF(sale_price, 0), price) ASC');
-        } elseif ($request->get('sort') === 'price_desc') {
-            $query->orderByRaw('COALESCE(NULLIF(sale_price, 0), price) DESC');
         } else {
             $query->latest();
         }
@@ -94,44 +61,11 @@ class ProductController extends Controller
             ->where('is_active', true)
             ->with('category');
 
-        // Lọc theo giá
-        if ($request->has('min_price')) {
-            $query->where(function($q) use ($request) {
-                $q->where(function($subQ) use ($request) {
-                    // Sản phẩm sale: dùng sale_price
-                    $subQ->where('is_sale', true)
-                         ->where('sale_price', '>=', $request->min_price);
-                })->orWhere(function($subQ) use ($request) {
-                    // Sản phẩm không sale: dùng price
-                    $subQ->where('is_sale', false)
-                         ->where('price', '>=', $request->min_price);
-                });
-            });
-        }
-
-        if ($request->has('max_price')) {
-            $query->where(function($q) use ($request) {
-                $q->where(function($subQ) use ($request) {
-                    // Sản phẩm sale: dùng sale_price
-                    $subQ->where('is_sale', true)
-                         ->where('sale_price', '<=', $request->max_price);
-                })->orWhere(function($subQ) use ($request) {
-                    // Sản phẩm không sale: dùng price
-                    $subQ->where('is_sale', false)
-                         ->where('price', '<=', $request->max_price);
-                });
-            });
-        }
-
         // Sắp xếp
         if ($request->get('sort') === 'name_asc') {
             $query->orderBy('name');
         } elseif ($request->get('sort') === 'name_desc') {
             $query->orderBy('name', 'desc');
-        } elseif ($request->get('sort') === 'price_asc') {
-            $query->orderByRaw('COALESCE(NULLIF(sale_price, 0), price) ASC');
-        } elseif ($request->get('sort') === 'price_desc') {
-            $query->orderByRaw('COALESCE(NULLIF(sale_price, 0), price) DESC');
         } else {
             $query->latest();
         }

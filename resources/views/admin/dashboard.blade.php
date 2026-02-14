@@ -33,7 +33,6 @@
                 <tr class="border-b">
                     <th class="text-left py-2">Tên sản phẩm</th>
                     <th class="text-left py-2">Danh mục</th>
-                    <th class="text-left py-2">Giá</th>
                     <th class="text-left py-2">Trạng thái</th>
                 </tr>
             </thead>
@@ -42,7 +41,6 @@
                 <tr class="border-b">
                     <td class="py-3">{{ $product->name }}</td>
                     <td class="py-3">{{ $product->category->name }}</td>
-                    <td class="py-3">{{ number_format($product->price) }}đ</td>
                     <td class="py-3">
                         <span
                             class="px-2 py-1 rounded {{ $product->is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
