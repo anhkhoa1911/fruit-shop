@@ -719,23 +719,42 @@
             font-size: 15px !important;
         }
 
-        /* Product listing cards (tất cả trang danh sách sản phẩm) */
-        #products.product-list .contain-wrapper .tit {
-            font-size: 18px !important;
-            font-weight: 500 !important;
-            margin-top: 10px !important;
-            padding-bottom: 10px !important;
+        /* Block sản phẩm (trang chủ, danh sách, chi tiết): title + khoảng cách dưới button */
+        .new-arrivals-section .contain-wrapper .tit,
+        .new-arrivals-section .item .contain-wrapper .tit,
+        #products.product-list .contain-wrapper .tit,
+        .related-products .contain-wrapper .tit {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+            font-size: 17px !important;
+            font-weight: 600 !important;
+            margin-top: 16px !important;
+            margin-bottom: 10px !important;
+            padding-bottom: 0 !important;
             line-height: 1.4;
             color: #333;
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
-        /* Product listing contain-wrapper - bỏ padding/margin-bottom mặc định */
-        #products.product-list .wrapper .contain-wrapper {
-            min-height: 170px !important;
+        .new-arrivals-section .contain-wrapper .btn-part,
+        .new-arrivals-section .item .contain-wrapper .btn-part,
+        #products.product-list .contain-wrapper .btn-part,
+        .related-products .contain-wrapper .btn-part {
+            margin-bottom: 25px !important;
         }
 
-        /* Section title */
+        /* Product block: bỏ min-height (hết khoảng trống thừa), padding-bottom vừa đủ */
+        .new-arrivals-section .wrapper .contain-wrapper,
+        .new-arrivals-section .item .wrapper .contain-wrapper,
+        #products.product-list .wrapper .contain-wrapper,
+        .related-products .item .contain-wrapper {
+            min-height: auto !important;
+            padding-bottom: 14px !important;
+        }
+
+        /* Section title - line-height tránh chữ xuống dòng bị chồng */
+        .section-tit .inner h2 {
+            line-height: 1 !important;
+        }
+
         .related-products .tit h2 {
             font-size: 26px !important;
             font-weight: 700 !important;
