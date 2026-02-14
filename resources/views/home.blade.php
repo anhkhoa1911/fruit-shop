@@ -66,6 +66,21 @@
 <!-- /Fresh Collection -->
 
 @php
+    $companyIntroShort = \App\Models\Setting::get('company_intro_short', '');
+@endphp
+@if($companyIntroShort !== '')
+<section class="section-padding company-intro-block" style="background:linear-gradient(180deg, #fafafa 0%, #fff 100%);padding-top:2.5rem;padding-bottom:2.5rem;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 text-center">
+                <p class="company-intro-short" style="font-family:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;max-width:780px;margin:0 auto;font-size:20px;font-weight:500;line-height:1;color:#2c3e50;letter-spacing:0.03em;text-align:center;">{!! nl2br(e($companyIntroShort)) !!}</p>
+            </div>
+        </div>
+    </div>
+</section>
+@endif
+
+@php
     $certificatesGallery = json_decode(\App\Models\Setting::get('certificates_gallery', '[]'), true) ?: [];
     if (empty($certificatesGallery)) {
         foreach (['certificate_1_image', 'certificate_2_image', 'certificate_3_image'] as $legacyKey) {
@@ -78,6 +93,8 @@
     $factoryGallery = json_decode(\App\Models\Setting::get('factory_gallery', '[]'), true) ?: [];
     $farmGuavaGallery = json_decode(\App\Models\Setting::get('farm_guava_gallery', '[]'), true) ?: [];
     $farmSoriGallery = json_decode(\App\Models\Setting::get('farm_sori_gallery', '[]'), true) ?: [];
+    $factoryDescription = \App\Models\Setting::get('factory_description', 'Hệ thống nhà máy được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn thực phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.');
+    $farmDescription = \App\Models\Setting::get('farm_description', 'Trái cây tươi ngon được thu hoạch trực tiếp từ các trang trại đối tác uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.');
 @endphp
 
 @if(count($factoryGallery))
@@ -88,7 +105,7 @@
                 <div class="section-tit">
                     <div class="inner">
                         <h2 style="margin-bottom:15px;"><span>Nhà máy</span> & Quy trình</h2>
-                        <p style="margin-bottom:20px;">Hệ thống nhà máy được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn thực phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.</p>
+                        <p style="margin-bottom:20px;">{!! nl2br(e($factoryDescription)) !!}</p>
                     </div>
                 </div>
                 <div class="factory-gallery" style="display:flex;gap:20px;overflow-x:auto;padding:10px 0 20px;justify-content:center;">
@@ -129,7 +146,7 @@
                 <div class="section-tit">
                     <div class="inner">
                         <h2 style="margin-bottom:15px;"><span>Trang trại</span> đối tác</h2>
-                        <p style="margin-bottom:20px;">Trái cây tươi ngon được thu hoạch trực tiếp từ các trang trại đối tác uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
+                        <p style="margin-bottom:20px;">{!! nl2br(e($farmDescription)) !!}</p>
                     </div>
                 </div>
                 <div class="row">

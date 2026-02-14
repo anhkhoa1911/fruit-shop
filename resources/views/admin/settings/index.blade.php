@@ -41,13 +41,45 @@
 
         <div class="mb-8">
             <h2 class="text-xl font-bold mb-4">Giới thiệu</h2>
-            <div>
-                <label class="block text-gray-700 text-sm font-bold mb-2">Nội dung trang giới thiệu</label>
-                <textarea name="settings[3][value]" rows="10"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">{{ \App\Models\Setting::get('about_content') }}</textarea>
-                <input type="hidden" name="settings[3][key]" value="about_content">
-                <input type="hidden" name="settings[3][type]" value="textarea">
-                <input type="hidden" name="settings[3][group]" value="about">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Giới thiệu ngắn về công ty</label>
+                    <textarea name="settings[7][value]" rows="4"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+                        placeholder="Đoạn text này hiển thị trên trang chủ, ngay trên block Nhà máy & Chứng nhận.">{{ \App\Models\Setting::get('company_intro_short') }}</textarea>
+                    <input type="hidden" name="settings[7][key]" value="company_intro_short">
+                    <input type="hidden" name="settings[7][type]" value="textarea">
+                    <input type="hidden" name="settings[7][group]" value="about">
+                    <p class="text-xs text-gray-500 mt-1">Hiển thị trên trang chủ, phía trên block Nhà máy & Chứng nhận.</p>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Mô tả nhà máy</label>
+                    <textarea name="settings[8][value]" rows="3"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+                        placeholder="Hiển thị dưới tiêu đề Nhà máy & Quy trình trên trang chủ.">{{ \App\Models\Setting::get('factory_description') }}</textarea>
+                    <input type="hidden" name="settings[8][key]" value="factory_description">
+                    <input type="hidden" name="settings[8][type]" value="textarea">
+                    <input type="hidden" name="settings[8][group]" value="about">
+                    <p class="text-xs text-gray-500 mt-1">Hiển thị trên trang chủ, block Nhà máy & Quy trình.</p>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Mô tả nông trại</label>
+                    <textarea name="settings[9][value]" rows="3"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+                        placeholder="Hiển thị dưới tiêu đề Trang trại đối tác trên trang chủ.">{{ \App\Models\Setting::get('farm_description') }}</textarea>
+                    <input type="hidden" name="settings[9][key]" value="farm_description">
+                    <input type="hidden" name="settings[9][type]" value="textarea">
+                    <input type="hidden" name="settings[9][group]" value="about">
+                    <p class="text-xs text-gray-500 mt-1">Hiển thị trên trang chủ, block Trang trại đối tác.</p>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Nội dung trang giới thiệu</label>
+                    <textarea name="settings[3][value]" rows="10"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">{{ \App\Models\Setting::get('about_content') }}</textarea>
+                    <input type="hidden" name="settings[3][key]" value="about_content">
+                    <input type="hidden" name="settings[3][type]" value="textarea">
+                    <input type="hidden" name="settings[3][group]" value="about">
+                </div>
             </div>
         </div>
 
