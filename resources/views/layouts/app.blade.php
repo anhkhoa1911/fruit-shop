@@ -9,9 +9,9 @@
     <title>@yield('title', 'Trang chủ') - Cửa hàng trái cây</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://www.ncodetechnologies.com/OrganicFoodStore/images/logo.png">
-    <link rel="shortcut icon" type="image/png" href="https://www.ncodetechnologies.com/OrganicFoodStore/images/logo.png">
-    <link rel="apple-touch-icon" href="https://www.ncodetechnologies.com/OrganicFoodStore/images/logo.png">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
 
     <!-- Bootstrap v3.3.7 Style -->
     <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/bootstrap.min.css" rel="stylesheet" />
@@ -728,13 +728,13 @@
                         <button type="button" class="navbar-toggle"> <span class="icon-bar"></span> <span
                                 class="icon-bar"></span> <span class="icon-bar"></span> </button>
                         <div class="logo"><a href="{{ route('home') }}"><img
-                                    src="https://www.ncodetechnologies.com/OrganicFoodStore/images/logo.png"
+                                    src="{{ asset('images/logo.png') }}"
                                     alt="logo" /></a></div>
                     </div>
                     <div class="collapse" id="organic-food-navigation">
                         <div class="remove"><i class="fas fa-times"></i></div>
                         <div class="menu-logo"><a href="{{ route('home') }}"><img
-                                    src="https://www.ncodetechnologies.com/OrganicFoodStore/images/logo.png"
+                                    src="{{ asset('images/logo.png') }}"
                                     alt="logo" /></a></div>
                         <ul class="nav navbar-nav">
                             <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
@@ -791,7 +791,7 @@
             <div class="row top-footer">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="logo">
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/footer-logo.png" alt="logo" class="img-responsive" />
+                        <img src="{{ asset('images/footer-logo.png') }}" alt="logo" class="img-responsive" />
                     </div>
                     <div class="logo-btm">
                         <div class="adress">

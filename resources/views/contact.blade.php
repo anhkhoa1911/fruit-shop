@@ -31,7 +31,7 @@
         <div class="container">
             <div class="row">
                 <div class="logo-part">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/contact-page-logo.png" alt="logo" class="img-responsive center-block" />
+                    <img src="{{ asset('images/contact-page-logo.png') }}" alt="logo" class="img-responsive center-block" />
                 </div>
                 <div class="inner-part">
                     <div class="col-md-4 col-sm-12 col-xs-12">
