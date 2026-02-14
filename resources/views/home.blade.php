@@ -560,6 +560,7 @@ $(document).ready(function() {
             loop: itemCount > 1, // Chỉ loop khi có nhiều hơn 1 item
             margin: 20,
             nav: true,
+            navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
             dots: true,
             autoplay: itemCount > 1,
             autoplayTimeout: 5000,

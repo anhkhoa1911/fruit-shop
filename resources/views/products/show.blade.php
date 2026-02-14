@@ -250,6 +250,7 @@
                 loop: relatedItemCount > 1, // Chỉ loop khi có > 1 sản phẩm
                 margin: 20,
                 nav: true,
+                navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
                 dots: true,
                 autoplay: relatedItemCount > 1,
                 autoplayTimeout: 5000,

@@ -42,6 +42,21 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Fix: Load fontello font with absolute URLs so icons display on any domain -->
     <style>
+        /* Responsive: chặn scroll ngang trên mobile */
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+        }
+        @media (max-width: 767px) {
+            footer, .top-footer, .bottom-footer {
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+            .container, .container-fluid {
+                max-width: 100% !important;
+            }
+        }
+
         @font-face {
             font-family: 'fontello';
             src: url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.eot?68475362');
@@ -69,34 +84,130 @@
             height: auto;
         }
 
-        /* Footer responsive */
-        @media (max-width: 767px) {
+        /* Footer contact: icon + text cùng dòng (mọi màn hình) */
+        .footer-contact-line {
+            display: inline-flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
+        }
+        .footer-contact-line i {
+            flex: 0 0 auto !important;
+            margin-top: 2px;
+        }
+        .footer-contact-line > span,
+        .footer-contact-line > a {
+            flex: 1 1 0% !important;
+            min-width: 0 !important;
+        }
 
+        /* Footer responsive - mobile: canh giữa, gọn đẹp */
+        @media (max-width: 767px) {
+            footer .top-footer [class*="col-"],
+            footer .bottom-footer [class*="col-"] {
+                text-align: center !important;
+            }
+            footer .top-footer .logo {
+                text-align: center !important;
+            }
+            footer .top-footer .logo img {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            footer .top-footer .logo-btm {
+                text-align: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 12px !important;
+            }
             footer .top-footer .logo-btm .adress,
             footer .top-footer .logo-btm .phone,
             footer .top-footer .logo-btm .mail {
-                display: flex;
-                align-items: flex-start;
-                gap: 8px;
+                display: flex !important;
+                justify-content: center !important;
+                width: 100%;
             }
-
-            footer .top-footer .logo-btm .adress i,
-            footer .top-footer .logo-btm .phone i,
-            footer .top-footer .logo-btm .mail i {
-                flex-shrink: 0;
-                margin-top: 2px;
+            footer .top-footer .logo-btm .footer-contact-line {
+                justify-content: center;
+                text-align: center;
             }
-
-            footer .insta-img-box {
+            footer .top-footer .logo-btm .footer-contact-line > span {
+                text-align: center;
+            }
+            footer .top-footer .widget-title {
+                text-align: center !important;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            footer .top-footer .widget {
+                text-align: center !important;
+                padding-left: 0;
+                list-style: none;
+            }
+            footer .top-footer .widget li {
+                text-align: center !important;
+                margin-bottom: 6px;
+            }
+            footer .top-footer .insta-img-box {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 4px;
+                justify-content: center !important;
             }
-
+            footer .top-footer .widget-title + .insta-img-box {
+                margin-left: auto;
+                margin-right: auto;
+            }
             footer .insta-img-box img {
                 width: calc(33.333% - 4px);
                 height: auto;
             }
+            footer .bottom-footer .copyright,
+            footer .bottom-footer .lpart {
+                text-align: center !important;
+            }
+            footer .bottom-footer .copyright,
+            footer .bottom-footer .lpart p {
+                text-align: center !important;
+            }
+            footer .bottom-footer .center-part {
+                text-align: center !important;
+            }
+            footer .bottom-footer ul.social {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                padding-left: 0 !important;
+                list-style: none !important;
+            }
+        }
+
+        /* Owl carousel nav: dùng Font Awesome thay vì fontello (icon-right-arrow không load trên mobile) */
+        .owl-carousel .owl-nav .owl-prev,
+        .owl-carousel .owl-nav .owl-next {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+            font-size: 18px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        .owl-carousel .owl-nav .owl-prev::before,
+        .owl-carousel .owl-nav .owl-next::before {
+            display: block !important;
+        }
+        .owl-carousel .owl-nav .owl-prev::before {
+            content: "\f053" !important; /* fa-chevron-left */
+        }
+        .owl-carousel .owl-nav .owl-next::before {
+            content: "\f054" !important; /* fa-chevron-right */
+        }
+        /* Ẩn nội dung mặc định (fontello / icon-right-arrow) để chỉ hiện FA */
+        .owl-carousel .owl-nav .owl-prev > *,
+        .owl-carousel .owl-nav .owl-next > * {
+            display: none !important;
         }
 
         /* Fix responsive slider display issues */
@@ -519,11 +630,19 @@
         }
 
         @media (max-width: 767px) {
-            section.helpline .bgreen .inline {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
+            section.helpline {
+                overflow-x: hidden !important;
+                max-width: 100% !important;
             }
-
+            section.helpline .bgreen {
+                overflow-x: hidden !important;
+                max-width: 100% !important;
+            }
+            section.helpline .bgreen .inline {
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch;
+                max-width: 100% !important;
+            }
             section.helpline .bgreen .inline .box {
                 min-width: 200px;
             }
@@ -896,18 +1015,13 @@
                     </div>
                     <div class="logo-btm">
                         <div class="adress">
-                            <i class="fas fa-location-dot" aria-hidden="true"></i>
-                            <span>{{ \App\Models\Setting::get('contact_address', 'Địa chỉ cửa hàng') }}</span>
+                            <span class="footer-contact-line"><i class="fas fa-location-dot" aria-hidden="true"></i><span>{{ \App\Models\Setting::get('contact_address', 'Địa chỉ cửa hàng') }}</span></span>
                         </div>
                         <div class="phone">
-                            <i class="fas fa-phone" aria-hidden="true"></i>
-                            <a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{
-                                \App\Models\Setting::get('contact_phone', '0123456789') }}</a>
+                            <span class="footer-contact-line"><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{ \App\Models\Setting::get('contact_phone', '0123456789') }}</a></span>
                         </div>
                         <div class="mail">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <a href="mailto:{{ \App\Models\Setting::get('contact_email') }}">{{
-                                \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}</a>
+                            <span class="footer-contact-line"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:{{ \App\Models\Setting::get('contact_email') }}">{{ \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}</a></span>
                         </div>
                     </div>
                 </div>
