@@ -77,8 +77,8 @@
                 <div class="col-sm-12 col-xs-12">
                     <div class="section-tit">
                         <div class="inner">
-                            <h2 style="margin-bottom:15px;">Chứng nhận an toàn thực phẩm</h2>
-                            <p style="margin-bottom:5px;">Những chứng nhận chất lượng và an toàn thực phẩm mà chúng tôi đã đạt được.</p>
+                            <h2 style="margin-bottom:15px; line-height:80px;">Chứng nhận an toàn thực phẩm</h2>
+                            <h4 style="margin-bottom:5px;">Những chứng nhận chất lượng và an toàn thực phẩm mà chúng tôi đã đạt được.</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -170,7 +170,7 @@
                     <div class="section-tit">
                         <div class="inner">
                             <h2 style="margin-bottom:15px;">Nhà máy & Quy trình</h2>
-                            <p style="margin-bottom:5px;">Hệ thống nhà máy được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn thực phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.</p>
+                            <h4 style="margin-bottom:5px;">Hệ thống nhà máy được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn thực phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -217,8 +217,8 @@
                 <div class="col-sm-12 col-xs-12">
                     <div class="section-tit">
                         <div class="inner">
-                            <h2 style="margin-bottom:15px;">Trang trại đối tác</h2>
-                            <p style="margin-bottom:5px;">Trái cây tươi ngon được thu hoạch trực tiếp từ các trang trại đối tác uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
+                            <h2 style="margin-bottom:15px; line-height:80px;">Trang trại đối tác</h2>
+                            <h4 style="margin-bottom:5px;">Trái cây tươi ngon được thu hoạch trực tiếp từ các trang trại đối tác uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.</h4>
                         </div>
                     </div>
                     <div class="row">

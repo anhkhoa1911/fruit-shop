@@ -105,7 +105,7 @@
                 <div class="section-tit">
                     <div class="inner">
                         <h2 style="margin-bottom:15px;"><span>Nhà máy</span> & Quy trình</h2>
-                        <p style="margin-bottom:20px;">{!! nl2br(e($factoryDescription)) !!}</p>
+                        <h4 style="margin-bottom:20px;">{!! nl2br(e($factoryDescription)) !!}</h4>
                     </div>
                 </div>
                 <div class="factory-gallery" style="display:flex;gap:20px;overflow-x:auto;padding:10px 0 20px;justify-content:center;">
@@ -146,7 +146,7 @@
                 <div class="section-tit">
                     <div class="inner">
                         <h2 style="margin-bottom:15px;"><span>Trang trại</span> đối tác</h2>
-                        <p style="margin-bottom:20px;">{!! nl2br(e($farmDescription)) !!}</p>
+                        <h4 style="margin-bottom:20px;">{!! nl2br(e($farmDescription)) !!}</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -222,8 +222,8 @@
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2 style="margin-bottom:15px;"><span>Chứng nhận</span> an toàn thực phẩm</h2>
-                        <p style="margin-bottom:15px;">Những chứng nhận chất lượng và an toàn thực phẩm mà chúng tôi đã đạt được.</p>
+                        <h2 style="margin-bottom:15px;line-height:80px;"><span>Chứng nhận</span> an toàn thực phẩm</h2>
+                        <h4 style="margin-bottom:15px;line-height:20px;">Những chứng nhận chất lượng và an toàn thực phẩm mà chúng tôi đã đạt được.</h4>
                     </div>
                 </div>
                 <div class="certificate-scroller" style="display:flex;gap:20px;overflow-x:auto;padding-bottom:10px;justify-content:center;flex-wrap:nowrap;">
@@ -304,7 +304,7 @@
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2><span>Ứng dụng & giải pháp sản phẩm</span></h2>
+                        <h2 style="line-height:80px;"><span>Ứng dụng & giải pháp sản phẩm</span></h2>
                     </div>
                 </div>
             </div>
@@ -354,7 +354,7 @@
             </div>
             <div class="col-sm-4 rpart">
                 <div class="bg equal-height">
-                    <h3 class="free-shipping">Ứng dụng & giải pháp sản phẩm</h3>
+                    <h3 class="free-shipping" style="line-height:50px;">Ứng dụng & giải pháp sản phẩm</h3>
                     <br>
                     <a href="{{ route('products.index') }}" class="shop-btn-1">Liên hệ chúng tôi</a>
                 </div>
