@@ -318,7 +318,7 @@
                 <div class="row application-solution-gallery" style="padding:10px 0 20px;">
                     @foreach($applicationSolutionGallery as $path)
                         @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
-                        <div class="col-md-3 col-sm-6 col-xs-12" style="margin-bottom:20px;">
+                        <div class="col-md-3 col-sm-6 col-xs-4" style="margin-bottom:20px;">
                             @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
                                 <a href="{{ asset('storage/' . $path) }}" data-fancybox="application-solution-gallery" data-caption="{{ basename($path) }}" style="display:block;cursor:pointer;">
                                     <div style="border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
@@ -389,7 +389,7 @@
     <div class="container-fluid">
         <div class="row no-gutter">
             @forelse($posts as $post)
-            <div class="col-sm-3 col-xs-12">
+            <div class="col-sm-3 col-xs-6">
                 <div class="wrapper">
                     @if($post->thumbnail)
                         <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-responsive" />

@@ -352,7 +352,7 @@
 	.responsive-slider .slides ul li .slide-body .caption.header .sub-tit{font-size:17px;}
 	.responsive-slider .slides ul li .slide-body .caption.header h2{font-size:36px; line-height:28px; padding:15px 0;}
 	.responsive-slider .slides ul li .slide-body .caption.sub{font-size:18px;}
-	.responsive-slider .slides ul li .slide-body .carouseal-caption{padding:20px 15px;}
+	.responsive-slider .slides ul li .slide-body .carouseal-caption{padding:35px 15px !important;}
 	.section-tit .inner h2::after{width:20%; background-position:right center;}
 	.section-tit .inner h2::before{width:20%; background-position:left center;}
 	.section-tit .inner h2 {font-size:40px; line-height:40px; padding:0 75px;}

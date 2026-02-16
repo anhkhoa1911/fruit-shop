@@ -183,6 +183,12 @@
                 padding-left: 0 !important;
                 list-style: none !important;
             }
+            /* Certificate scroller: trên mobile căn trái để thấy ảnh đầu tiên */
+            .certificate-scroller {
+                justify-content: flex-start !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
         }
 
         /* Owl carousel nav: dùng Font Awesome thay vì fontello (icon-right-arrow không load trên mobile) */
