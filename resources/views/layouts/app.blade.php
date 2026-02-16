@@ -36,6 +36,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome (footer social icons - reliable CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -867,11 +868,6 @@
         .related-products .item .contain-wrapper {
             min-height: auto !important;
             padding-bottom: 14px !important;
-        }
-
-        /* Section title - line-height tránh chữ xuống dòng bị chồng */
-        .section-tit .inner h2 {
-            line-height: 1 !important;
         }
 
         .related-products .tit h2 {
