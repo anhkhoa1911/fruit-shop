@@ -90,12 +90,14 @@
             display: inline-flex !important;
             flex-direction: row !important;
             flex-wrap: nowrap !important;
-            align-items: flex-start !important;
+            align-items: center !important;
             gap: 8px !important;
         }
         .footer-contact-line i {
             flex: 0 0 auto !important;
-            margin-top: 2px;
+            align-self: center !important;
+            margin-top: 0;
+            transform: translateY(-3px);
         }
         .footer-contact-line > span,
         .footer-contact-line > a {
@@ -103,39 +105,14 @@
             min-width: 0 !important;
         }
 
-        /* Footer responsive - mobile: canh giữa, gọn đẹp */
+        /* Footer responsive - mobile */
         @media (max-width: 767px) {
-            footer .top-footer [class*="col-"],
-            footer .bottom-footer [class*="col-"] {
-                text-align: center !important;
-            }
             footer .top-footer .logo {
                 text-align: center !important;
             }
             footer .top-footer .logo img {
                 margin-left: auto;
                 margin-right: auto;
-            }
-            footer .top-footer .logo-btm {
-                text-align: center !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 12px !important;
-            }
-            footer .top-footer .logo-btm .adress,
-            footer .top-footer .logo-btm .phone,
-            footer .top-footer .logo-btm .mail {
-                display: flex !important;
-                justify-content: center !important;
-                width: 100%;
-            }
-            footer .top-footer .logo-btm .footer-contact-line {
-                justify-content: center;
-                text-align: center;
-            }
-            footer .top-footer .logo-btm .footer-contact-line > span {
-                text-align: center;
             }
             footer .top-footer .widget-title {
                 text-align: center !important;
@@ -215,111 +192,6 @@
         .owl-carousel .owl-nav .owl-prev > *,
         .owl-carousel .owl-nav .owl-next > * {
             display: none !important;
-        }
-
-        /* Fix responsive slider display issues */
-        .responsive-slider {
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .responsive-slider .slides {
-            position: relative;
-            width: 100%;
-        }
-
-        .responsive-slider .slides ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-        }
-
-        .responsive-slider .slides ul li {
-            width: 100%;
-            position: relative;
-        }
-
-        .responsive-slider .slides ul li .slide-body {
-            width: 100%;
-            position: relative;
-            display: block;
-        }
-
-        .responsive-slider .slides ul li .slide-body img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Banner caption text styling */
-        .responsive-slider .carouseal-caption {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        .responsive-slider .carouseal-caption .caption.header {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #333;
-            width: 80%;
-        }
-
-        .responsive-slider .carouseal-caption .caption.header .sub-tit {
-            font-size: 28px;
-            font-weight: 300;
-            margin-bottom: 15px;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .responsive-slider .carouseal-caption .caption.header h2 {
-            font-size: 72px;
-            font-weight: 700;
-            margin: 0;
-            line-height: 1.2;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .responsive-slider .carouseal-caption .caption.header h2 span {
-            color: #8bc34a;
-        }
-
-        .responsive-slider .carouseal-caption .caption.sub {
-            position: absolute;
-            bottom: 35%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-weight: 600;
-            font-size: 18px;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            white-space: nowrap;
-        }
-
-        @media (max-width: 768px) {
-            .responsive-slider .carouseal-caption .caption.header h2 {
-                font-size: 36px;
-            }
-
-            .responsive-slider .carouseal-caption .caption.header .sub-tit {
-                font-size: 18px;
-            }
-
-            .responsive-slider .carouseal-caption .caption.sub {
-                font-size: 14px;
-                bottom: 30%;
-            }
         }
 
         /* Header alignment fixes */
@@ -1049,13 +921,20 @@
                     </div>
                     <div class="logo-btm">
                         <div class="adress">
-                            <span class="footer-contact-line"><i class="fas fa-location-dot" aria-hidden="true"></i><span>{{ \App\Models\Setting::get('contact_address', 'Địa chỉ cửa hàng') }}</span></span>
+                            <i class="fas fa-location-dot" aria-hidden="true"></i>
+                            <span>{{ \App\Models\Setting::get('contact_address', 'Địa chỉ cửa hàng') }}</span>
                         </div>
                         <div class="phone">
-                            <span class="footer-contact-line"><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">{{ \App\Models\Setting::get('contact_phone', '0123456789') }}</a></span>
+                            <a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                {{ \App\Models\Setting::get('contact_phone', '0123456789') }}
+                            </a>
                         </div>
                         <div class="mail">
-                            <span class="footer-contact-line"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:{{ \App\Models\Setting::get('contact_email') }}">{{ \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}</a></span>
+                            <a href="mailto:{{ \App\Models\Setting::get('contact_email') }}">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                {{ \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}
+                            </a>
                         </div>
                     </div>
                 </div>

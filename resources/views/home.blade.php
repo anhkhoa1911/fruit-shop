@@ -6,7 +6,7 @@
 <div class="clearfix"></div>
 
 <!-- Banner Carousel -->
-<div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true">
+<div class="responsive-slider" data-spy="responsive-slider" data-autoplay="true" data-interval="5000">
     <div class="slides" data-group="slides">
         <ul>
             <li>
@@ -551,15 +551,6 @@
 @push('scripts')
 <script>
 $(document).ready(function() {
-    // Reinitialize responsive slider if needed
-    if (typeof $.fn.responsiveSlider !== 'undefined') {
-        $('.responsive-slider').responsiveSlider({
-            autoplay: true,
-            speed: 800,
-            timeout: 5000
-        });
-    }
-
     // Initialize new arrivals carousel
     if (typeof $.fn.owlCarousel !== 'undefined' && $('.new-arrivals-slider').length) {
         var itemCount = $('.new-arrivals-slider .item').length;
