@@ -8,7 +8,7 @@
 <!-- Banner -->
 <section class="sub-banner">
     <h2 class="sr-only">Banner</h2>
-    <img class="banner" src="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-page-banner.jpg" alt="Banner" />
+    <img class="banner" src="{{ asset('images/product-page-banner.jpg') }}" alt="Banner" />
 </section>
 <!-- /Banner -->
 
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="hot-collection">
-                        <a href="{{ route('products.index') }}"><img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/hot-collection-img.jpg" alt="hot collection" class="img-responsive" /></a>
+                        <a href="{{ route('products.index') }}"><img src="{{ asset('images/hot-collection-img.jpg') }}" alt="hot collection" class="img-responsive" /></a>
                     </div>
                 </div>
             </aside>
@@ -102,7 +102,7 @@
                                 @if($product->image)
                                     <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-responsive" />
                                 @else
-                                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-img-1.jpg" alt="{{ $product->name }}" class="img-responsive" />
+                                    <img src="{{ asset('images/product-img-1.jpg') }}" alt="{{ $product->name }}" class="img-responsive" />
                                 @endif
                             </div>
                             <div class="contain-wrapper">

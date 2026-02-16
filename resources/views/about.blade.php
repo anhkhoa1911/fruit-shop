@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12 img-part">
                     <figure>
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/about-img.jpg" alt="Cửa hàng trái cây" class="img-responsive">
+                        <img src="{{ asset('images/about-img.jpg') }}" alt="Cửa hàng trái cây" class="img-responsive">
                     </figure>
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12 txt-part">
@@ -348,7 +348,7 @@
                     <div class="item">
                         <div class="wrapper">
                             <div class="pro-img">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/farmer-img-2.jpg" alt="Đội ngũ" class="img-responsive center-block" />
+                                <img src="{{ asset('images/farmer-img-2.jpg') }}" alt="Đội ngũ" class="img-responsive center-block" />
                             </div>
                             <div class="contain-wrapper">
                                 <div class="tit">Trần Thị B</div>
@@ -359,7 +359,7 @@
                     <div class="item">
                         <div class="wrapper">
                             <div class="pro-img">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/farmer-img-3.jpg" alt="Đội ngũ" class="img-responsive center-block" />
+                                <img src="{{ asset('images/farmer-img-3.jpg') }}" alt="Đội ngũ" class="img-responsive center-block" />
                             </div>
                             <div class="contain-wrapper">
                                 <div class="tit">Lê Văn C</div>
@@ -370,7 +370,7 @@
                     <div class="item">
                         <div class="wrapper">
                             <div class="pro-img">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/farmer-img-2.jpg" alt="Đội ngũ" class="img-responsive center-block" />
+                                <img src="{{ asset('images/farmer-img-2.jpg') }}" alt="Đội ngũ" class="img-responsive center-block" />
                             </div>
                             <div class="contain-wrapper">
                                 <div class="tit">Phạm Thị D</div>

@@ -8,7 +8,7 @@
 <!-- Banner -->
 <section class="sub-banner">
     <h2 class="sr-only">Banner</h2>
-    <img class="banner" src="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-page-banner.jpg" alt="banner" />
+    <img class="banner" src="{{ asset('images/product-page-banner.jpg') }}" alt="banner" />
 </section>
 <!-- /Banner -->
 
@@ -52,11 +52,11 @@
                         
                         {{-- Fallback nếu không có hình nào --}}
                         @if(!$product->image && (!$product->gallery || count($product->gallery) == 0))
-                            <a href="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-detail-img-1.jpg">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-detail-img-1.jpg" alt="{{ $product->name }}">
+                            <a href="{{ asset('images/product-detail-img-1.jpg') }}">
+                                <img src="{{ asset('images/product-detail-img-1.jpg') }}" alt="{{ $product->name }}">
                             </a>
-                            <a href="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-detail-img-1.jpg">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-detail-img-1.jpg" alt="{{ $product->name }}">
+                            <a href="{{ asset('images/product-detail-img-1.jpg') }}">
+                                <img src="{{ asset('images/product-detail-img-1.jpg') }}" alt="{{ $product->name }}">
                             </a>
                         @endif
                     </div>
@@ -105,7 +105,7 @@
                                             @if($related->image)
                                                 <img class="img-responsive" src="{{ asset('storage/' . $related->image) }}" alt="{{ $related->name }}" />
                                             @else
-                                                <img class="img-responsive" src="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-img-7.jpg" alt="{{ $related->name }}" />
+                                                <img class="img-responsive" src="{{ asset('images/product-img-7.jpg') }}" alt="{{ $related->name }}" />
                                             @endif
                                         </div>
                                         <div class="contain-wrapper">

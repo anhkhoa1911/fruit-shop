@@ -8,7 +8,7 @@
 <!-- Banner -->
 <section class="sub-banner">
     <h2 class="sr-only">Banner</h2>
-    <img class="banner" src="https://www.ncodetechnologies.com/OrganicFoodStore/images/product-page-banner.jpg" alt="banner" />
+    <img class="banner" src="{{ asset('images/product-page-banner.jpg') }}" alt="banner" />
 </section>
 <!-- /Banner -->
 
