@@ -5,7 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Admin Panel') - {{ config('app.name') }}</title>
+    <title>@yield('title', 'Quản trị') - FNF LAB</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         .sidebar {
@@ -32,8 +37,9 @@
     <div class="flex">
         <!-- Sidebar -->
         <aside class="sidebar w-64 text-white">
-            <div class="p-6">
-                <h2 class="text-2xl font-bold">Admin Panel</h2>
+            <div class="p-6 text-center">
+                <img src="{{ asset('images/footer-logo.png') }}" alt="FNF LAB" class="mx-auto mb-2" style="max-width: 150px; height: auto;">
+                <h2 class="text-xl font-semibold text-gray-300">Quản trị hệ thống</h2>
             </div>
             <nav>
                 <a href="{{ route('admin.dashboard') }}"
