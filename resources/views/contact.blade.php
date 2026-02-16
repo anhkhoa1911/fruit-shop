@@ -8,7 +8,7 @@
 <!-- Banner -->
 <section class="sub-banner">
     <h2 class="sr-only">Banner</h2>
-    <img class="banner" src="https://www.ncodetechnologies.com/OrganicFoodStore/images/cart-page-banner.jpg"
+    <img class="banner" src="{{ asset('images/cart-page-banner.jpg') }}"
         alt="banner" />
 </section>
 <!-- /Banner -->
@@ -35,7 +35,7 @@
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="box address-box">
                             <div class="icon-part">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/location-icon.png"
+                                <img src="{{ asset('images/location-icon.png') }}"
                                     alt="địa chỉ" class="img-responsive center-block" />
                             </div>
                             <div class="tit">
@@ -47,7 +47,7 @@
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="box phone-box">
                             <div class="icon-part">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/phone-icon.png"
+                                <img src="{{ asset('images/phone-icon.png') }}"
                                     alt="điện thoại" class="img-responsive center-block" />
                             </div>
                             <div class="tit">
@@ -60,7 +60,7 @@
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="box email-box">
                             <div class="icon-part">
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/message-icon.png"
+                                <img src="{{ asset('images/message-icon.png') }}"
                                     alt="email" class="img-responsive center-block" />
                             </div>
                             <div class="tit">

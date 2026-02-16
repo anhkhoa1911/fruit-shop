@@ -13,34 +13,33 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
 
-    <!-- Bootstrap v3.3.7 Style -->
-    <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Font Icons Style -->
-    <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/fontello.css" rel="stylesheet" />
-    <!-- Carousel Style -->
-    <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/responsive-slider.css" rel="stylesheet" />
-    <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/owl.carousel.min.css" rel="stylesheet">
-    <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/owl.theme.default.min.css" rel="stylesheet">
-    <!-- Value Slider Style (for About page) -->
-    <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/bootstrap-slider.min.css" rel="stylesheet">
-    <!-- Smooth Product Style (for Product detail) -->
-    <link rel="stylesheet" href="https://www.ncodetechnologies.com/OrganicFoodStore/css/smoothproducts.css">
-    <!-- Responsive Tab Style (for Product detail) -->
-    <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/responsive-tabs.css" rel="stylesheet">
-    <!-- Gallery with tab Style (for Product detail) -->
-    <link rel="stylesheet" href="https://www.ncodetechnologies.com/OrganicFoodStore/css/jquery.fancybox.min.css">
-    <!-- Custom Style -->
-    <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/style.css" rel="stylesheet" />
-    <!-- Custom Responsive Style -->
-    <link href="https://www.ncodetechnologies.com/OrganicFoodStore/css/query.css" rel="stylesheet" />
-    <!-- Google Font Style -->
+    <!-- Bootstrap v3.3.7 (cdnjs) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <!-- Font Icons (theme - local) -->
+    <link href="{{ asset('css/fontello.css') }}" rel="stylesheet" />
+    <!-- Carousel: responsive-slider (theme - local) -->
+    <link href="{{ asset('css/responsive-slider.css') }}" rel="stylesheet" />
+    <!-- Owl Carousel 2 (cdnjs) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.theme.default.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <!-- Bootstrap Slider (cdnjs) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <!-- Smoothproducts (theme - local) -->
+    <link rel="stylesheet" href="{{ asset('css/smoothproducts.css') }}">
+    <!-- Responsive Tabs (cdnjs) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/responsive-tabs/1.4.4/css/responsive-tabs.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <!-- Fancybox 3 (cdnjs) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" crossorigin="anonymous" />
+    <!-- Theme custom (local) -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/query.css') }}" rel="stylesheet" />
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
         rel="stylesheet">
     <!-- Font Awesome (footer social icons - reliable CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Fix: Load fontello font with absolute URLs so icons display on any domain -->
     <style>
         /* Responsive: chặn scroll ngang trên mobile */
         html, body {
@@ -57,14 +56,15 @@
             }
         }
 
+        /* Fontello: font load từ local (public/fonts) */
         @font-face {
             font-family: 'fontello';
-            src: url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.eot?68475362');
-            src: url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.eot?68475362#iefix') format('embedded-opentype'),
-                url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.woff2?68475362') format('woff2'),
-                url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.woff?68475362') format('woff'),
-                url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.ttf?68475362') format('truetype'),
-                url('https://www.ncodetechnologies.com/OrganicFoodStore/fonts/fontello.svg?68475362#fontello') format('svg');
+            src: url("{{ asset('fonts/fontello.eot') }}");
+            src: url("{{ asset('fonts/fontello.eot') }}#iefix") format('embedded-opentype'),
+                url("{{ asset('fonts/fontello.woff2') }}") format('woff2'),
+                url("{{ asset('fonts/fontello.woff') }}") format('woff'),
+                url("{{ asset('fonts/fontello.ttf') }}") format('truetype'),
+                url("{{ asset('fonts/fontello.svg') }}#fontello") format('svg');
             font-weight: normal;
             font-style: normal;
         }
@@ -1054,17 +1054,17 @@
                 <div class="col-md-2 col-sm-12 col-xs-12">
                     <div class="widget-title">Instagram</div>
                     <div class="insta-img-box">
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-1.jpg"
+                        <img src="{{ asset('images/instagram-img-1.jpg') }}"
                             alt="photo" class="img-responsive" />
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-2.jpg"
+                        <img src="{{ asset('images/instagram-img-2.jpg') }}"
                             alt="photo" class="img-responsive" />
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-3.jpg"
+                        <img src="{{ asset('images/instagram-img-3.jpg') }}"
                             alt="photo" class="img-responsive" />
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-4.jpg"
+                        <img src="{{ asset('images/instagram-img-4.jpg') }}"
                             alt="photo" class="img-responsive" />
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-5.jpg"
+                        <img src="{{ asset('images/instagram-img-5.jpg') }}"
                             alt="photo" class="img-responsive" />
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/instagram-img-6.jpg"
+                        <img src="{{ asset('images/instagram-img-6.jpg') }}"
                             alt="photo" class="img-responsive" />
                     </div>
                 </div>
@@ -1101,27 +1101,30 @@
     <!-- Go to Top -->
     <a href="#" class="scrollup" aria-label="Lên đầu trang"><i class="fas fa-angle-up"></i></a>
 
-    <!-- jquery first -->
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/jquery-1.11.3.min.js"></script>
-    <!-- bootstrap v3.3.7 -->
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/bootstrap.min.js"></script>
-    <!-- carousels -->
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/responsive-slider.js"></script>
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/owl.carousel.min.js"></script>
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/jquery.event.move.js"></script>
-    <!-- Value Slider -->
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/bootstrap-slider.min.js"></script>
-    <!-- Responsive Tab -->
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/responsiveTabs.min.js"></script>
-    <!-- Smoothproducts -->
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/smoothproducts.min.js"></script>
-    <!-- Sameheight -->
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/jquery.matchHeight-min.js"></script>
-    <!-- Gallery with tab -->
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/jquery.fancybox.min.js"></script>
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/isotope.pkgd.js"></script>
-    <!-- Custom Scripts -->
-    <script src="https://www.ncodetechnologies.com/OrganicFoodStore/js/custom.js"></script>
+    <!-- jQuery 1.11.3 (cdnjs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap v3.3.7 (cdnjs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!-- Carousels: responsive-slider (theme - local) -->
+    <script src="{{ asset('js/responsive-slider.js') }}"></script>
+    <!-- Owl Carousel 2 (cdnjs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js" crossorigin="anonymous"></script>
+    <!-- Touch/move events (jsDelivr) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery.event.move@1.3.6/js/jquery.event.move.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap Slider (cdnjs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/bootstrap-slider.min.js" crossorigin="anonymous"></script>
+    <!-- Responsive Tabs (cdnjs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/responsive-tabs/1.4.4/js/jquery.responsiveTabs.min.js" crossorigin="anonymous"></script>
+    <!-- Smoothproducts (theme - local) -->
+    <script src="{{ asset('js/smoothproducts.min.js') }}"></script>
+    <!-- Match height (cdnjs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js" crossorigin="anonymous"></script>
+    <!-- Fancybox 3 (cdnjs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" crossorigin="anonymous"></script>
+    <!-- Isotope (cdnjs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" crossorigin="anonymous"></script>
+    <!-- Theme custom (local) -->
+    <script src="{{ asset('js/custom.js') }}"></script>
 
     @stack('scripts')
 </body>

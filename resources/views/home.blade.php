@@ -11,7 +11,7 @@
         <ul>
             <li>
                 <div class="slide-body" data-group="slide">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/slider-banner.jpg" alt="banner">
+                    <img src="{{ asset('images/slider-banner.jpg') }}" alt="banner">
                     <div class="carouseal-caption">
                         <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
                             <div class="sub-tit">Trái cây sạch, tươi ngon</div>
@@ -22,7 +22,7 @@
             </li>
             <li>
                 <div class="slide-body" data-group="slide">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/slider-banner.jpg" alt="banner">
+                    <img src="{{ asset('images/slider-banner.jpg') }}" alt="banner">
                     <div class="carouseal-caption">
                         <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
                             <div class="sub-tit">Chất lượng hàng đầu</div>
@@ -49,7 +49,7 @@
                     <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}"
                         class="img-responsive" />
                     @else
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/fresh-fruits-img.jpg"
+                    <img src="{{ asset('images/fresh-fruits-img.jpg') }}"
                         alt="{{ $category->name }}" class="img-responsive" />
                     @endif
                     <div class="tit-btn-wrapper">
@@ -275,7 +275,7 @@
                                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
                                     class="img-responsive" />
                                 @else
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/new-arrivals-img-1.jpg"
+                                <img src="{{ asset('images/new-arrivals-img-1.jpg') }}"
                                     alt="{{ $product->name }}" class="img-responsive" />
                                 @endif
                             </div>
@@ -318,7 +318,7 @@
                                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
                                     class="img-responsive" />
                                 @else
-                                <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/new-arrivals-img-1.jpg"
+                                <img src="{{ asset('images/new-arrivals-img-1.jpg') }}"
                                     alt="{{ $product->name }}" class="img-responsive" />
                                 @endif
                             </div>
@@ -387,7 +387,7 @@
                     @if($post->thumbnail)
                         <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="img-responsive" />
                     @else
-                        <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/organic-news-img-1.jpg" alt="{{ $post->title }}" class="img-responsive" />
+                        <img src="{{ asset('images/organic-news-img-1.jpg') }}" alt="{{ $post->title }}" class="img-responsive" />
                     @endif
                     <div class="overlay"></div>
                     <div class="text">
@@ -427,7 +427,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12 first">
                 <div class="icon-part">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/step-1.png" alt="bước 1" class="img-responsive center-block" />
+                    <img src="{{ asset('images/step-1.png') }}" alt="bước 1" class="img-responsive center-block" />
                     <i class="fas fa-shopping-cart"></i>
                 </div>
                 <div class="process-name">
@@ -437,7 +437,7 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 second">
                 <div class="icon-part">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/step-2.png" alt="bước 2" class="img-responsive center-block" />
+                    <img src="{{ asset('images/step-2.png') }}" alt="bước 2" class="img-responsive center-block" />
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <div class="process-name">
@@ -447,7 +447,7 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 third">
                 <div class="icon-part">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/step-3.png" alt="bước 3" class="img-responsive center-block" />
+                    <img src="{{ asset('images/step-3.png') }}" alt="bước 3" class="img-responsive center-block" />
                     <i class="fas fa-map-marker-alt"></i>
                 </div>
                 <div class="process-name">
@@ -457,7 +457,7 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 fourth">
                 <div class="icon-part">
-                    <img src="https://www.ncodetechnologies.com/OrganicFoodStore/images/step-4.png" alt="bước 4" class="img-responsive center-block" />
+                    <img src="{{ asset('images/step-4.png') }}" alt="bước 4" class="img-responsive center-block" />
                     <i class="fas fa-shipping-fast"></i>
                 </div>
                 <div class="process-name">
