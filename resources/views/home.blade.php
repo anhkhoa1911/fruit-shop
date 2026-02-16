@@ -95,6 +95,8 @@
     $farmSoriGallery = json_decode(\App\Models\Setting::get('farm_sori_gallery', '[]'), true) ?: [];
     $factoryDescription = \App\Models\Setting::get('factory_description', 'Hệ thống nhà máy được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn thực phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.');
     $farmDescription = \App\Models\Setting::get('farm_description', 'Trái cây tươi ngon được thu hoạch trực tiếp từ các trang trại đối tác uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.');
+    $applicationSolutionDescription = \App\Models\Setting::get('application_solution_description', '');
+    $applicationSolutionGallery = json_decode(\App\Models\Setting::get('application_solution_gallery', '[]'), true) ?: [];
 @endphp
 
 @if(count($factoryGallery))
@@ -305,33 +307,38 @@
                 <div class="section-tit">
                     <div class="inner">
                         <h2 style="line-height:80px;"><span>Ứng dụng & giải pháp sản phẩm</span></h2>
+                        @if($applicationSolutionDescription)
+                        <h4 style="margin-bottom:20px;">{!! nl2br(e($applicationSolutionDescription)) !!}</h4>
+                        @endif
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 col-xs-12">
-                <div class="row">
-                    @foreach($featuredProducts as $product)
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="wrapper">
-                            <div class="pro-img">
-                                @if($product->image)
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
-                                    class="img-responsive" />
-                                @else
-                                <img src="{{ asset('images/new-arrivals-img-1.jpg') }}"
-                                    alt="{{ $product->name }}" class="img-responsive" />
-                                @endif
-                            </div>
-                            <div class="contain-wrapper">
-                                <div class="tit">{{ $product->name }}</div>
-                                <div class="btn-part">
-                                    <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Liên hệ chúng tôi</a>
+                @if(count($applicationSolutionGallery))
+                <div class="row application-solution-gallery" style="padding:10px 0 20px;">
+                    @foreach($applicationSolutionGallery as $path)
+                        @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
+                        <div class="col-md-3 col-sm-6 col-xs-12" style="margin-bottom:20px;">
+                            @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
+                                <a href="{{ asset('storage/' . $path) }}" data-fancybox="application-solution-gallery" data-caption="{{ basename($path) }}" style="display:block;cursor:pointer;">
+                                    <div style="border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+                                        <img src="{{ asset('storage/' . $path) }}" alt="Ứng dụng & giải pháp" class="img-responsive" style="width:100%;height:220px;object-fit:cover;display:block;">
+                                    </div>
+                                </a>
+                            @else
+                                <div style="border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;">
+                                    <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" style="width:100%;height:280px;border:none;display:block;" title="{{ basename($path) }}"></iframe>
+                                    <div style="padding:8px;text-align:center;background:#f5f5f5;border-top:1px solid #eee;">
+                                        <a href="{{ asset('storage/' . $path) }}" target="_blank" rel="noopener" class="text-sm" style="color:#549843;">Xem file</a>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
-                    </div>
                     @endforeach
                 </div>
+                @else
+                <p class="text-center" style="color:#666;">Chưa có hình ảnh. Vui lòng upload tại Admin → Cài đặt → Ứng dụng & giải pháp.</p>
+                @endif
             </div>
         </div>
     </div>

@@ -73,6 +73,17 @@
                     <p class="text-xs text-gray-500 mt-1">Hiển thị trên trang chủ, block Trang trại đối tác.</p>
                 </div>
                 <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Mô tả Ứng dụng & giải pháp</label>
+                    <input type="text" name="settings[10][value]" maxlength="200"
+                        value="{{ \App\Models\Setting::get('application_solution_description') }}"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+                        placeholder="Tối đa 200 ký tự. Hiển thị trên trang chủ, block Ứng dụng & giải pháp sản phẩm.">
+                    <input type="hidden" name="settings[10][key]" value="application_solution_description">
+                    <input type="hidden" name="settings[10][type]" value="text">
+                    <input type="hidden" name="settings[10][group]" value="about">
+                    <p class="text-xs text-gray-500 mt-1">Tối đa 200 ký tự. Hiển thị trên trang chủ, block Ứng dụng & giải pháp sản phẩm.</p>
+                </div>
+                <div>
                     <label class="block text-gray-700 text-sm font-bold mb-2">Nội dung trang giới thiệu</label>
                     <textarea name="settings[3][value]" rows="10"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700">{{ \App\Models\Setting::get('about_content') }}</textarea>
@@ -185,6 +196,39 @@
                     @endif
                     <input type="file" name="images[factory][]" multiple class="block w-full text-sm text-gray-700">
                     <p class="text-xs text-gray-500 mt-1">Ảnh nhà máy, dùng cho trang Giới thiệu (có thể chọn nhiều ảnh).</p>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Ứng dụng & giải pháp</label>
+                    @php
+                        $applicationSolutionGallery = json_decode(\App\Models\Setting::get('application_solution_gallery', '[]'), true) ?? [];
+                    @endphp
+                    @if(count($applicationSolutionGallery))
+                        <div class="flex space-x-4 overflow-x-auto pb-2 mb-2">
+                            @foreach($applicationSolutionGallery as $path)
+                                @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
+                                <div class="flex-shrink-0">
+                                    @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
+                                        <img src="{{ asset('storage/' . $path) }}" alt="application" class="h-24 object-cover border rounded">
+                                    @else
+                                        <div class="border-2 border-gray-300 rounded-lg overflow-hidden bg-white min-w-[250px]">
+                                            <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0"
+                                                class="w-full h-48 border-0"
+                                                title="{{ basename($path) }}">
+                                            </iframe>
+                                            <div class="p-2 text-center bg-gray-50 border-t border-gray-200">
+                                                <a href="{{ asset('storage/' . $path) }}" target="_blank" class="text-xs text-blue-600 hover:text-blue-800 underline font-semibold break-words">
+                                                    {{ basename($path) }}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+                    <input type="file" name="images[application_solution][]" multiple accept="image/*" class="block w-full text-sm text-gray-700">
+                    <p class="text-xs text-gray-500 mt-1">Gallery hình ảnh cho block Ứng dụng & giải pháp sản phẩm (có thể chọn nhiều ảnh).</p>
                 </div>
 
                 <div>

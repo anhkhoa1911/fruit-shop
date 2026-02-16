@@ -35,14 +35,20 @@ class SettingController extends Controller
             $rules['images.farm_guava.*'] = 'nullable|file|max:4096';
             $rules['images.farm_sori'] = 'nullable|array';
             $rules['images.farm_sori.*'] = 'nullable|file|max:4096';
+            $rules['images.application_solution'] = 'nullable|array';
+            $rules['images.application_solution.*'] = 'nullable|file|max:4096';
         }
 
         $validated = $request->validate($rules);
 
         foreach ($request->settings as $setting) {
+            $value = $setting['value'] ?? '';
+            if (($setting['key'] ?? '') === 'application_solution_description') {
+                $value = mb_substr(trim($value), 0, 200);
+            }
             Setting::set(
                 $setting['key'],
-                $setting['value'] ?? '',
+                $value,
                 $setting['type'],
                 $setting['group']
             );
@@ -56,6 +62,7 @@ class SettingController extends Controller
             'factory' => 'img/factory',
             'farm_guava' => 'img/farm',
             'farm_sori' => 'img/farm',
+            'application_solution' => 'img/application_solution',
         ];
 
         $settingKeyMap = [
@@ -63,13 +70,14 @@ class SettingController extends Controller
             'factory' => 'factory_gallery',
             'farm_guava' => 'farm_guava_gallery',
             'farm_sori' => 'farm_sori_gallery',
+            'application_solution' => 'application_solution_gallery',
         ];
 
         // Xử lý upload cho từng nhóm
         // Laravel xử lý nested array như: images[certificates][] => $request->file('images')['certificates']
         $imagesData = $request->file('images', []);
         
-        foreach (['certificates', 'factory', 'farm_guava', 'farm_sori'] as $groupKey) {
+        foreach (['certificates', 'factory', 'farm_guava', 'farm_sori', 'application_solution'] as $groupKey) {
             // Kiểm tra theo 2 cách: nested và direct
             $files = null;
             if (isset($imagesData[$groupKey]) && !empty($imagesData[$groupKey])) {
