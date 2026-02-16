@@ -870,6 +870,38 @@
             padding-bottom: 14px !important;
         }
 
+        /* Product list: ảnh sản phẩm chiều cao cố định, các block bằng nhau */
+        #products.product-list .pro-img {
+            height: 280px !important;
+            overflow: hidden !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: #f5f5f5;
+        }
+        #products.product-list .pro-img img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+
+        /* Trang chủ: ảnh sản phẩm (Trái cây tươi + Ứng dụng & giải pháp) chiều cao cố định */
+        .new-arrivals-section .pro-img {
+            height: 280px !important;
+            overflow: hidden !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: #f5f5f5;
+        }
+        .new-arrivals-section .pro-img img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+
         .related-products .tit h2 {
             font-size: 26px !important;
             font-weight: 700 !important;

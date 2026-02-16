@@ -40,7 +40,7 @@
                             </div>
                             <div class="tit">
                                 <h3>Địa chỉ</h3>
-                                <p>{!! nl2br(e($contactInfo['address'] ?? 'Chưa cập nhật')) !!}</p>
+                                <p style="margin: 0 30px">{!! nl2br(e($contactInfo['address'] ?? 'Chưa cập nhật')) !!}</p>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="tit">
                                 <h3>Điện thoại</h3>
-                                <p><a href="tel:{{ $contactInfo['phone'] ?? '' }}">{{ $contactInfo['phone'] ?? 'Chưa cập
+                                <p style="margin: 0 30px"><a href="tel:{{ $contactInfo['phone'] ?? '' }}">{{ $contactInfo['phone'] ?? 'Chưa cập
                                         nhật' }}</a></p>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                             </div>
                             <div class="tit">
                                 <h3>Email</h3>
-                                <p><a href="mailto:{{ $contactInfo['email'] ?? '' }}">{{ $contactInfo['email'] ?? 'Chưa
+                                <p style="margin: 0 30px"><a href="mailto:{{ $contactInfo['email'] ?? '' }}">{{ $contactInfo['email'] ?? 'Chưa
                                         cập nhật' }}</a></p>
                             </div>
                         </div>
