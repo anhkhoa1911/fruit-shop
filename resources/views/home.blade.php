@@ -147,7 +147,7 @@
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2 style="margin-bottom:15px;"><span>Trang trại</span> đối tác</h2>
+                        <h2 style="margin-bottom:15px;"><span>Nông trại</span></h2>
                         <h4 style="margin-bottom:20px;">{!! nl2br(e($farmDescription)) !!}</h4>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                     @if(count($farmGuavaGallery))
                     <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom:25px;">
                         <div style="background:#fff;border-radius:8px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.08);height:100%;border:1px solid #eee;">
-                            <h3 style="font-size:20px;color:#333;margin-bottom:10px;"><span style="color:#8bc34a;">Trang trại ổi</span></h3>
+                            <h3 style="font-size:20px;color:#333;margin-bottom:10px;"><span style="color:#8bc34a;">Nông trại ổi</span></h3>
                             <p style="color:#666;font-size:14px;line-height:1.5;margin-bottom:15px;">Trái ổi tươi ngon được thu hoạch trực tiếp từ trang trại đối tác, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
                             <div class="farm-gallery" style="display:flex;gap:15px;overflow-x:auto;padding-top:5px;">
                                 @foreach($farmGuavaGallery as $path)
@@ -184,8 +184,8 @@
                     @if(count($farmSoriGallery))
                     <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom:25px;">
                         <div style="background:#fff;border-radius:8px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.08);height:100%;border:1px solid #eee;">
-                            <h3 style="font-size:20px;color:#333;margin-bottom:10px;"><span style="color:#e91e63;">Trang trại sơ ri</span></h3>
-                            <p style="color:#666;font-size:14px;line-height:1.5;margin-bottom:15px;">Trang trại sơ ri với quy trình canh tác an toàn, mang đến những trái sơ ri chín mọng, giàu dinh dưỡng.</p>
+                            <h3 style="font-size:20px;color:#333;margin-bottom:10px;"><span style="color:#e91e63;">Nông trại sơ ri</span></h3>
+                            <p style="color:#666;font-size:14px;line-height:1.5;margin-bottom:15px;">Nông trại sơ ri với quy trình canh tác an toàn, mang đến những trái sơ ri chín mọng, giàu dinh dưỡng.</p>
                             <div class="farm-gallery" style="display:flex;gap:15px;overflow-x:auto;padding-top:5px;">
                                 @foreach($farmSoriGallery as $path)
                                     @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
