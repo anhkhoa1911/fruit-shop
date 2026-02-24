@@ -256,14 +256,14 @@
 
 <div class="clearfix"></div>
 
-<!-- Trái cây tươi -->
+<!-- Trái cây đông lạnh -->
 <section class="new-arrivals-section section-padding">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2><span>Trái cây tươi</span></h2>
+                        <h2><span>Trái cây đông lạnh</span></h2>
                     </div>
                 </div>
             </div>
@@ -299,14 +299,14 @@
 
 <div class="clearfix"></div>
 
-<!-- Ứng dụng và giải pháp sản phẩm -->
+<!-- Ứng dụng và giải pháp -->
 <section class="new-arrivals-section section-padding">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2 style="line-height:80px;"><span>Ứng dụng & giải pháp sản phẩm</span></h2>
+                        <h2 style="line-height:80px;"><span>Ứng dụng và giải pháp</span></h2>
                         @if($applicationSolutionDescription)
                         <h4 style="margin-bottom:20px;">{!! nl2br(e($applicationSolutionDescription)) !!}</h4>
                         @endif
