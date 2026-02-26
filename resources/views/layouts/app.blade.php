@@ -945,7 +945,6 @@
                             <ul class="widget">
                                 <li><a href="{{ route('about') }}">Giới thiệu</a></li>
                                 <li><a href="{{ route('contact') }}">Liên hệ</a></li>
-                                <li><a href="{{ route('products.index') }}">Sản phẩm</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-xs-12">
@@ -957,11 +956,11 @@
                             </ul>
                         </div>
                         <div class="col-sm-4 col-xs-12">
-                            <div class="widget-title">Chính sách</div>
+                            <div class="widget-title">Dịch vụ</div>
                             <ul class="widget">
-                                <li><span>Chính sách đổi trả</span></li>
-                                <li><span>Chính sách bảo mật</span></li>
-                                <li><span>Điều khoản sử dụng</span></li>
+                                <li><span>Giao hàng tận nơi</span></li>
+                                <li><span>Tư vấn miễn phí</span></li>
+                                <li><span>Đóng gói quà tặng</span></li>
                             </ul>
                         </div>
                     </div>
