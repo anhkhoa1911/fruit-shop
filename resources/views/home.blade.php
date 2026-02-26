@@ -97,6 +97,22 @@
     $farmDescription = \App\Models\Setting::get('farm_description', 'Trái cây tươi ngon được thu hoạch trực tiếp từ các vườn cây trồng uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.');
     $applicationSolutionDescription = \App\Models\Setting::get('application_solution_description', '');
     $applicationSolutionGallery = json_decode(\App\Models\Setting::get('application_solution_gallery', '[]'), true) ?: [];
+    
+    // Mảng tên sản phẩm tương ứng với từng hình ảnh
+    $productNames = [
+        'Nước ép nho',
+        'Trà sữa trân châu',
+        'Nước ép kiwi bạc hà',
+        'Nước ép chanh dây',
+        'Nước ép cam soda',
+        'Nước ép chanh tắc',
+        'Nước ép dâu cam',
+        'Smoothie bơ',
+        'Nước ép dứa bạc hà',
+        'Trà đào cam sả',
+        'Sinh tố xoài',
+        'Nước ép chanh bạc hà'
+    ];
 @endphp
 
 @if(count($factoryGallery))
@@ -316,20 +332,26 @@
             <div class="col-sm-12 col-xs-12">
                 @if(count($applicationSolutionGallery))
                 <div class="row application-solution-gallery" style="padding:10px 0 20px;">
-                    @foreach($applicationSolutionGallery as $path)
-                        @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
+                    @foreach($applicationSolutionGallery as $index => $path)
+                        @php 
+                            $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+                            $productName = $productNames[$index] ?? basename($path);
+                        @endphp
                         <div class="col-md-3 col-sm-6 col-xs-4" style="margin-bottom:20px;">
                             @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
-                                <a href="{{ asset('storage/' . $path) }}" data-fancybox="application-solution-gallery" data-caption="{{ basename($path) }}" style="display:block;cursor:pointer;">
+                                <a href="{{ asset('storage/' . $path) }}" data-fancybox="application-solution-gallery" data-caption="{{ $productName }}" style="display:block;cursor:pointer;">
                                     <div style="border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
-                                        <img src="{{ asset('storage/' . $path) }}" alt="Ứng dụng & giải pháp" class="img-responsive" style="width:100%;height:220px;object-fit:cover;display:block;">
+                                        <img src="{{ asset('storage/' . $path) }}" alt="{{ $productName }}" class="img-responsive" style="width:100%;height:220px;object-fit:cover;display:block;">
+                                        <div style="padding:10px;text-align:center;background:#f9f9f9;border-top:1px solid #eee;">
+                                            <p style="margin:0;font-size:13px;color:#555;font-weight:500;">{{ $productName }}</p>
+                                        </div>
                                     </div>
                                 </a>
                             @else
                                 <div style="border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;">
-                                    <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" style="width:100%;height:280px;border:none;display:block;" title="{{ basename($path) }}"></iframe>
+                                    <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" style="width:100%;height:280px;border:none;display:block;" title="{{ $productName }}"></iframe>
                                     <div style="padding:8px;text-align:center;background:#f5f5f5;border-top:1px solid #eee;">
-                                        <a href="{{ asset('storage/' . $path) }}" target="_blank" rel="noopener" class="text-sm" style="color:#549843;">Xem file</a>
+                                        <a href="{{ asset('storage/' . $path) }}" target="_blank" rel="noopener" class="text-sm" style="color:#549843;">{{ $productName }}</a>
                                     </div>
                                 </div>
                             @endif

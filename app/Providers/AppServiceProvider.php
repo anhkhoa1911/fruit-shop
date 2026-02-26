@@ -21,10 +21,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Share categories với tất cả views
+        // Share categories và latest products với tất cả views
         view()->composer('*', function ($view) {
             $view->with('headerCategories', \App\Models\Category::where('is_active', true)
                 ->orderBy('sort_order')
+                ->get());
+            
+            // Share 6 sản phẩm mới nhất cho footer
+            $view->with('latestProductsFooter', \App\Models\Product::where('is_active', true)
+                ->whereNotNull('image')
+                ->latest()
+                ->take(6)
                 ->get());
         });
 

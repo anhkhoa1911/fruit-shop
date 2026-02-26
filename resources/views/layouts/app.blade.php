@@ -962,20 +962,14 @@
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-12 col-xs-12">
-                    <div class="widget-title">Instagram</div>
+                    <div class="widget-title">Sản phẩm mới</div>
                     <div class="insta-img-box">
-                        <img src="{{ asset('images/instagram-img-1.jpg') }}"
-                            alt="photo" class="img-responsive" />
-                        <img src="{{ asset('images/instagram-img-2.jpg') }}"
-                            alt="photo" class="img-responsive" />
-                        <img src="{{ asset('images/instagram-img-3.jpg') }}"
-                            alt="photo" class="img-responsive" />
-                        <img src="{{ asset('images/instagram-img-4.jpg') }}"
-                            alt="photo" class="img-responsive" />
-                        <img src="{{ asset('images/instagram-img-5.jpg') }}"
-                            alt="photo" class="img-responsive" />
-                        <img src="{{ asset('images/instagram-img-6.jpg') }}"
-                            alt="photo" class="img-responsive" />
+                        @foreach($latestProductsFooter as $product)
+                        <a href="{{ route('products.show', $product->slug) }}" title="{{ $product->name }}">
+                            <img src="{{ $product->image ? asset('storage/' . $product->image) : asset('images/product-img-1.jpg') }}"
+                                alt="{{ $product->name }}" style="width:56px;height:56px;object-fit:cover;display:inline-block;" />
+                        </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
