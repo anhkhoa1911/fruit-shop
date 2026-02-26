@@ -2805,6 +2805,12 @@ footer .top-footer {
 	color: #fff;
 }
 
+.top-footer .widget li span {
+	font-size: 15px;
+	color: #d6d0be;
+	line-height: 15px;
+}
+
 .top-footer .widget {
 	text-align: left;
 }

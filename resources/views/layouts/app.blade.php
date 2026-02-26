@@ -944,19 +944,24 @@
                             <div class="widget-title">Thông tin</div>
                             <ul class="widget">
                                 <li><a href="{{ route('about') }}">Giới thiệu</a></li>
+                                <li><a href="{{ route('contact') }}">Liên hệ</a></li>
                                 <li><a href="{{ route('products.index') }}">Sản phẩm</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-xs-12">
-                            <div class="widget-title">Khách hàng</div>
+                            <div class="widget-title">Danh mục sản phẩm</div>
                             <ul class="widget">
-                                <li><a href="{{ route('about') }}">Về chúng tôi</a></li>
+                                @foreach($headerCategories->take(4) as $category)
+                                <li><a href="{{ route('products.category', $category->slug) }}">{{ $category->name }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="col-sm-4 col-xs-12">
-                            <div class="widget-title">Liên kết nhanh</div>
+                            <div class="widget-title">Chính sách</div>
                             <ul class="widget">
-                                <li><a href="{{ route('contact') }}">Liên hệ</a></li>
+                                <li><span>Chính sách đổi trả</span></li>
+                                <li><span>Chính sách bảo mật</span></li>
+                                <li><span>Điều khoản sử dụng</span></li>
                             </ul>
                         </div>
                     </div>
