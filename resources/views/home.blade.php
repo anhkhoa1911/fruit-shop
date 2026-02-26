@@ -106,7 +106,7 @@
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2 style="margin-bottom:15px;"><span>Nhà máy</span> & Quy trình</h2>
+                        <h2 style="margin-bottom:15px;"><span>Xưởng sản xuất</span> & Quy trình</h2>
                         <h4 style="margin-bottom:20px;">{!! nl2br(e($factoryDescription)) !!}</h4>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2 style="margin-bottom:15px;"><span>Nông trại</span></h2>
+                        <h2 style="margin-bottom:15px;"><span>Vườn cây trồng</span></h2>
                         <h4 style="margin-bottom:20px;">{!! nl2br(e($farmDescription)) !!}</h4>
                     </div>
                 </div>
@@ -224,8 +224,8 @@
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2 style="margin-bottom:15px;line-height:80px;"><span>Chứng nhận</span> an toàn thực phẩm</h2>
-                        <h4 style="margin-bottom:15px;line-height:20px;">Những chứng nhận chất lượng và an toàn thực phẩm mà chúng tôi đã đạt được.</h4>
+                        <h2 style="margin-bottom:15px;line-height:80px;"><span>Chứng nhận</span> xưởng sản xuất</h2>
+                        <h4 style="margin-bottom:15px;line-height:20px;">Những chứng nhận chất lượng và an toàn sản phẩm mà chúng tôi đã đạt được.</h4>
                     </div>
                 </div>
                 <div class="certificate-scroller" style="display:flex;gap:20px;overflow-x:auto;padding-bottom:10px;justify-content:center;flex-wrap:nowrap;">
@@ -350,7 +350,7 @@
 <div class="clearfix"></div>
 
 <!-- Best Deal -->
-<section class="fress-section">
+{{-- <section class="fress-section">
     <div class="container">
         <div class="row">
             <div class="col-sm-8 lpart">
@@ -368,7 +368,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- /Best Deal -->
 
 <div class="clearfix"></div>
