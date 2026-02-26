@@ -77,8 +77,8 @@
                 <div class="col-sm-12 col-xs-12">
                     <div class="section-tit">
                         <div class="inner">
-                            <h2 style="margin-bottom:15px; line-height:80px;">Chứng nhận an toàn thực phẩm</h2>
-                            <h4 style="margin-bottom:5px;">Những chứng nhận chất lượng và an toàn thực phẩm mà chúng tôi đã đạt được.</h4>
+                            <h2 style="margin-bottom:15px; line-height:80px;">Chứng nhận xưởng sản xuất</h2>
+                            <h4 style="margin-bottom:5px;">Những chứng nhận chất lượng và an toàn sản phẩm mà chúng tôi đã đạt được.</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -169,8 +169,8 @@
                 <div class="col-sm-12 col-xs-12">
                     <div class="section-tit">
                         <div class="inner">
-                            <h2 style="margin-bottom:15px;">Nhà máy & Quy trình</h2>
-                            <h4 style="margin-bottom:5px;">Hệ thống nhà máy được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn thực phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.</h4>
+                            <h2 style="margin-bottom:15px;">Xưởng sản xuất & Quy trình</h2>
+                            <h4 style="margin-bottom:5px;">Hệ thống xưởng sản xuất được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn sản phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -217,8 +217,8 @@
                 <div class="col-sm-12 col-xs-12">
                     <div class="section-tit">
                         <div class="inner">
-                            <h2 style="margin-bottom:15px; line-height:80px;">Trang trại đối tác</h2>
-                            <h4 style="margin-bottom:5px;">Trái cây tươi ngon được thu hoạch trực tiếp từ các trang trại đối tác uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.</h4>
+                            <h2 style="margin-bottom:15px; line-height:80px;">Vườn cây trồng</h2>
+                            <h4 style="margin-bottom:5px;">Trái cây tươi ngon được thu hoạch trực tiếp từ các vườn cây trồng uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -227,9 +227,9 @@
                             <div style="background:#fff;border-radius:8px;padding:25px;box-shadow:0 2px 10px rgba(0,0,0,0.08);height:100%;">
                                 <div class="sec-tit" style="margin-bottom:15px;">
                                     <h3 style="font-size:22px;color:#333;margin-bottom:10px;">
-                                        <span style="color:#8bc34a;">Trang trại ổi</span>
+                                        <span style="color:#8bc34a;">Vườn trồng ổi</span>
                                     </h3>
-                                    <p style="color:#666;font-size:14px;line-height:1.6;">Trái ổi tươi ngon được thu hoạch trực tiếp từ trang trại đối tác, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
+                                    <p style="color:#666;font-size:14px;line-height:1.6;">Trái ổi tươi ngon được thu hoạch trực tiếp từ vườn trồng, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
                                 </div>
                                 <div class="farm-gallery" style="display:flex;gap:15px;overflow-x:auto;padding-top:15px;">
                                     @foreach($farmGuavaGallery as $path)
@@ -238,7 +238,7 @@
                                             @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
                                                 <a href="{{ asset('storage/' . $path) }}" data-fancybox="farm-guava-gallery" data-caption="{{ basename($path) }}" style="display:block;cursor:pointer;">
                                                     <div style="border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);background:#fff;transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 4px 10px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)'">
-                                                        <img src="{{ asset('storage/' . $path) }}" alt="Trang trại ổi" class="img-responsive" style="width:100%;height:180px;object-fit:cover;display:block;">
+                                                        <img src="{{ asset('storage/' . $path) }}" alt="Vườn trồng ổi" class="img-responsive" style="width:100%;height:180px;object-fit:cover;display:block;">
                                                     </div>
                                                 </a>
                                             @else
@@ -265,9 +265,9 @@
                             <div style="background:#fff;border-radius:8px;padding:25px;box-shadow:0 2px 10px rgba(0,0,0,0.08);height:100%;">
                                 <div class="sec-tit" style="margin-bottom:15px;">
                                     <h3 style="font-size:22px;color:#333;margin-bottom:10px;">
-                                        <span style="color:#e91e63;">Trang trại sơ ri</span>
+                                        <span style="color:#e91e63;">Vườn trồng sơ ri</span>
                                     </h3>
-                                    <p style="color:#666;font-size:14px;line-height:1.6;">Trang trại sơ ri với quy trình canh tác an toàn, mang đến những trái sơ ri chín mọng, giàu dinh dưỡng.</p>
+                                    <p style="color:#666;font-size:14px;line-height:1.6;">Vườn trồng sơ ri với quy trình canh tác an toàn, mang đến những trái sơ ri chín mọng, giàu dinh dưỡng.</p>
                                 </div>
                                 <div class="farm-gallery" style="display:flex;gap:15px;overflow-x:auto;padding-top:15px;">
                                     @foreach($farmSoriGallery as $path)
@@ -276,7 +276,7 @@
                                             @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
                                                 <a href="{{ asset('storage/' . $path) }}" data-fancybox="farm-sori-gallery" data-caption="{{ basename($path) }}" style="display:block;cursor:pointer;">
                                                     <div style="border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);background:#fff;transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 4px 10px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)'">
-                                                        <img src="{{ asset('storage/' . $path) }}" alt="Trang trại sơ ri" class="img-responsive" style="width:100%;height:180px;object-fit:cover;display:block;">
+                                                        <img src="{{ asset('storage/' . $path) }}" alt="Vườn trồng sơ ri" class="img-responsive" style="width:100%;height:180px;object-fit:cover;display:block;">
                                                     </div>
                                                 </a>
                                             @else

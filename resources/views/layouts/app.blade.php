@@ -944,21 +944,18 @@
                             <div class="widget-title">Thông tin</div>
                             <ul class="widget">
                                 <li><a href="{{ route('about') }}">Giới thiệu</a></li>
-                                <li><a href="{{ route('contact') }}">Liên hệ</a></li>
                                 <li><a href="{{ route('products.index') }}">Sản phẩm</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-xs-12">
                             <div class="widget-title">Khách hàng</div>
                             <ul class="widget">
-                                <li><a href="{{ route('contact') }}">Liên hệ</a></li>
                                 <li><a href="{{ route('about') }}">Về chúng tôi</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-xs-12">
                             <div class="widget-title">Liên kết nhanh</div>
                             <ul class="widget">
-                                <li><a href="{{ route('products.index') }}">Sản phẩm</a></li>
                                 <li><a href="{{ route('contact') }}">Liên hệ</a></li>
                             </ul>
                         </div>

@@ -93,8 +93,8 @@
     $factoryGallery = json_decode(\App\Models\Setting::get('factory_gallery', '[]'), true) ?: [];
     $farmGuavaGallery = json_decode(\App\Models\Setting::get('farm_guava_gallery', '[]'), true) ?: [];
     $farmSoriGallery = json_decode(\App\Models\Setting::get('farm_sori_gallery', '[]'), true) ?: [];
-    $factoryDescription = \App\Models\Setting::get('factory_description', 'Hệ thống nhà máy được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn thực phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.');
-    $farmDescription = \App\Models\Setting::get('farm_description', 'Trái cây tươi ngon được thu hoạch trực tiếp từ các trang trại đối tác uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.');
+    $factoryDescription = \App\Models\Setting::get('factory_description', 'Hệ thống xưởng sản xuất được trang bị hiện đại, đáp ứng các tiêu chuẩn an toàn sản phẩm để đảm bảo trái cây luôn tươi ngon và an toàn.');
+    $farmDescription = \App\Models\Setting::get('farm_description', 'Trái cây tươi ngon được thu hoạch trực tiếp từ các vườn cây trồng uy tín, đảm bảo chất lượng và nguồn gốc rõ ràng.');
     $applicationSolutionDescription = \App\Models\Setting::get('application_solution_description', '');
     $applicationSolutionGallery = json_decode(\App\Models\Setting::get('application_solution_gallery', '[]'), true) ?: [];
 @endphp
@@ -155,8 +155,8 @@
                     @if(count($farmGuavaGallery))
                     <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom:25px;">
                         <div style="background:#fff;border-radius:8px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.08);height:100%;border:1px solid #eee;">
-                            <h3 style="font-size:20px;color:#333;margin-bottom:10px;"><span style="color:#8bc34a;">Nông trại ổi</span></h3>
-                            <p style="color:#666;font-size:14px;line-height:1.5;margin-bottom:15px;">Trái ổi tươi ngon được thu hoạch trực tiếp từ trang trại đối tác, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
+                            <h3 style="font-size:20px;color:#333;margin-bottom:10px;"><span style="color:#8bc34a;">Vườn trồng ổi</span></h3>
+                            <p style="color:#666;font-size:14px;line-height:1.5;margin-bottom:15px;">Trái ổi tươi ngon được thu hoạch trực tiếp từ vườn cây trồng, đảm bảo chất lượng và nguồn gốc rõ ràng.</p>
                             <div class="farm-gallery" style="display:flex;gap:15px;overflow-x:auto;padding-top:5px;">
                                 @foreach($farmGuavaGallery as $path)
                                     @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
@@ -164,7 +164,7 @@
                                         @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
                                             <a href="{{ asset('storage/' . $path) }}" data-fancybox="farm-guava-home" data-caption="{{ basename($path) }}" style="display:block;cursor:pointer;">
                                                 <div style="border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 4px 10px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)'">
-                                                    <img src="{{ asset('storage/' . $path) }}" alt="Trang trại ổi" class="img-responsive" style="width:100%;height:180px;object-fit:cover;display:block;">
+                                                    <img src="{{ asset('storage/' . $path) }}" alt="Vườn trồng ổi" class="img-responsive" style="width:100%;height:180px;object-fit:cover;display:block;">
                                                 </div>
                                             </a>
                                         @else
@@ -184,8 +184,8 @@
                     @if(count($farmSoriGallery))
                     <div class="col-md-6 col-sm-12 col-xs-12" style="margin-bottom:25px;">
                         <div style="background:#fff;border-radius:8px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.08);height:100%;border:1px solid #eee;">
-                            <h3 style="font-size:20px;color:#333;margin-bottom:10px;"><span style="color:#e91e63;">Nông trại sơ ri</span></h3>
-                            <p style="color:#666;font-size:14px;line-height:1.5;margin-bottom:15px;">Nông trại sơ ri với quy trình canh tác an toàn, mang đến những trái sơ ri chín mọng, giàu dinh dưỡng.</p>
+                            <h3 style="font-size:20px;color:#333;margin-bottom:10px;"><span style="color:#e91e63;">Vườn trồng sơ ri</span></h3>
+                            <p style="color:#666;font-size:14px;line-height:1.5;margin-bottom:15px;">Vườn trồng sơ ri với quy trình canh tác an toàn, mang đến những trái sơ ri chín mọng, giàu dinh dưỡng.</p>
                             <div class="farm-gallery" style="display:flex;gap:15px;overflow-x:auto;padding-top:5px;">
                                 @foreach($farmSoriGallery as $path)
                                     @php $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION)); @endphp
@@ -193,7 +193,7 @@
                                         @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
                                             <a href="{{ asset('storage/' . $path) }}" data-fancybox="farm-sori-home" data-caption="{{ basename($path) }}" style="display:block;cursor:pointer;">
                                                 <div style="border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 4px 10px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)'">
-                                                    <img src="{{ asset('storage/' . $path) }}" alt="Trang trại sơ ri" class="img-responsive" style="width:100%;height:180px;object-fit:cover;display:block;">
+                                                    <img src="{{ asset('storage/' . $path) }}" alt="Vườn trồng sơ ri" class="img-responsive" style="width:100%;height:180px;object-fit:cover;display:block;">
                                                 </div>
                                             </a>
                                         @else
