@@ -944,7 +944,7 @@
                             <div class="widget-title">Thông tin</div>
                             <ul class="widget">
                                 <li><a href="{{ route('about') }}">Giới thiệu</a></li>
-                                <li><a href="{{ route('contact') }}">Liên hệ</a></li>
+                                <li><a href="{{ route('contact') }}">Liên hệ với chúng tôi</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-xs-12">
