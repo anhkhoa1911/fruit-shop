@@ -920,9 +920,11 @@
                         <img src="{{ asset('images/footer-logo.png') }}" alt="logo" class="img-responsive" />
                     </div>
                     <div class="logo-btm">
-                        <div class="adress">
-                            <i class="fas fa-location-dot" aria-hidden="true"></i>
-                            <span>{{ \App\Models\Setting::get('contact_address', 'Địa chỉ cửa hàng') }}</span>
+                        <div class="mail">
+                            <a href="mailto:{{ \App\Models\Setting::get('contact_email') }}">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                {{ \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}
+                            </a>
                         </div>
                         <div class="phone">
                             <a href="tel:{{ \App\Models\Setting::get('contact_phone') }}">
@@ -930,11 +932,9 @@
                                 {{ \App\Models\Setting::get('contact_phone', '0123456789') }}
                             </a>
                         </div>
-                        <div class="mail">
-                            <a href="mailto:{{ \App\Models\Setting::get('contact_email') }}">
-                                <i class="fas fa-envelope" aria-hidden="true"></i>
-                                {{ \App\Models\Setting::get('contact_email', 'info@fruitshop.com') }}
-                            </a>
+                        <div class="adress">
+                            <i class="fas fa-location-dot" aria-hidden="true"></i>
+                            <span>{{ \App\Models\Setting::get('contact_address', 'Địa chỉ cửa hàng') }}</span>
                         </div>
                     </div>
                 </div>

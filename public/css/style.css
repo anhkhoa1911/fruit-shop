@@ -2746,6 +2746,10 @@ footer .top-footer {
 	text-align: left;
 }
 
+.top-footer .mail {
+	padding-bottom: 18px;
+}
+
 .top-footer .phone a:hover,
 .top-footer .mail a:hover {
 	color: #fff;
