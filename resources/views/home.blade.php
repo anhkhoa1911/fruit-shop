@@ -342,18 +342,18 @@
                         <div class="col-md-3 col-sm-6 col-xs-4" style="margin-bottom:20px;">
                             @if(in_array($ext, ['jpg','jpeg','png','gif','webp']))
                                 <a href="{{ asset('storage/' . $path) }}" data-fancybox="application-solution-gallery" data-caption="{{ $productName }}" style="display:block;cursor:pointer;">
-                                    <div style="border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;transition:transform 0.3s ease,box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+                                    <div style="height:100%;border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
                                         <img src="{{ asset('storage/' . $path) }}" alt="{{ $productName }}" class="img-responsive" style="width:100%;height:220px;object-fit:cover;display:block;">
-                                        <div style="padding:10px;text-align:center;background:#f9f9f9;border-top:1px solid #eee;">
-                                            <p style="margin:0;font-size:13px;color:#555;font-weight:500;">{{ $productName }}</p>
+                                        <div style="padding:10px;text-align:center;background:#f9f9f9;border-top:1px solid #eee;min-height:58px;display:flex;align-items:center;justify-content:center;">
+                                            <p style="margin:0;font-size:13px;color:#555;font-weight:500;line-height:1.4;min-height:calc(1.4em * 2);display:flex;align-items:center;justify-content:center;">{{ $productName }}</p>
                                         </div>
                                     </div>
                                 </a>
                             @else
-                                <div style="border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;">
+                                <div style="height:100%;border-radius:8px;overflow:hidden;box-shadow:0 4px 8px rgba(0,0,0,0.1);background:#fff;display:flex;flex-direction:column;">
                                     <iframe src="{{ asset('storage/' . $path) }}#toolbar=0&navpanes=0&scrollbar=0" style="width:100%;height:280px;border:none;display:block;" title="{{ $productName }}"></iframe>
-                                    <div style="padding:8px;text-align:center;background:#f5f5f5;border-top:1px solid #eee;">
-                                        <a href="{{ asset('storage/' . $path) }}" target="_blank" rel="noopener" class="text-sm" style="color:#549843;">{{ $productName }}</a>
+                                    <div style="padding:8px;text-align:center;background:#f5f5f5;border-top:1px solid #eee;min-height:58px;display:flex;align-items:center;justify-content:center;">
+                                        <a href="{{ asset('storage/' . $path) }}" target="_blank" rel="noopener" class="text-sm" style="color:#549843;line-height:1.4;min-height:calc(1.4em * 2);display:flex;align-items:center;justify-content:center;">{{ $productName }}</a>
                                     </div>
                                 </div>
                             @endif

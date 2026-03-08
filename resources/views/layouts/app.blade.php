@@ -749,6 +749,7 @@
             line-height: 1.4;
             color: #333;
             min-height: calc(1.4em * 2);
+            overflow: hidden;
         }
 
         .new-arrivals-section .contain-wrapper .btn-part,
@@ -845,6 +846,11 @@
                 font-size: 15px !important;
                 min-height: calc(1.3em * 2);
                 line-height: 1.3;
+                margin-bottom: 8px !important;
+            }
+
+            .related-products .item .contain-wrapper {
+                min-height: 132px !important;
             }
 
             .related-products .item .contain-wrapper .price .new-price {

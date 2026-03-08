@@ -45,7 +45,7 @@
                         $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
                         $productName = $productNames[$index] ?? basename($path);
                     @endphp
-                    <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-6 col-xs-4 application-solution-item">
                         @if(in_array($ext, ['jpg', 'jpeg', 'png', 'gif', 'webp']))
                         <a href="{{ asset('storage/' . $path) }}"
                             class="application-solution-card"
@@ -96,7 +96,7 @@
 
     .application-solutions-grid .col-md-4,
     .application-solutions-grid .col-sm-6,
-    .application-solutions-grid .col-xs-12 {
+    .application-solutions-grid .col-xs-4 {
         margin-bottom: 30px;
     }
 
@@ -212,13 +212,46 @@
             margin-bottom: 24px;
         }
 
+        .application-solutions-grid {
+            margin-left: -6px;
+            margin-right: -6px;
+        }
+
+        .application-solution-item {
+            padding-left: 6px;
+            padding-right: 6px;
+            margin-bottom: 12px !important;
+        }
+
         .application-solution-media img,
         .application-solution-card--document .application-solution-media--document {
-            height: 220px;
+            height: 110px;
+        }
+
+        .application-solution-card {
+            border-radius: 12px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
         }
 
         .application-solution-title {
-            font-size: 16px;
+            font-size: 12px;
+            line-height: 1.35;
+            min-height: calc(1.35em * 2);
+        }
+
+        .application-solution-content {
+            padding: 10px 8px 12px;
+        }
+
+        .application-solution-file-icon {
+            width: 56px;
+            height: 56px;
+            font-size: 18px;
+        }
+
+        .application-solution-overlay,
+        .application-solution-label {
+            display: none;
         }
     }
 </style>
