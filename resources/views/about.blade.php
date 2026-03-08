@@ -335,7 +335,7 @@
 <!-- /Content -->
 
 <!-- Our Farmer / Đội ngũ -->
-<section class="our-farmers-section">
+{{-- <section class="our-farmers-section">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-xs-12">
@@ -382,7 +382,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- /Our Farmer -->
 
 <div class="clearfix"></div>
