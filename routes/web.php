@@ -28,6 +28,7 @@ Route::get('/san-pham', [ProductController::class, 'index'])->name('products.ind
 Route::get('/san-pham/{slug}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/danh-muc/{slug}', [ProductController::class, 'category'])->name('products.category');
 Route::get('/gioi-thieu', [HomeController::class, 'about'])->name('about');
+Route::get('/ung-dung-va-giai-phap', [HomeController::class, 'applicationSolutions'])->name('application-solutions');
 Route::get('/lien-he', [HomeController::class, 'contact'])->name('contact');
 Route::post('/lien-he', [ContactController::class, 'store'])->middleware('throttle:contact')->name('contact.store');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');

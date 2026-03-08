@@ -215,12 +215,30 @@
             margin: 0;
         }
 
+        @media (min-width: 992px) {
+            .navbar-nav {
+                width: auto;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: nowrap;
+                text-align: center;
+            }
+
+            .navbar-nav>li {
+                padding: 0 10px;
+                margin: 0;
+                flex: 0 0 auto;
+            }
+        }
+
         /* Menu styling - Font lớn hơn, đậm hơn, font-family đẹp */
         .navbar-nav>li>a {
             font-size: 16px !important;
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
             letter-spacing: 0.3px;
-            padding: 15px 20px !important;
+            padding: 15px 16px !important;
+            white-space: nowrap;
         }
 
         .navbar-nav>li.active>a,
@@ -958,6 +976,7 @@
                                 @foreach($headerCategories->take(4) as $category)
                                 <li><a href="{{ route('products.category', $category->slug) }}">{{ $category->name }}</a></li>
                                 @endforeach
+                                <li><a href="{{ route('application-solutions') }}">Ứng dụng và giải pháp</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-xs-12">
@@ -984,7 +1003,7 @@
             </div>
             <div class="row bottom-footer">
                 <div class="col-md-4 col-sm-12 col-xs-12 lpart">
-                    <p class="copyright">© Cửa hàng trái cây <span>{{ date('Y') }} All rights reserved</span></p>
+                    <p class="copyright">© Fnflab <span>{{ date('Y') }} All rights reserved</span></p>
                 </div>
                 <div class="col-md-4 col-sm-12 col-xs-12 center-part">
                     <ul class="social">

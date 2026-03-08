@@ -360,6 +360,12 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="text-center" style="margin-top:10px;">
+                    <a href="{{ route('application-solutions') }}"
+                        style="display:inline-block;padding:12px 28px;border:2px solid #8bc34a;border-radius:999px;color:#549843;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;transition:all 0.3s ease;">
+                        Khám phá thêm
+                    </a>
+                </div>
                 @else
                 <p class="text-center" style="color:#666;">Chưa có hình ảnh. Vui lòng upload tại Admin → Cài đặt → Ứng dụng & giải pháp.</p>
                 @endif

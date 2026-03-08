@@ -33,6 +33,32 @@ class HomeController extends Controller
         return view('about', compact('aboutContent'));
     }
 
+    public function applicationSolutions()
+    {
+        $applicationSolutionDescription = Setting::get('application_solution_description', '');
+        $applicationSolutionGallery = json_decode(Setting::get('application_solution_gallery', '[]'), true) ?: [];
+        $productNames = [
+            'Nước Quýt Dừa',
+            'Nước Cóc Tắc',
+            'Bơ Dừa Non',
+            'Hồng Xiêm Cà phê',
+            'Trà Trái Cây Nhiệt Đới',
+            'Sầu Riêng Bơ',
+            'Trà Quýt Dâu',
+            'Trà Sori Xanh',
+            'Trà Sữa Hồng Xiêm',
+            'Dừa Dứa Tắc',
+            'Cà Phê Dừa',
+            'Trà Dâu',
+        ];
+
+        return view('application-solutions', compact(
+            'applicationSolutionDescription',
+            'applicationSolutionGallery',
+            'productNames'
+        ));
+    }
+
     public function contact()
     {
         $contactInfo = [
