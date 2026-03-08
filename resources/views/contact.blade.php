@@ -123,7 +123,7 @@
             </div>
             <div class="col-sm-6 col-xs-12 map-section equal-height googlemap">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.651716299999!2d106.701276315332!3d21.013557786006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a58f0b0d0c0a1%3A0x2c5c5c5c5c5c5c5c!2zS-G6o2kgUGjDqm4sIEhhbm9p!5e0!3m2!1svi!2s!4v1600000000000!5m2!1svi!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.245489120005!2d106.72766567438846!3d10.792500689357222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752606a5b657a7%3A0xf114037357c20aac!2zMTUwIFRy4bqnbiBOw6NvLCBQaMaw4budbmcgQW4gS2jDoW5oLCBUaOG7pyDEkOG7qWMsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1772989708120!5m2!1sen!2s"
                     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
