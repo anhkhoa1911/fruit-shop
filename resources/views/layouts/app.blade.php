@@ -730,12 +730,14 @@
             padding-bottom: 0 !important;
             line-height: 1.4;
             color: #333;
+            min-height: calc(1.4em * 2);
         }
 
         .new-arrivals-section .contain-wrapper .btn-part,
         .new-arrivals-section .item .contain-wrapper .btn-part,
         #products.product-list .contain-wrapper .btn-part,
         .related-products .contain-wrapper .btn-part {
+            margin-top: auto !important;
             margin-bottom: 25px !important;
         }
 
@@ -746,6 +748,8 @@
         .related-products .item .contain-wrapper {
             min-height: auto !important;
             padding-bottom: 14px !important;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Product list: ảnh sản phẩm chiều cao cố định, các block bằng nhau */
@@ -821,7 +825,8 @@
         @media (max-width: 768px) {
             .related-products .item .contain-wrapper .tit {
                 font-size: 15px !important;
-                min-height: auto;
+                min-height: calc(1.3em * 2);
+                line-height: 1.3;
             }
 
             .related-products .item .contain-wrapper .price .new-price {
