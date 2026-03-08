@@ -100,18 +100,19 @@
     
     // Mảng tên sản phẩm tương ứng với từng hình ảnh
     $productNames = [
-        'Nước ép nho',
-        'Trà sữa trân châu',
-        'Nước ép kiwi bạc hà',
-        'Nước ép chanh dây',
-        'Nước ép cam soda',
+        'Nước Quýt Dừa',
+        'Nước Cóc Tắc',
+        'Bơ Dừa Non',
+        'Hồng Xiêm Cà phê',
+        'Trà Trái Cây Nhiệt Đới',
         'Nước ép chanh tắc',
-        'Nước ép dâu cam',
-        'Smoothie bơ',
-        'Nước ép dứa bạc hà',
-        'Trà đào cam sả',
-        'Sinh tố xoài',
-        'Nước ép chanh bạc hà'
+        'Sầu Riêng Bơ',
+        'Trà Quýt Dâu',
+        'Trà Sori Xanh',
+        'Trà Sữa Hồng Xiêm',
+        'Dừa Dứa Tắc',
+        'Cà Phê Dừa',
+        'Trà Dâu'
     ];
 @endphp
 

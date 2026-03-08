@@ -119,8 +119,8 @@
                         <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
                             <div class="free-section">
                                 <div class="free-inner">
-                                    <h2 class="years">hơn <span>10</span> năm</h2>
-                                    <div class="slogan">trong ngành<br/>trái cây tươi</div>
+                                    <h2 class="years">Giải pháp sức khỏe toàn diện</h2>
+                                    <div class="slogan">cho thị trường F&B</div>
                                 </div>
                             </div>
                         </div>
