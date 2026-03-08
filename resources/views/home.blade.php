@@ -105,7 +105,6 @@
         'Bơ Dừa Non',
         'Hồng Xiêm Cà phê',
         'Trà Trái Cây Nhiệt Đới',
-        'Nước ép chanh tắc',
         'Sầu Riêng Bơ',
         'Trà Quýt Dâu',
         'Trà Sori Xanh',
