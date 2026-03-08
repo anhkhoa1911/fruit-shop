@@ -1038,6 +1038,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" crossorigin="anonymous"></script>
     <!-- Theme custom (local) -->
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script>
+        document.addEventListener('click', function (e) {
+            var btn = e.target.closest('.zalo-contact-btn');
+            if (!btn) return;
+
+            e.preventDefault();
+
+            var phone = '{{ \App\Models\Setting::get('contact_phone', '') }}';
+            if (!phone) return;
+
+            var normalizedPhone = phone.replace(/[^0-9]/g, '');
+            if (!normalizedPhone) return;
+
+            var name = btn.getAttribute('data-product-name') || '';
+            var id = btn.getAttribute('data-product-id') || '';
+            var message = id
+                ? 'Chào shop, tôi muốn đặt hàng sản phẩm ' + name + ' (Mã SP: ' + id + ').'
+                : 'Chào shop, tôi muốn đặt hàng sản phẩm ' + name + '.';
+
+            var zaloUrl = 'https://zalo.me/' + normalizedPhone + '?text=' + encodeURIComponent(message);
+            window.open(zaloUrl, '_blank');
+        });
+    </script>
 
     @stack('scripts')
 </body>

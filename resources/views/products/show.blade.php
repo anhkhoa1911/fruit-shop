@@ -111,7 +111,9 @@
                                         <div class="contain-wrapper">
                                             <div class="tit">{{ $related->name }}</div>
                                             <div class="btn-part">
-                                                <a href="{{ route('products.show', $related->slug) }}" class="cart-btn">Liên hệ chúng tôi</a>
+                                                <a href="#" class="cart-btn zalo-contact-btn"
+                                                    data-product-name="{{ $related->name }}"
+                                                    data-product-id="{{ $related->id }}">Liên hệ chúng tôi</a>
                                                 <i class="fas fa-shopping-cart"></i>
                                             </div>
                                         </div>
@@ -181,37 +183,6 @@
 </section> --}}
 <!-- /Services provide -->
 @endsection
-
-@push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var btn = document.querySelector('.zalo-contact-btn');
-        if (!btn) return;
-
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            var name = this.getAttribute('data-product-name') || '';
-            var id = this.getAttribute('data-product-id') || '';
-            var phone = '{{ \App\Models\Setting::get('contact_phone', '') }}';
-
-            if (!phone) {
-                return;
-            }
-
-            // Chuẩn hoá số điện thoại chỉ còn chữ số
-            var normalizedPhone = phone.replace(/[^0-9]/g, '');
-
-            var message = 'Chào shop, tôi muốn đặt hàng sản phẩm ' + name + ' (Mã SP: ' + id + ').';
-            var encodedMessage = encodeURIComponent(message);
-
-            // Link Zalo: mở chat với sẵn nội dung, trong tab/app mới
-            var zaloUrl = 'https://zalo.me/' + normalizedPhone + '?text=' + encodedMessage;
-            window.open(zaloUrl, '_blank');
-        });
-    });
-</script>
-@endpush
 
 @push('scripts')
 <script>

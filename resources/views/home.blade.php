@@ -300,7 +300,9 @@
                             <div class="contain-wrapper">
                                 <div class="tit">{{ $product->name }}</div>
                                 <div class="btn-part">
-                                    <a href="{{ route('products.show', $product->slug) }}" class="cart-btn">Liên hệ chúng tôi</a>
+                                    <a href="#" class="cart-btn zalo-contact-btn"
+                                        data-product-name="{{ $product->name }}"
+                                        data-product-id="{{ $product->id }}">Liên hệ chúng tôi</a>
                                 </div>
                             </div> 
                         </div>
