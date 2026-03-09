@@ -14,8 +14,7 @@
                     <img src="{{ asset('images/slider-banner.jpg') }}" alt="banner">
                     <div class="carouseal-caption">
                         <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                            <div class="sub-tit">Trái cây sạch, tươi ngon</div>
-                            <h2><span>100%</span> Organic</h2>
+                            <h2><span>GIẢI PHÁP</span> VẬN HÀNH TỐI ƯU</h2>
                         </div>
                     </div>
                 </div>
@@ -25,8 +24,7 @@
                     <img src="{{ asset('images/slider-banner.jpg') }}" alt="banner">
                     <div class="carouseal-caption">
                         <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
-                            <div class="sub-tit">Chất lượng hàng đầu</div>
-                            <h2><span>Tươi</span> Sạch</h2>
+                            <h2><span>GIỮ TRỌN</span> HƯƠNG VỊ TƯƠI NGON</h2>
                         </div>
                     </div>
                 </div>

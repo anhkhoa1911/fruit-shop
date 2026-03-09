@@ -128,7 +128,7 @@
 	.filterDiv .img-part{width:140px;}
 	.filterDiv .text-part{width: calc(100% - 140px);}
 	.filterDiv .text-part .box-tit{font-size:14px;}
-	.responsive-slider .slides ul li .slide-body .caption.header h2{font-size:80px; line-height:60px; padding:18px 0;}
+	.responsive-slider .slides ul li .slide-body .caption.header h2{font-size:40px; line-height:60px; padding:18px 0;}
 	.fress-entry-section .pos-absolute{margin-top:-50px; padding-bottom:60px;}
 	.fress-entry-section .tit-btn-wrapper{padding:15px 15px 0;}
 
@@ -350,7 +350,7 @@
 	.country{padding-right:15px; margin-left:15px;}
 	.breadcrumb h1{font-size:28px; line-height:30px;}
 	.responsive-slider .slides ul li .slide-body .caption.header .sub-tit{font-size:17px;}
-	.responsive-slider .slides ul li .slide-body .caption.header h2{font-size:36px; line-height:28px; padding:15px 0;}
+	.responsive-slider .slides ul li .slide-body .caption.header h2{font-size:18px; line-height:28px; padding:15px 0;}
 	.responsive-slider .slides ul li .slide-body .caption.sub{font-size:18px;}
 	.responsive-slider .slides ul li .slide-body .carouseal-caption{padding:35px 15px !important;}
 	.section-tit .inner h2::after{width:20%; background-position:right center;}
