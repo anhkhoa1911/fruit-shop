@@ -262,14 +262,18 @@ $(function() {
 
     //////---------------13. Accordion -------------///////
     function panelAcc() {
-        jQuery('#accordion h4[data-toggle="collapse"]').on('click', function() {
-            jQuery('#accordion h4[data-toggle="collapse"]').removeClass('collapsed');
-            $(this).addClass('collapsed');
+        var $accordion = $('#accordion');
+        if (!$accordion.length) {
+            return;
+        }
+
+        $accordion.on('show.bs.collapse', '.panel-collapse', function() {
+            $accordion.find('.panel-heading').removeClass('add');
+            $(this).prev('.panel-heading').addClass('add');
         });
 
-        $('#accordion .panel-heading').on('click', function() {
-            $('#accordion .panel-heading').removeClass("add");
-            $(this).toggleClass("add");
+        $accordion.on('hide.bs.collapse', '.panel-collapse', function() {
+            $(this).prev('.panel-heading').removeClass('add');
         });
     };
 

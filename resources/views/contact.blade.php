@@ -170,14 +170,15 @@
             <div class="col-sm-6 col-xs-12 map-section equal-height contact-faq-section">
                 <div class="faq-page contact-faq-page">
                     <div class="contact-faq-heading tit">
-                        <h3><span>Câu hỏi</span> thường gặp</h3>
+                        <h3><span>Câu hỏi thường gặp</span> </h3>
+                        <p class="contact-faq-subtitle">Giải đáp nhanh các thắc mắc về trái cây đông lạnh</p>
                     </div>
                     <div class="faq-panel text-left">
                         <div class="panel-group" id="accordion">
                             @foreach($faqs as $faq)
                             <div class="panel panel-default panel-help">
-                                <div class="panel-heading @if($loop->first) add @endif">
-                                    <h4 class="panel-title accordion-toggle @if(!$loop->first) collapsed @endif"
+                                <div class="panel-heading">
+                                    <h4 class="panel-title accordion-toggle collapsed"
                                         data-toggle="collapse"
                                         data-parent="#accordion"
                                         data-target="#contactFaq{{ $loop->iteration }}">
@@ -185,7 +186,7 @@
                                         <i class="icon-add"></i>
                                     </h4>
                                 </div>
-                                <div id="contactFaq{{ $loop->iteration }}" class="panel-collapse collapse @if($loop->first) in @endif">
+                                <div id="contactFaq{{ $loop->iteration }}" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         @foreach($faq['answer'] as $paragraph)
                                         <p>{!! $paragraph !!}</p>
@@ -283,10 +284,14 @@
     }
 
     .contact-faq-subtitle {
-        margin: 0;
-        color: #6d7468;
-        font-size: 16px;
-        line-height: 1.8;
+        margin: 0 auto;
+        max-width: 520px;
+        color: #6b7567;
+        font-size: 17px;
+        line-height: 1.85;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+        text-align: center;
     }
 
     .contact-faq-page.faq-page {
