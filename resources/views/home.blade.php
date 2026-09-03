@@ -52,7 +52,7 @@
                     @endif
                     <div class="tit-btn-wrapper">
                         <h2 class="tit"><span>{{ $category->name }}</span></h2>
-                        <a href="{{ route('products.category', $category->slug) }}" class="btn">Xem sản phẩm</a>
+                        <a href="{{ route('products.category', $category->slug) }}" class="btn">Xem nông sản</a>
                     </div>
                 </div>
                 @endforeach
@@ -287,21 +287,18 @@
                     <div class="item">
                         <div class="wrapper">
                             <div class="pro-img">
-                                @if($product->image)
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
-                                    class="img-responsive" />
-                                @else
-                                <img src="{{ asset('images/new-arrivals-img-1.jpg') }}"
-                                    alt="{{ $product->name }}" class="img-responsive" />
-                                @endif
+                                <a href="{{ route('products.show', $product->slug) }}">
+                                    @if($product->image)
+                                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                                        class="img-responsive" />
+                                    @else
+                                    <img src="{{ asset('images/new-arrivals-img-1.jpg') }}"
+                                        alt="{{ $product->name }}" class="img-responsive" />
+                                    @endif
+                                </a>
                             </div>
                             <div class="contain-wrapper">
-                                <div class="tit">{{ $product->name }}</div>
-                                <div class="btn-part">
-                                    <a href="#" class="cart-btn zalo-contact-btn"
-                                        data-product-name="{{ $product->name }}"
-                                        data-product-id="{{ $product->id }}">Liên hệ chúng tôi</a>
-                                </div>
+                                <div class="tit"><a href="{{ route('products.show', $product->slug) }}" style="color:inherit;">{{ $product->name }}</a></div>
                             </div> 
                         </div>
                     </div>
@@ -447,65 +444,7 @@
 
 <div class="clearfix"></div>
 
-<!-- Delivery Process -->
-<section class="delivery-process">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-xs-12">
-                <div class="section-tit">
-                    <div class="inner">
-                        <h2><span>Quy trình</span> giao hàng</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12 first">
-                <div class="icon-part">
-                    <img src="{{ asset('images/step-1.png') }}" alt="bước 1" class="img-responsive center-block" />
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-                <div class="process-name">
-                    <div class="step">Bước 01</div>
-                    <p>Chọn một hoặc nhiều sản phẩm</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 second">
-                <div class="icon-part">
-                    <img src="{{ asset('images/step-2.png') }}" alt="bước 2" class="img-responsive center-block" />
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <div class="process-name">
-                    <div class="step">Bước 02</div>
-                    <p>Xác nhận đơn hàng</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 third">
-                <div class="icon-part">
-                    <img src="{{ asset('images/step-3.png') }}" alt="bước 3" class="img-responsive center-block" />
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="process-name">
-                    <div class="step">Bước 03</div>
-                    <p>Nhập địa chỉ giao hàng</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 fourth">
-                <div class="icon-part">
-                    <img src="{{ asset('images/step-4.png') }}" alt="bước 4" class="img-responsive center-block" />
-                    <i class="fas fa-shipping-fast"></i>
-                </div>
-                <div class="process-name">
-                    <div class="step">Bước 04</div>
-                    <p>Giao hàng nhanh chóng</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- /Delivery Process -->
 
-<div class="clearfix"></div>
 
 <!-- Newsletter -->
 {{-- <section class="news-letter">

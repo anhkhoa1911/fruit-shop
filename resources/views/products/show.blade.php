@@ -18,7 +18,7 @@
         <div class="breadcrumb">
             <ul class="list-inline">
                 <li><a href="{{ route('home') }}">Trang chủ</a></li>
-                <li><a href="{{ route('products.index') }}">Sản phẩm</a></li>
+                <li><a href="{{ route('products.index') }}">Danh mục nông sản</a></li>
                 <li><a href="{{ route('products.category', $product->category->slug) }}">{{ $product->category->name }}</a></li>
                 <li>{{ $product->name }}</li>
             </ul>
@@ -102,20 +102,16 @@
                                 <div class="item">
                                     <div class="wrapper">
                                         <div class="pro-img">
-                                            @if($related->image)
-                                                <img class="img-responsive" src="{{ asset('storage/' . $related->image) }}" alt="{{ $related->name }}" />
-                                            @else
-                                                <img class="img-responsive" src="{{ asset('images/product-img-7.jpg') }}" alt="{{ $related->name }}" />
-                                            @endif
+                                            <a href="{{ route('products.show', $related->slug) }}">
+                                                @if($related->image)
+                                                    <img class="img-responsive" src="{{ asset('storage/' . $related->image) }}" alt="{{ $related->name }}" />
+                                                @else
+                                                    <img class="img-responsive" src="{{ asset('images/product-img-7.jpg') }}" alt="{{ $related->name }}" />
+                                                @endif
+                                            </a>
                                         </div>
                                         <div class="contain-wrapper">
-                                            <div class="tit">{{ $related->name }}</div>
-                                            <div class="btn-part">
-                                                <a href="#" class="cart-btn zalo-contact-btn"
-                                                    data-product-name="{{ $related->name }}"
-                                                    data-product-id="{{ $related->id }}">Liên hệ chúng tôi</a>
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </div>
+                                            <div class="tit"><a href="{{ route('products.show', $related->slug) }}" style="color:inherit;">{{ $related->name }}</a></div>
                                         </div>
                                         <div class="wrapper-box-hover">
                                             <div class="text">

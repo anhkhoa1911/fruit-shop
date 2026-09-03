@@ -18,7 +18,7 @@
         <div class="breadcrumb">
             <ul class="list-inline">
                 <li><a href="{{ route('home') }}">Trang chủ</a></li>
-                <li><a href="{{ route('products.index') }}">Sản phẩm</a></li>
+                <li><a href="{{ route('products.index') }}">Danh mục nông sản</a></li>
                 <li>{{ $category->name }}</li>
             </ul>
         </div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="widget-contian" id="categories">
                             <ul class="level-1 open">
-                                <li><a href="{{ route('products.index') }}">Tất cả sản phẩm</a></li>
+                                <li><a href="{{ route('products.index') }}">Tất cả</a></li>
                                 @foreach($categories as $cat)
                                 <li><a href="{{ route('products.category', $cat->slug) }}" class="{{ $cat->id == $category->id ? 'active' : '' }}">{{ $cat->name }}</a></li>
                                 @endforeach
@@ -99,20 +99,16 @@
                     <div class="col-sm-4 col-xs-12 item">
                         <div class="wrapper">
                             <div class="pro-img">
-                                @if($product->image)
-                                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-responsive" />
-                                @else
-                                    <img src="{{ asset('images/product-img-1.jpg') }}" alt="{{ $product->name }}" class="img-responsive" />
-                                @endif
+                                <a href="{{ route('products.show', $product->slug) }}">
+                                    @if($product->image)
+                                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-responsive" />
+                                    @else
+                                        <img src="{{ asset('images/product-img-1.jpg') }}" alt="{{ $product->name }}" class="img-responsive" />
+                                    @endif
+                                </a>
                             </div>
                             <div class="contain-wrapper">
-                                <div class="tit">{{ $product->name }}</div>
-                                <div class="btn-part">
-                                    <a href="#" class="cart-btn zalo-contact-btn"
-                                        data-product-name="{{ $product->name }}"
-                                        data-product-id="{{ $product->id }}">Liên hệ chúng tôi</a>
-                                    <i class="fas fa-shopping-cart"></i>
-                                </div>
+                                <div class="tit"><a href="{{ route('products.show', $product->slug) }}" style="color:inherit;">{{ $product->name }}</a></div>
                             </div>
                             <div class="wrapper-box-hover">
                                 <div class="text">

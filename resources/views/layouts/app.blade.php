@@ -721,21 +721,7 @@
             margin-top: 2px;
         }
 
-        .related-products .item .contain-wrapper .btn-part {
-            margin-top: 5px !important;
-        }
 
-        .related-products .item .contain-wrapper .btn-part .cart-btn {
-            font-size: 13px !important;
-            font-weight: 600 !important;
-            padding: 7px 14px !important;
-        }
-
-        .related-products .item .contain-wrapper .btn-part i {
-            font-size: 15px !important;
-        }
-
-        /* Block sản phẩm (trang chủ, danh sách, chi tiết): title + khoảng cách dưới button */
         .new-arrivals-section .contain-wrapper .tit,
         .new-arrivals-section .item .contain-wrapper .tit,
         #products.product-list .contain-wrapper .tit,
@@ -743,22 +729,27 @@
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
             font-size: 17px !important;
             font-weight: 600 !important;
-            margin-top: 16px !important;
-            margin-bottom: 10px !important;
+            margin-top: 12px !important;
+            margin-bottom: 8px !important;
             padding-bottom: 0 !important;
             line-height: 1.4;
             color: #333;
-            min-height: calc(1.4em * 2);
+            min-height: 0;
             overflow: hidden;
         }
 
-        .new-arrivals-section .contain-wrapper .btn-part,
-        .new-arrivals-section .item .contain-wrapper .btn-part,
-        #products.product-list .contain-wrapper .btn-part,
-        .related-products .contain-wrapper .btn-part {
-            margin-top: auto !important;
-            margin-bottom: 25px !important;
+        .contain-wrapper .tit a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
+
+        .contain-wrapper .tit a:hover {
+            color: #8bc34a !important;
+            text-decoration: none;
+        }
+
+
 
         /* Product block: bỏ min-height (hết khoảng trống thừa), padding-bottom vừa đủ */
         .new-arrivals-section .wrapper .contain-wrapper,
@@ -766,7 +757,7 @@
         #products.product-list .wrapper .contain-wrapper,
         .related-products .item .contain-wrapper {
             min-height: auto !important;
-            padding-bottom: 14px !important;
+            padding-bottom: 10px !important;
             display: flex;
             flex-direction: column;
         }
@@ -900,11 +891,11 @@
                             </li>
                             <li class="dropdown {{ request()->routeIs('products.*') ? 'active' : '' }}">
                                 <a href="{{ route('products.index') }}" class="dropdown-toggle">
-                                    Sản Phẩm <i class="fas fa-angle-down"></i>
+                                    Danh mục nông sản <i class="fas fa-angle-down"></i>
                                 </a>
                                 @if(isset($headerCategories) && $headerCategories->count())
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('products.index') }}">Tất cả sản phẩm</a></li>
+                                    <li><a href="{{ route('products.index') }}">Tất cả</a></li>
                                     @foreach($headerCategories as $cat)
                                     <li><a href="{{ route('products.category', $cat->slug) }}">{{ $cat->name }}</a></li>
                                     @endforeach
@@ -969,28 +960,20 @@
                 </div>
                 <div class="col-md-7 col-sm-6 col-xs-12">
                     <div class="row">
-                        <div class="col-sm-4 col-xs-12">
+                        <div class="col-sm-6 col-xs-12">
                             <div class="widget-title">Thông tin</div>
                             <ul class="widget">
                                 <li><a href="{{ route('about') }}">Giới thiệu</a></li>
                                 <li><a href="{{ route('contact') }}">Liên hệ với chúng tôi</a></li>
                             </ul>
                         </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <div class="widget-title">Danh mục sản phẩm</div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="widget-title">Danh mục nông sản</div>
                             <ul class="widget">
                                 @foreach($headerCategories->take(4) as $category)
                                 <li><a href="{{ route('products.category', $category->slug) }}">{{ $category->name }}</a></li>
                                 @endforeach
                                 <li><a href="{{ route('application-solutions') }}">Ứng dụng và giải pháp</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <div class="widget-title">Dịch vụ</div>
-                            <ul class="widget">
-                                <li><span>Giao hàng tận nơi</span></li>
-                                <li><span>Tư vấn miễn phí</span></li>
-                                <li><span>Đóng gói quà tặng</span></li>
                             </ul>
                         </div>
                     </div>
