@@ -270,14 +270,14 @@
 
 <div class="clearfix"></div>
 
-<!-- Trái cây đông lạnh -->
+<!-- Sản phẩm nghiên cứu -->
 <section class="new-arrivals-section section-padding">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <div class="section-tit">
                     <div class="inner">
-                        <h2><span>Trái cây đông lạnh</span></h2>
+                        <h2><span>Sản phẩm nghiên cứu</span></h2>
                     </div>
                 </div>
             </div>

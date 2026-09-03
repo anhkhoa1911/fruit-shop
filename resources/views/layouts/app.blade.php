@@ -981,7 +981,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-7 col-sm-6 col-xs-12">
+                <div class="col-md-9 col-sm-6 col-xs-12">
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">
                             <div class="widget-title">Thông tin</div>
@@ -999,17 +999,6 @@
                                 <li><a href="{{ route('application-solutions') }}">Ứng dụng và giải pháp</a></li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-12 col-xs-12">
-                    <div class="widget-title">Sản phẩm mới</div>
-                    <div class="insta-img-box">
-                        @foreach($latestProductsFooter as $product)
-                        <a href="{{ route('products.show', $product->slug) }}" title="{{ $product->name }}">
-                            <img src="{{ $product->image ? asset('storage/' . $product->image) : asset('images/product-img-1.jpg') }}"
-                                alt="{{ $product->name }}" style="width:56px;height:56px;object-fit:cover;display:inline-block;" />
-                        </a>
-                        @endforeach
                     </div>
                 </div>
             </div>
