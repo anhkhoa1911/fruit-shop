@@ -721,7 +721,6 @@
             margin-top: 2px;
         }
 
-
         .new-arrivals-section .contain-wrapper .tit,
         .new-arrivals-section .item .contain-wrapper .tit,
         #products.product-list .contain-wrapper .tit,
@@ -734,7 +733,11 @@
             padding-bottom: 0 !important;
             line-height: 1.4;
             color: #333;
-            min-height: 0;
+            /* Giữ 2 dòng để các card đồng đều chiều cao */
+            min-height: calc(1.4em * 2);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
@@ -749,9 +752,28 @@
             text-decoration: none;
         }
 
+        /* Product block: wrapper chiều cao bằng nhau trong cùng hàng */
+        #products.product-list .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
+        #products.product-list .item {
+            display: flex;
+            flex-direction: column;
+        }
 
-        /* Product block: bỏ min-height (hết khoảng trống thừa), padding-bottom vừa đủ */
+        #products.product-list .item .wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        #products.product-list .item .wrapper .contain-wrapper {
+            flex: 1;
+        }
+
+        /* Product block: padding-bottom vừa đủ */
         .new-arrivals-section .wrapper .contain-wrapper,
         .new-arrivals-section .item .wrapper .contain-wrapper,
         #products.product-list .wrapper .contain-wrapper,
@@ -761,6 +783,7 @@
             display: flex;
             flex-direction: column;
         }
+
 
         /* Product list: ảnh sản phẩm chiều cao cố định, các block bằng nhau */
         #products.product-list .pro-img {
