@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="hot-collection">
-                        <a href="{{ route('products.index') }}"><img src="{{ asset('images/hot-collection-img.jpg') }}" alt="hot collection" class="img-responsive" /></a>
+                        <a href="{{ route('products.index') }}"><img src="{{ asset('images/hot-collection-img.png') }}" alt="hot collection" class="img-responsive" /></a>
                     </div>
                 </div>
             </aside>

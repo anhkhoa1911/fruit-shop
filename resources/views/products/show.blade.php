@@ -74,15 +74,6 @@
                                 {!! $product->content !!}
                             </p>
                         @endif
-                        <div class="cart-process">
-                            <div class="cart">
-                                <a href="#" class="cart-btn zalo-contact-btn"
-                                   data-product-name="{{ $product->name }}"
-                                   data-product-id="{{ $product->id }}">
-                                    Liên hệ chúng tôi
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- /product discription -->

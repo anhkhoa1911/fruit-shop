@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description', 'Cửa hàng trái cây sạch, tươi ngon')">
-    <title>@yield('title', 'Trang chủ') - Cửa hàng trái cây</title>
+    <title>@yield('title', 'Trang Chủ') - Công Ty FnF Lab</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">

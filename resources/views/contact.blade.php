@@ -123,51 +123,7 @@
 
     <section class="map-form">
         <div class="row no-gutter">
-            <div class="col-sm-6 col-xs-12 form-part equal-height">
-                <div class="inner-part">
-                    <div class="tit">
-                        <h3><span>Liên hệ</span> với chúng tôi</h3>
-                    </div>
-                    @if(session('success'))
-                    <div class="alert alert-success" style="margin-bottom: 15px;">{{ session('success') }}</div>
-                    @endif
-                    @if(session('error'))
-                    <div class="alert alert-danger" style="margin-bottom: 15px;">{{ session('error') }}</div>
-                    @endif
-                    @if($errors->any())
-                    <div class="alert alert-danger" style="margin-bottom: 15px;">
-                        <ul style="margin: 0; padding-left: 20px;">
-                            @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-                    <form action="{{ route('contact.store') }}" method="post">
-                        @csrf
-                        <div class="form-group col-sm-12 col-xs-12">
-                            <input type="text" name="name" class="form-control" placeholder="Họ tên"
-                                value="{{ old('name') }}" required />
-                        </div>
-                        <div class="form-group col-sm-12 col-xs-12">
-                            <input type="email" name="email" class="form-control" placeholder="Email"
-                                value="{{ old('email') }}" required />
-                        </div>
-                        <div class="form-group col-sm-12 col-xs-12">
-                            <input type="text" name="phone" class="form-control" placeholder="Số điện thoại"
-                                value="{{ old('phone') }}" />
-                        </div>
-                        <div class="form-group col-sm-12 col-xs-12">
-                            <textarea name="message" class="form-control" placeholder="Nội dung tin nhắn"
-                                rows="5">{{ old('message') }}</textarea>
-                        </div>
-                        <div class="form-group col-sm-12 col-xs-12">
-                            <button type="submit" class="submit">Gửi tin nhắn</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xs-12 map-section equal-height contact-faq-section">
+            <div class="col-sm-12 col-xs-12 map-section contact-faq-section" style="padding: 30px 40px;">
                 <div class="faq-page contact-faq-page">
                     <div class="contact-faq-heading tit">
                         <h3><span>Câu hỏi thường gặp</span> </h3>
